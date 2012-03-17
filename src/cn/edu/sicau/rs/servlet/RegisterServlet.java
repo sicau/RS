@@ -39,4 +39,5 @@ public class RegisterServlet extends HttpServlet {
 		this.doGet(request, response);
 	}
 
+	//test
 }
