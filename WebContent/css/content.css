@@ -1,0 +1,15 @@
+body {
+	margin-top:50px;	
+}
+
+form {
+	padding:10px;
+	margin-top:200px;
+	margin-left:400px;
+	width:560px;
+	border-top: 2px solid #858585;
+	border-bottom: 4px solid #858585;
+	border-left: 4px solid #BCBCBE;
+	border-right: 4px solid #BCBCBE;
+	background-color:#E5F4FF;
+}
