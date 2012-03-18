@@ -11,5 +11,23 @@ form {
 	border-bottom: 4px solid #858585;
 	border-left: 4px solid #BCBCBE;
 	border-right: 4px solid #BCBCBE;
-	background-color:#E5F4FF;
+	background-color:#787878;
+	color:#FFFFFF;
 }
+
+.form-actions {
+	margin-bottom:-10px;
+	background-color:#787878;
+}
+
+.input-container {
+	padding-top:10px;
+	color:#FFFFFF;
+}
+
+.control-group {
+	margin-bottom:10px;	
+}
+
+
+
