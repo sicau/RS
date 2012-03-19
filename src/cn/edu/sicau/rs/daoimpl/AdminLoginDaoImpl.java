@@ -22,7 +22,7 @@ public class AdminLoginDaoImpl implements AdminLoginDao {
 		ResultSet rs = null;
 		try {
 			dbutil = new DbUtil();
-			String sql = "select * from tb_admin where name = ?";
+			String sql = "select * from tb_admin where adminname = ?";
 			ps = dbutil.getCon().prepareStatement(sql);
 			ps.setString(1, admin.getAdminName());
 			rs = ps.executeQuery();
