@@ -21,7 +21,6 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println(username+"...."+password);
 		Model model = new Model();
 		try {
 			User user = model.userLogin(username, password);
@@ -31,10 +30,10 @@ public class LoginServlet extends HttpServlet {
 			if (!nameList.contains(username)) {
 				request.getSession().setAttribute("username", username);
 				request.getSession().setAttribute("user", user);
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("signInfo.jsp");
 			} else {
 				request.setAttribute("loginMessage", "∏√’À∫≈“—µ«¬º");
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
 			}
 		} catch (NameNotFoundException e) {
 			request.setAttribute("NameNotFondException",e.getMessage());

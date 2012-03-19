@@ -18,8 +18,8 @@ public class AdminLoginServlet extends HttpServlet{
 	public void doGet (HttpServletRequest request, HttpServletResponse response)
 				throws ServletException , IOException {
 		request.setCharacterEncoding("UTF-8");
-		String adminname = request.getParameter("adminname");
-		String password = request.getParameter("password");
+		String adminname = request.getParameter("Name");
+		String password = request.getParameter("Password");
 		Admin admin = new Admin();
 		admin.setAdminName(adminname);
 		admin.setPassword(password);
@@ -28,21 +28,21 @@ public class AdminLoginServlet extends HttpServlet{
 			if(model.login(admin)) {
 				ServletContext context = this.getServletContext();
 				List adminList = (List) context.getAttribute("adminList");
-				System.out.println(adminList.size());
 				if(!adminList.contains("admin")) {
 					request.getSession().setAttribute("admin", admin);
-					response.sendRedirect("WebContent/WEB-INF/admin/pages/adminConter.jsp");
+					String href = request.getContextPath()+"/Admin/pages/adminConter.jsp";
+					response.sendRedirect(href);
 				} else {
 					request.setAttribute("message", "ÒÑµÇÂ¼");
-					request.getRequestDispatcher("WebContent/WEB-INF/admin/pages/adminLogin.jsp").forward(request, response);
+					request.getRequestDispatcher("Admin/pages/adminLogin.jsp").forward(request, response);
 				}
 			}
 		} catch (NameNotFound nnf) {
 			request.setAttribute("message", nnf.getMessage());
-			request.getRequestDispatcher("WebContent/WEB-INF/admin/pages/").forward(request, response);
+			request.getRequestDispatcher("Admin/pages/adminLogin.jsp").forward(request, response);
 		} catch (PasswordError pe) {
 			request.setAttribute("message", pe.getMessage());
-			request.getRequestDispatcher("").forward(request, response);
+			request.getRequestDispatcher("Admin/pages/adminLogin.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
