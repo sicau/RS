@@ -77,9 +77,9 @@ public class UserDaoImpl implements UserDao{
 					user.setMphone(rs.getString("mphone"));
 					user.setPhone(rs.getString("phone"));
 					user.setSa(rs.getString("sa"));
-					user.setSpost(rs.getString("spost"));
+					user.setSpostcode(rs.getString("spostcode"));
 					user.setHa(rs.getString("ha"));
-					user.setHpost(rs.getString("hpost"));
+					user.setHpostcode(rs.getString("hpostcode"));
 					user.setLang(rs.getString("lang"));
 					user.setCategory(rs.getString("category"));
 					user.setPrize(rs.getString("prize"));
@@ -152,9 +152,9 @@ public class UserDaoImpl implements UserDao{
 				user.setMphone(rs.getString("mphone"));
 				user.setPhone(rs.getString("phone"));
 				user.setSa(rs.getString("sa"));
-				user.setSpost(rs.getString("spost"));
+				user.setSpostcode(rs.getString("spost"));
 				user.setHa(rs.getString("ha"));
-				user.setHpost(rs.getString("hpost"));
+				user.setHpostcode(rs.getString("hpost"));
 				user.setLang(rs.getString(""));
 				user.setCategory(rs.getString("category"));
 				user.setPrize(rs.getString("prize"));
@@ -196,9 +196,9 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(8, user.getPhone());
 			pstmt.setString(9, user.getMphone());
 			pstmt.setString(10, user.getSa());
-			pstmt.setString(11, user.getSpost());
+			pstmt.setString(11, user.getSpostcode());
 			pstmt.setString(12, user.getHa());
-			pstmt.setString(13, user.getHpost());
+			pstmt.setString(13, user.getHpostcode());
 			pstmt.setString(14, user.getLang());
 			pstmt.setString(15, user.getCategory());
 			pstmt.setString(16, user.getPrize());
@@ -289,14 +289,14 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(9, user.getPhone());
 			pstmt.setString(10, user.getMphone());
 			pstmt.setString(11, user.getSa());
-			pstmt.setString(12, user.getSpost());
+			pstmt.setString(12, user.getSpostcode());
 			pstmt.setString(13, user.getHa());
-			pstmt.setString(14, user.getHpost());
+			pstmt.setString(14, user.getHpostcode());
 			pstmt.setString(15, user.getLang());
 			pstmt.setString(16, user.getCategory());
 			pstmt.setString(17, user.getPrize());
 			pstmt.setString(18, user.getSpeciality());
-			pstmt.setString(19,"1");
+			pstmt.setInt(19, user.getId());
 			System.out.println(sql);
 			
 			int i = pstmt.executeUpdate();

@@ -16,9 +16,9 @@ public class User {
 	private String phone;
 	private String mphone;
 	private String sa;
-	private String spost;
+	private String spostcode;
 	private String ha;
-	private String hpost;
+	private String hpostcode;
 	private String lang;
 	private String category;
 	private String prize;
@@ -33,6 +33,18 @@ public class User {
 	}
 	public String getSigNumber() {
 		return sigNumber;
+	}
+	public String getSpostcode() {
+		return spostcode;
+	}
+	public void setSpostcode(String spostcode) {
+		this.spostcode = spostcode;
+	}
+	public String getHpostcode() {
+		return hpostcode;
+	}
+	public void setHpostcode(String hpostcode) {
+		this.hpostcode = hpostcode;
 	}
 	public String getLang() {
 		return lang;
@@ -121,23 +133,11 @@ public class User {
 	public void setSa(String sa) {
 		this.sa = sa;
 	}
-	public String getSpost() {
-		return spost;
-	}
-	public void setSpost(String spost) {
-		this.spost = spost;
-	}
 	public String getHa() {
 		return ha;
 	}
 	public void setHa(String ha) {
 		this.ha = ha;
-	}
-	public String getHpost() {
-		return hpost;
-	}
-	public void setHpost(String hpost) {
-		this.hpost = hpost;
 	}
 	public String getCategory() {
 		return category;

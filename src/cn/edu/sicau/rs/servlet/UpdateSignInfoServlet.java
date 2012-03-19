@@ -15,6 +15,7 @@ public class UpdateSignInfoServlet extends HttpServlet {
 	        throws ServletException , IOException {
 		request.setCharacterEncoding("UTF-8");
 		User user = new User();
+		user.setId(Integer.parseInt(request.getParameter("user_id")));
 		user.setTrueName(request.getParameter("truename"));
 		user.setTestNumber("123446");
 		user.setSex(request.getParameter("sex"));
@@ -26,16 +27,18 @@ public class UpdateSignInfoServlet extends HttpServlet {
 		user.setPhone(request.getParameter("phone"));
 		user.setMphone(request.getParameter("mphone"));
 		user.setSa(request.getParameter("sa"));
-		user.setSpost(request.getParameter("spostcode"));
+		user.setSpostcode(request.getParameter("spostcode"));
 		user.setHa(request.getParameter("ha"));
-		user.setHpost(request.getParameter("hpostcode"));
+		user.setHpostcode(request.getParameter("hpostcode"));
 		user.setLang(request.getParameter("foreign"));
 		user.setCategory(request.getParameter("category"));
 		user.setPrize(request.getParameter("prize"));
 		user.setSpeciality(request.getParameter("speciality"));
 		
 		Model model = new Model();
-		model.updateSignInfo(user);
+		if(model.updateSignInfo(user)) {
+			response.sendRedirect("stuLogin.jsp");
+		};
 		     
 	}
 	
