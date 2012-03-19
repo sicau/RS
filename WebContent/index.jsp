@@ -45,7 +45,7 @@
       <hr>
  
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; Company 2012</p><a href="signInfo.jsp">详细信息</a>
       </footer>
  
     </div> <!-- /container -->

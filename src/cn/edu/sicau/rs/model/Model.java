@@ -38,6 +38,11 @@ public class Model {
 		return ud.updatePassword(username,  password );
 	}
 	
+	public boolean updateSignInfo(User user) {
+		return ud.updateSignInfo(user);
+	}
+	
+	
 	/*admin*/
     AdminLoginDao ald = new AdminLoginDaoImpl();
 	public boolean login (Admin admin) {
