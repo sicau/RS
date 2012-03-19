@@ -45,7 +45,7 @@
       <hr>
  
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; Company 2012  <div><a href="Admin/login/adminLogin.jsp">管理员登陆</a></div></p>
       </footer>
  
     </div> <!-- /container -->

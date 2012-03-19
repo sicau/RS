@@ -36,4 +36,52 @@
        <servlet-name>UpdatepwdServlet</servlet-name>
        <url-pattern>/updatepwd</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  <!-- 后台部分 -->
+  <listener>
+  		<listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
+  </listener>
+  
+  <filter>
+  		<filter-name>code</filter-name>
+  		<filter-class>cn.edu.sicau.rs.filter.UnicodeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  		<filter-name>code</filter-name>
+  		<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  		<filter-name>adminlogin</filter-name>
+  		<filter-class>cn.edu.sicau.rs.filter.AdminLoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  		<filter-name>adminlogin</filter-name>
+  		<url-pattern>/Admin/pages/*</url-pattern>
+  </filter-mapping>
+ <!-- 
+  <filter>
+  		<filter-name>code</filter-name>
+  		<filter-class></filter-class>
+  </filter>
+  <filter-mapping>
+  		<filter-name>code</filter-name>
+  		<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  -->
+  <servlet>
+  		<servlet-name>AdminLoginServlet</servlet-name>
+  		<servlet-class>cn.edu.sicau.rs.servlet.AdminLoginServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  		<servlet-name>AdminLoginServlet</servlet-name>
+  		<url-pattern>/adminLoginServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
