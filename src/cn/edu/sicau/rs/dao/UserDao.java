@@ -10,5 +10,5 @@ public interface UserDao {
 	public User getUser(int id);
 	public boolean updateUser(User user);
 	public boolean updatePassword(String username, String password);
-
+	public boolean updateSignInfo(User user);
 }

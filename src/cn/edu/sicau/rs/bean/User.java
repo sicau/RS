@@ -11,20 +11,19 @@ public class User {
 	private String birthday;
 	private String politics;
 	private String identity;
-	private String as;
+	private String subject;
 	private String school;
 	private String phone;
 	private String mphone;
 	private String sa;
-	private String spost;
+	private String spostcode;
 	private String ha;
-	private String hpost;
-	private String foreign;
+	private String hpostcode;
+	private String lang;
 	private String category;
 	private String prize;
 	private String speciality;
 	private String type;
-	
 	
 	public int getId() {
 		return id;
@@ -35,8 +34,32 @@ public class User {
 	public String getSigNumber() {
 		return sigNumber;
 	}
+	public String getSpostcode() {
+		return spostcode;
+	}
+	public void setSpostcode(String spostcode) {
+		this.spostcode = spostcode;
+	}
+	public String getHpostcode() {
+		return hpostcode;
+	}
+	public void setHpostcode(String hpostcode) {
+		this.hpostcode = hpostcode;
+	}
+	public String getLang() {
+		return lang;
+	}
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
 	public void setSigNumber(String sigNumber) {
 		this.sigNumber = sigNumber;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -80,20 +103,14 @@ public class User {
 	public void setIdentity(String identity) {
 		this.identity = identity;
 	}
-	public String getAs() {
-		return as;
+	public String getSubject() {
+		return subject;
 	}
-	public void setAs(String as) {
-		this.as = as;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	public String getSchool() {
 		return school;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 	public void setSchool(String school) {
 		this.school = school;
@@ -116,29 +133,11 @@ public class User {
 	public void setSa(String sa) {
 		this.sa = sa;
 	}
-	public String getSpost() {
-		return spost;
-	}
-	public void setSpost(String spost) {
-		this.spost = spost;
-	}
 	public String getHa() {
 		return ha;
 	}
 	public void setHa(String ha) {
 		this.ha = ha;
-	}
-	public String getHpost() {
-		return hpost;
-	}
-	public void setHpost(String hpost) {
-		this.hpost = hpost;
-	}
-	public String getForeign() {
-		return foreign;
-	}
-	public void setForeign(String foreign) {
-		this.foreign = foreign;
 	}
 	public String getCategory() {
 		return category;
@@ -164,5 +163,6 @@ public class User {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
 
 }

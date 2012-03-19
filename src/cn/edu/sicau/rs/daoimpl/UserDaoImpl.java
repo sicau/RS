@@ -72,15 +72,15 @@ public class UserDaoImpl implements UserDao{
 					user.setBirthday(rs.getString("birthday"));
 					user.setPolitics(rs.getString("politics"));
 					user.setIdentity(rs.getString("identity"));
-					user.setAs(rs.getString("as"));
+					user.setSubject(rs.getString("subject"));
 					user.setSchool(rs.getString("school"));
 					user.setMphone(rs.getString("mphone"));
 					user.setPhone(rs.getString("phone"));
 					user.setSa(rs.getString("sa"));
-					user.setSpost(rs.getString("spost"));
+					user.setSpostcode(rs.getString("spostcode"));
 					user.setHa(rs.getString("ha"));
-					user.setHpost(rs.getString("hpost"));
-					user.setForeign(rs.getString("foreign"));
+					user.setHpostcode(rs.getString("hpostcode"));
+					user.setLang(rs.getString("lang"));
 					user.setCategory(rs.getString("category"));
 					user.setPrize(rs.getString("prize"));
 					user.setSpeciality(rs.getString("speciality"));
@@ -147,15 +147,15 @@ public class UserDaoImpl implements UserDao{
 				user.setBirthday(rs.getString("birthday"));
 				user.setPolitics(rs.getString("politics"));
 				user.setIdentity(rs.getString("identity"));
-				user.setAs(rs.getString("as"));
+				user.setSubject(rs.getString("subject"));
 				user.setSchool(rs.getString("school"));
 				user.setMphone(rs.getString("mphone"));
 				user.setPhone(rs.getString("phone"));
 				user.setSa(rs.getString("sa"));
-				user.setSpost(rs.getString("spost"));
+				user.setSpostcode(rs.getString("spost"));
 				user.setHa(rs.getString("ha"));
-				user.setHpost(rs.getString("hpost"));
-				user.setForeign(rs.getString("foreign"));
+				user.setHpostcode(rs.getString("hpost"));
+				user.setLang(rs.getString(""));
 				user.setCategory(rs.getString("category"));
 				user.setPrize(rs.getString("prize"));
 				user.setSpeciality(rs.getString("speciality"));
@@ -181,8 +181,8 @@ public class UserDaoImpl implements UserDao{
 		Boolean flag = false;
 		DbUtil dbutil = new DbUtil();
 		PreparedStatement pstmt = null;
-		String sql = "update tu_user set truename = ?,sex = ?,birthday = ?,politics = ?,identity = ?,as = ?,school = ?," +
-				    "phone= ? ,mphone = ?,SA = ?,spostcode = ?,HA = ?,hpostcode = ?,foreign = ?,category = ?,prize = ?," +
+		String sql = "update tu_user set truename = ?,sex = ?,birthday = ?,politics = ?,identity = ?,subject = ?,school = ?," +
+				    "phone= ? ,mphone = ?,SA = ?,spostcode = ?,HA = ?,hpostcode = ?,lang = ?,category = ?,prize = ?," +
 				     "speciality = ? where username = ?";
 		try {
 			pstmt = dbutil.getCon().prepareStatement(sql);
@@ -191,15 +191,15 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(3, user.getBirthday());
 			pstmt.setString(4, user.getPolitics());
 			pstmt.setString(5, user.getIdentity());
-			pstmt.setString(6, user.getAs());
+			pstmt.setString(6, user.getSubject());
 			pstmt.setString(7, user.getSchool());
 			pstmt.setString(8, user.getPhone());
 			pstmt.setString(9, user.getMphone());
 			pstmt.setString(10, user.getSa());
-			pstmt.setString(11, user.getSpost());
+			pstmt.setString(11, user.getSpostcode());
 			pstmt.setString(12, user.getHa());
-			pstmt.setString(13, user.getHpost());
-			pstmt.setString(14, user.getForeign());
+			pstmt.setString(13, user.getHpostcode());
+			pstmt.setString(14, user.getLang());
 			pstmt.setString(15, user.getCategory());
 			pstmt.setString(16, user.getPrize());
 			pstmt.setString(17, user.getSpeciality());
@@ -244,6 +244,78 @@ public class UserDaoImpl implements UserDao{
 				e.printStackTrace();
 			}
 		}
+		return flag;
+	}
+
+
+	@Override
+	public boolean updateSignInfo(User user) {
+		boolean flag = false;
+		PreparedStatement pstmt = null;
+		DbUtil dbUtil = null;
+		String sql = "update tb_user " +
+				"set truename = ?, " +
+				"testnumber = ?, " +
+				"sex = ?, " +
+				"birthday = ?, " +
+				"politics = ?, " +
+				"identity = ?, " +
+				"subject = ?, " +
+				"school = ?, " +
+				"phone = ?, " +
+				"mphone = ?, " +
+				"SA = ?, " +
+				"spostcode = ?, " +
+				"HA = ?, " +
+				"hpostcode = ?, " +
+				"lang = ?, " +
+				"category = ?, " +
+				"prize = ?, " +
+				"speciality = ? " +
+				"where id = ?";
+		
+		System.out.println(sql);
+		try {
+			dbUtil = new DbUtil();
+			pstmt = dbUtil.getCon().prepareStatement(sql);
+			pstmt.setString(1, user.getTrueName());
+			pstmt.setString(2, user.getTestNumber());
+			pstmt.setString(3, user.getSex());
+			pstmt.setString(4, user.getBirthday());
+			pstmt.setString(5, user.getPolitics());
+			pstmt.setString(6, user.getIdentity());
+			pstmt.setString(7, user.getSubject());
+			pstmt.setString(8, user.getSchool());
+			pstmt.setString(9, user.getPhone());
+			pstmt.setString(10, user.getMphone());
+			pstmt.setString(11, user.getSa());
+			pstmt.setString(12, user.getSpostcode());
+			pstmt.setString(13, user.getHa());
+			pstmt.setString(14, user.getHpostcode());
+			pstmt.setString(15, user.getLang());
+			pstmt.setString(16, user.getCategory());
+			pstmt.setString(17, user.getPrize());
+			pstmt.setString(18, user.getSpeciality());
+			pstmt.setInt(19, user.getId());
+			System.out.println(sql);
+			
+			int i = pstmt.executeUpdate();
+			if(i != 0) {
+				
+				flag = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				dbUtil.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
 		return flag;
 	}
 	
