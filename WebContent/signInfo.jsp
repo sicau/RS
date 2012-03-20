@@ -15,7 +15,7 @@
 <body>
 
    <%@include file="nav.jsp" %>
-   <form action="updateSignInfo">	
+   <form action="updateSignInfo" method = "post">	
    	<input type="hidden" name="user_id" id="user_id" value="${user.id}"/>
     <div class="signInfo signInfo-container">
  	

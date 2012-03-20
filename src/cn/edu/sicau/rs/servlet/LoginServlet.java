@@ -21,6 +21,10 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
+		System.out.println(username);
+		System.out.println(password);
+		
 		Model model = new Model();
 		try {
 			User user = model.userLogin(username, password);

@@ -39,15 +39,15 @@ public class AdminUserDaoImpl implements AdminUserDao {
 				user.setBirthday(rs.getString("birthday"));
 				user.setPolitics(rs.getString("politics"));
 				user.setIdentity(rs.getString("identity"));
-				user.setSubject(rs.getShort("subject"));
+				user.setSubject(rs.getString("subject"));
 				user.setSchool(rs.getString("school"));
 				user.setPhone(rs.getString("phone"));
 				user.setMphone(rs.getString("mphone"));
 				user.setSa(rs.getString("sa"));
-				user.setSpostcode(rs.getShort("spostcode"));
+				user.setSpostcode(rs.getString("spostcode"));
 				user.setHa(rs.getString("ha"));
 				user.setHpostcode(rs.getString("hpostcode"));
-				user.setLang(rs.getShort("lang"));
+				user.setLang(rs.getString("lang"));
 				user.setCategory(rs.getString("category"));
 				user.setPrize(rs.getString("prize"));
 				user.setSpeciality(rs.getString("speciality"));
