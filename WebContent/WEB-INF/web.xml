@@ -96,5 +96,8 @@
   		<servlet-name>AdminLoginServlet</servlet-name>
   		<url-pattern>/adminLoginServlet</url-pattern>
   </servlet-mapping>
->>>>>>> 5613d174d1820cd2b8737e25a7f80e7032d01f8f
+
+  <session-config>
+        <session-timeout>1</session-timeout>
+  </session-config>
 </web-app>

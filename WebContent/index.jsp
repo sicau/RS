@@ -45,12 +45,12 @@
       <hr>
  
       <footer>
-        <p>&copy; Company 2012  <div><a href="Admin/login/adminLogin.jsp">管理员登陆</a></div></p>
+        <p>&copy; Company 2012  
+        <a href="selfHome.jsp">测试</div>
+        </p>
       </footer>
  
     </div> <!-- /container -->
-   
-   
    
    
 </body>

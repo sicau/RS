@@ -13,7 +13,9 @@ import cn.edu.sicau.rs.model.Model;
 public class UpdateSignInfoServlet extends HttpServlet {
 	public void doGet (HttpServletRequest request, HttpServletResponse response) 
 	        throws ServletException , IOException {
+		
 		request.setCharacterEncoding("UTF-8");
+
 		User user = new User();
 		user.setId(Integer.parseInt(request.getParameter("user_id")));
 		user.setTrueName(request.getParameter("truename"));
@@ -38,7 +40,9 @@ public class UpdateSignInfoServlet extends HttpServlet {
 		Model model = new Model();
 		if(model.updateSignInfo(user)) {
 			response.sendRedirect("stuLogin.jsp");
-		};
+		} else {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 		     
 	}
 	

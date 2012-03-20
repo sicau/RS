@@ -21,15 +21,16 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
 		Model model = new Model();
 		try {
 			User user = model.userLogin(username, password);
 			user.setUserName(username);
-			ServletContext context = this.getServletContext();
-			List nameList = (List) context.getAttribute("nameList");
+			ServletContext context = this.getServletContext();    //设置上下文
+			List nameList = (List) context.getAttribute("nameList");   
 			if (!nameList.contains(username)) {
-				request.getSession().setAttribute("username", username);
-				request.getSession().setAttribute("user", user);
+				request.getSession().setAttribute("username", username);    //在监听器中会把username放入namelist中
+				request.getSession().setAttribute("user", user);  //传给页面用的
 				response.sendRedirect("signInfo.jsp");
 			} else {
 				request.setAttribute("loginMessage", "该账号已登录");
