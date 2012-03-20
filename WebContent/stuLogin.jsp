@@ -13,7 +13,7 @@
 	
 <title>考生登录</title>
 </head>
-<body>
+<body class="back-color">
 	 <%@include file="nav.jsp" %>
 
     <form class="form-horizontal" name="login" action="login" method="post">
