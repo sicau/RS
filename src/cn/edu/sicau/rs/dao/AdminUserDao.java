@@ -9,5 +9,6 @@ public interface AdminUserDao {
 	public boolean deleteUserById(int id);
 	public boolean deleteUsers(int [] ids);
 	public UserPager getUserPager(int index, int pageSize);
+	public boolean verifyStu(int id, int type);
 
 }

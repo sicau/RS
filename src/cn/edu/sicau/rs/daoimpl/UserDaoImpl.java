@@ -3,6 +3,8 @@ package cn.edu.sicau.rs.daoimpl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.common.DbUtil;
@@ -160,6 +162,7 @@ public class UserDaoImpl implements UserDao{
 				user.setPrize(rs.getString("prize"));
 				user.setSpeciality(rs.getString("speciality"));
 				user.setType(rs.getString("type"));
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -174,6 +177,9 @@ public class UserDaoImpl implements UserDao{
 		}
 		return user;
 	}
+	
+	@Override
+
 
 	/* user provide personal information */
 	public boolean updateUser(User user) {
@@ -318,6 +324,8 @@ public class UserDaoImpl implements UserDao{
 		
 		return flag;
 	}
+
+
 	
 	
 	
