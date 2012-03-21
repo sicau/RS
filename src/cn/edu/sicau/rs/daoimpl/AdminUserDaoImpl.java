@@ -195,4 +195,30 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		return up;
 	}
 
+	@Override
+	public boolean verifyStu(int id, int type) {
+		// TODO Auto-generated method stub
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		String sql = "update tb_user set type = ? where id = ?";
+		try {
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			int i = ps.executeUpdate();
+			if(i != 0) {
+				return true;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				dbutil.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+
 }
