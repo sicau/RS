@@ -20,12 +20,32 @@ public class UserDaoImpl implements UserDao{
 		boolean flag = false;
 		PreparedStatement pstmt = null;
 		DbUtil dbUtil = null;
-		String sql = "insert into tb_user values(null,null,?,?,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)";
+		String sql = "insert into tb_user values(null,null,?,?,?,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null)";
 		try {
 			dbUtil = new DbUtil();
 			pstmt = dbUtil.getCon().prepareStatement(sql);
 			pstmt.setString(1, user.getUserName());
 			pstmt.setString(2, user.getPassword());
+			pstmt.setString(3, user.getTrueName());
+			pstmt.setString(4, user.getSex());
+			pstmt.setString(5, user.getBirthday());
+			pstmt.setString(6, user.getPolitics());
+			pstmt.setString(7, user.getIdentity());
+			pstmt.setString(8, user.getSubject());
+			pstmt.setString(9, user.getSchool());
+			pstmt.setString(10, user.getPhone());
+			pstmt.setString(11, user.getMphone());
+			pstmt.setString(12, user.getSa());
+			pstmt.setString(13, user.getSpostcode());
+			pstmt.setString(14, user.getHa());
+			pstmt.setString(15, user.getHpostcode());
+			pstmt.setString(16, user.getLang());
+			pstmt.setString(17, user.getCategory());
+			pstmt.setString(18, user.getPrize());
+			pstmt.setString(19, user.getSpeciality());
+			pstmt.setString(20, user.getSrc());
+			pstmt.setString(21, user.getType());
+			
 			
 			int i = pstmt.executeUpdate();
 			if(i != 0) {
@@ -86,6 +106,7 @@ public class UserDaoImpl implements UserDao{
 					user.setCategory(rs.getString("category"));
 					user.setPrize(rs.getString("prize"));
 					user.setSpeciality(rs.getString("speciality"));
+					user.setSrc(rs.getString("src"));
 					user.setType(rs.getString("type"));
 					return user;
 				}
@@ -161,6 +182,7 @@ public class UserDaoImpl implements UserDao{
 				user.setCategory(rs.getString("category"));
 				user.setPrize(rs.getString("prize"));
 				user.setSpeciality(rs.getString("speciality"));
+				user.setSrc(rs.getString("src"));
 				user.setType(rs.getString("type"));
 
 			}
@@ -189,7 +211,7 @@ public class UserDaoImpl implements UserDao{
 		PreparedStatement pstmt = null;
 		String sql = "update tu_user set truename = ?,sex = ?,birthday = ?,politics = ?,identity = ?,subject = ?,school = ?," +
 				    "phone= ? ,mphone = ?,SA = ?,spostcode = ?,HA = ?,hpostcode = ?,lang = ?,category = ?,prize = ?," +
-				     "speciality = ? where username = ?";
+				     "src = ? ,speciality = ? where username = ?";
 		try {
 			pstmt = dbutil.getCon().prepareStatement(sql);
 			pstmt.setString(1, user.getTrueName());
@@ -208,8 +230,9 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(14, user.getLang());
 			pstmt.setString(15, user.getCategory());
 			pstmt.setString(16, user.getPrize());
-			pstmt.setString(17, user.getSpeciality());
-			pstmt.setString(18, user.getUserName());
+			pstmt.setString(17, user.getSrc());
+			pstmt.setString(18, user.getSpeciality());
+			pstmt.setString(19, user.getUserName());
 			
 			pstmt.addBatch();
 			pstmt.executeBatch();
@@ -277,10 +300,10 @@ public class UserDaoImpl implements UserDao{
 				"lang = ?, " +
 				"category = ?, " +
 				"prize = ?, " +
+				"ser = ?,"+
 				"speciality = ? " +
 				"where id = ?";
 		
-		System.out.println(sql);
 		try {
 			dbUtil = new DbUtil();
 			pstmt = dbUtil.getCon().prepareStatement(sql);
@@ -301,8 +324,9 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(15, user.getLang());
 			pstmt.setString(16, user.getCategory());
 			pstmt.setString(17, user.getPrize());
-			pstmt.setString(18, user.getSpeciality());
-			pstmt.setInt(19, user.getId());
+			pstmt.setString(18, user.getSrc());
+			pstmt.setString(19, user.getSpeciality());
+			pstmt.setInt(20, user.getId());
 			System.out.println(sql);
 			
 			int i = pstmt.executeUpdate();
