@@ -28,6 +28,10 @@
        <servlet-name>UpdateSignInfoServlet</servlet-name>
        <servlet-class>cn.edu.sicau.rs.servlet.UpdateSignInfoServlet</servlet-class>
   </servlet>
+  <servlet>
+  		<servlet-name>UploadServlet</servlet-name>
+  		<servlet-class>cn.edu.sicau.rs.servlet.UploadServlet</servlet-class>
+  </servlet>
   
   
   
@@ -43,11 +47,13 @@
        <servlet-name>UpdatepwdServlet</servlet-name>
        <url-pattern>/updatepwd</url-pattern>
   </servlet-mapping>
-  
-
   <servlet-mapping>
        <servlet-name>UpdateSignInfoServlet</servlet-name>
        <url-pattern>/updateSignInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  		<servlet-name>UploadServlet</servlet-name>
+  		<url-pattern>/uploadServlet</url-pattern>
   </servlet-mapping>
   
 
