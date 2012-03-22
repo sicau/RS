@@ -5,16 +5,23 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>四川农业大学自主招生</title>
+	<style type="text/css">
+	
+</style>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="css/signInfo.css" />
 	
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
 	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/CJL.0.1.min.js"></script>
+	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
+	<script type="text/javascript" src="js/signInfo.js"></script>
 	
 </head>
 <body>
-
    <%@include file="nav.jsp" %>
+   
+   
    <form action="updateSignInfo" method = "post">	
    	<input type="hidden" name="user_id" id="user_id" value="${user.id}"/>
     <div class="signInfo signInfo-container">
@@ -42,7 +49,7 @@
 		    </td>
 		    <td width="149" rowspan="3">
 		    	<a href="#" class="thumbnail">
-		    		
+		    		<img id="img-preview" />
 		    	</a>
 		    	<input type="file" name="selimg" id="selimg">
 		    </td>
@@ -127,6 +134,6 @@
    
    </form>
    
-   
+
 </body>
 </html>
