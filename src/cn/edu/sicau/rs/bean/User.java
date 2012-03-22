@@ -23,6 +23,7 @@ public class User {
 	private String category;
 	private String prize;
 	private String speciality;
+	private String src;
 	private String type;
 	
 	public int getId() {
@@ -156,6 +157,13 @@ public class User {
 	}
 	public void setSpeciality(String speciality) {
 		this.speciality = speciality;
+	}
+	
+	public String getSrc() {
+		return src;
+	}
+	public void setSrc(String src) {
+		this.src = src;
 	}
 	public String getType() {
 		return type;
