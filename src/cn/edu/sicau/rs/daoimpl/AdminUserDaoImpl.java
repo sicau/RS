@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -17,9 +19,9 @@ import cn.edu.sicau.rs.dao.AdminUserDao;
 public class AdminUserDaoImpl implements AdminUserDao {
 
 	@Override
-	public Map getAllUsers() {
+	public List getAllUsers() {
 		// TODO Auto-generated method stub
-		Map userMap = new HashMap();
+		List userList = new ArrayList();
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -53,7 +55,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
 				user.setPrize(rs.getString("prize"));
 				user.setSpeciality(rs.getString("speciality"));
 				user.setType(rs.getString("type"));    
-				userMap.put(new Integer(user.getId()),user);     //将userId与此映射中的user关联
+				userList.add(user); //将userId与此映射中的user关联
 				
 			}
 		} catch (Exception e) {
@@ -67,7 +69,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
 				e.printStackTrace();
 			}
 		}
-		return userMap;
+		return userList;
 	}
 
 	@Override

@@ -3,7 +3,9 @@ package cn.edu.sicau.rs.daoimpl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import cn.edu.sicau.rs.bean.User;
@@ -44,7 +46,6 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(18, user.getPrize());
 			pstmt.setString(19, user.getSpeciality());
 			pstmt.setString(20, user.getSrc());
-			pstmt.setString(21, user.getType());
 			
 			
 			int i = pstmt.executeUpdate();
@@ -350,7 +351,22 @@ public class UserDaoImpl implements UserDao{
 	}
 
 
-	
-	
+	@Override
+	public ResultSet getUsers() {
+		// TODO Auto-generated method stub
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "select truename,testnumber,sex,birthday,politics,identity,subject,school,phone,mphone" +
+				",sa,spostcode,ha,hpostcode,lang,category,prize,speciality from tb_user";
+		try {
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			rs = ps.executeQuery();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 	
 }

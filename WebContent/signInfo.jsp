@@ -17,6 +17,8 @@
 	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
 	<script type="text/javascript" src="js/signInfo.js"></script>
 	
+	   <script type="text/javascript" src="js/My.js"></script>
+	   
 </head>
 <body>
    <%@include file="nav.jsp" %>
@@ -134,6 +136,7 @@
    
    </form>
    
+  <input type="button" onclick="exportword(PrintA);" value="导出Word"/>
 
 </body>
 </html>

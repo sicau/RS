@@ -46,7 +46,7 @@
  
       <footer>
         <p>&copy; Company 2012  
-        <a href="ImagePreviewd.jsp">测试</div>
+        <a href="excelDownLoadServlet">测试</a><a href="downLoadServlet?path=D://1332586763603.xls">下载</a></div>
         </p>
       </footer>
  
