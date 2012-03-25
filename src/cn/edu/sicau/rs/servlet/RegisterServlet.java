@@ -18,9 +18,9 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		System.out.println("username="+username);
 		      Model model = new Model();
-		      if(model.checkNameExist(username)) {
-		    	  response.sendRedirect("errRegister.jsp");
-		      } else {
+//		      if(model.checkNameExist(username)) {
+//		    	  response.sendRedirect("errRegister.jsp");
+//		      } else {
 			      User user = new User();
 			      user.setUserName(username);
 			      user.setPassword(password);
@@ -31,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
 			      } else {   //thinking
 			    	  response.sendRedirect("errRegister.jsp");
 			      }
-		      }
+//		      }
 	}
 	
 	public void doPost (HttpServletRequest request, HttpServletResponse response)

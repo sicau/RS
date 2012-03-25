@@ -46,7 +46,7 @@
  
       <footer>
         <p>&copy; Company 2012  
-        <a href="ImagePreviewd.jsp">测试</div>
+        <a href="signInfo.jsp">测试</div>
         </p>
       </footer>
  

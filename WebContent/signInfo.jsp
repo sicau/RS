@@ -23,7 +23,7 @@
    
    
    <form action="updateSignInfo" method = "post">	
-   	<input type="hidden" name="user_id" id="user_id" value="${user.id}"/>
+   	<input type="hidden" name="id" id="id" value="${user.id}"/>
     <div class="signInfo signInfo-container">
  	
       <table width="831" height="661" border="1">
@@ -42,7 +42,7 @@
 		    </td>
 		    <td width="78"><div align="center">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 别</div></td>
 		    <td colspan="2">
-		    	<select>
+		    	<select name="sex">
 		    		<option value="男" {if user.sex == '男'}selected{{/if}}>男</option>
 		    		<option value="女" {if user.sex == '女'}selected{{/if}}>女</option>
 		    	</select>
@@ -91,7 +91,7 @@
 		  <tr>
 		    <td><div align="center">中学通讯地址及邮编</div></td>
 		    <td colspan="3">
-		    	<input type="text" id="SA" name="SA" value="${user.sa}"/>
+		    	<input type="text" id="sa" name="sa" value="${user.sa}"/>
 		    	<input type="text" id="spostcode" name="spostcode" value="${user.spostcode}"/>
 		    </td>
 		    <td><div align="center">外语语种</div></td>
@@ -102,7 +102,7 @@
 		  <tr>
 		    <td><div align="center">家庭通讯地址及邮编</div></td>
 		    <td colspan="3">
-		    	<input type="text" id="HA" name="HA" value="${user.ha}"/>
+		    	<input type="text" id="ha" name="ha" value="${user.ha}"/>
 		    	<input type="text" id="hpostcode" name="hpostcode" value="${user.hpostcode}" />
 		    </td>
 		    <td><div align="center">考生类别</div></td>

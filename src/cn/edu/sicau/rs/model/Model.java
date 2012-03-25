@@ -1,5 +1,6 @@
 package cn.edu.sicau.rs.model;
 
+import java.util.List;
 import java.util.Map;
 
 import cn.edu.sicau.rs.bean.Admin;
@@ -26,14 +27,11 @@ public class Model {
 	}
 	
 	
-	public boolean checkNameExist(String name) {
-		return ud.checkNameExist(name);
-	}
+//	public boolean checkNameExist(String name) {
+//		return ud.checkNameExist(name);
+//	}
 	
 	
-	public boolean updateUser(User user) {
-		return ud.updateUser(user);
-	}
 	
 	public User getUser(int id) {
 		return ud.getUser(id);
@@ -65,7 +63,7 @@ public class Model {
 		return ald.createAdmin(adminname, password);
 	}
 	
-	public Map getAllUsers() {
+	public List getAllUsers() {
 		return aud.getAllUsers();
 	}
 	public boolean deleteUserById(int id) {

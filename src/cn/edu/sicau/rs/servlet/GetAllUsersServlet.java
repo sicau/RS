@@ -2,6 +2,7 @@ package cn.edu.sicau.rs.servlet;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -16,16 +17,16 @@ public class GetAllUsersServlet extends HttpServlet{
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 					throws ServletException, IOException {
-        Map userMap = new HashMap();
+		List userList = null;
 		Model model = new Model();
 		try {
-			if(!userMap.isEmpty()) {
-				userMap = model.getAllUsers();
-				request.setAttribute("userMap", userMap);
+//			if(!userMap.isEmpty()) {
+				userList = model.getAllUsers();
+				request.setAttribute("userList", userList);
 				response.sendRedirect("stuList.jsp");
-			} else {
+//			} else {
 				request.getRequestDispatcher("").forward(request, response);
-			}
+//			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

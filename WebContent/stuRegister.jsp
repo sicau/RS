@@ -19,7 +19,7 @@
     	<fieldset>
         	<legend>考生注册</legend>
         	
-        	<div class="input-container">
+        	
 		    	<div class="control-group">
 		        	<label class="control-label" for="username">用户名：</label>
 		            <div class="controls">
@@ -47,8 +47,7 @@
 		       			<input type="text" class="input-xlarge" id="validation" name="validation">
 		          	</div>
 	        	</div>
-	        	
-            </div>
+	        
             
             <div class="form-actions">
 	            <button type="submit" class="btn btn-primary">注册</button>

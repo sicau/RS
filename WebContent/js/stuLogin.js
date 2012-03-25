@@ -1,4 +1,4 @@
 $(document).ready(function() {
-	$("[name='login']").hide();
-	$("[name='login']").show("slow");
+//	$("[name='login']").hide();
+//	$("[name='login']").show("slow");
 })
