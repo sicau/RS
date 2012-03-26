@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.HibernateException;
+
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.model.Model;
 
@@ -15,13 +17,16 @@ public class UpdateSignInfoServlet extends HttpServlet {
 	        throws ServletException , IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-
 		User user = new User();
-		user.setId(Integer.parseInt(request.getParameter("user_id")));
+		Model model = new Model();
+		int id  = Integer.parseInt(request.getParameter("id"));
+		user = model.getUser(id);
+		
 		user.setTrueName(request.getParameter("truename"));
 		user.setTestNumber("123446");
 		user.setSex(request.getParameter("sex"));
 		user.setBirthday(request.getParameter("birthday"));
+		System.out.println(request.getParameter("birthday"));
 		user.setPolitics(request.getParameter("politics"));
 		user.setIdentity(request.getParameter("identity"));
 		user.setSubject(request.getParameter("subject"));
@@ -32,18 +37,18 @@ public class UpdateSignInfoServlet extends HttpServlet {
 		user.setSpostcode(request.getParameter("spostcode"));
 		user.setHa(request.getParameter("ha"));
 		user.setHpostcode(request.getParameter("hpostcode"));
-		user.setLang(request.getParameter("foreign"));
+		user.setLang(request.getParameter("lang"));
 		user.setCategory(request.getParameter("category"));
 		user.setPrize(request.getParameter("prize"));
 		user.setSpeciality(request.getParameter("speciality"));
 		
-		Model model = new Model();
-		if(model.updateSignInfo(user)) {
-			response.sendRedirect("stuLogin.jsp");
-		} else {
+		try{
+			model.updateSignInfo(user); 
+			response.sendRedirect("selfHome.jsp");
+		} catch(HibernateException e) {
+			e.printStackTrace();
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
-		     
 	}
 	
 	public void doPost (HttpServletRequest request, HttpServletResponse response)

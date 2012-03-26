@@ -25,17 +25,13 @@ public class LoginServlet extends HttpServlet {
 		Model model = new Model();
 		try {
 			User user = model.userLogin(username, password);
-			user.setUserName(username);
-			ServletContext context = this.getServletContext();    //设置上下文
-			List nameList = (List) context.getAttribute("nameList");   
-			if (!nameList.contains(username)) {
-				request.getSession().setAttribute("username", username);    //在监听器中会把username放入namelist中
-				request.getSession().setAttribute("user", user);  //传给页面用的
-				response.sendRedirect("signInfo.jsp");
-			} else {
-				request.setAttribute("loginMessage", "该账号已登录");
-				request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
-			}
+//			ServletContext context = this.getServletContext();    //设置上下文
+//			List nameList = (List) context.getAttribute("nameList");   
+//			
+//			request.getSession().setAttribute("username", username);    //在监听器中会把username放入namelist中
+			request.getSession().setAttribute("user", user);  //传给页面用的
+			response.sendRedirect("signInfo.jsp");
+			
 		} catch (NameNotFoundException e) {
 			request.setAttribute("NameNotFondException",e.getMessage());
 			request.getRequestDispatcher("index.jsp").forward(request, response);

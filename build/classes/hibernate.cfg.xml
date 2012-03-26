@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/sicau_rs</property>
+		<property name="connection.characterEncoding">GBK</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">369798</property>
+		<property name="show_sql">true</property>
+		
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<mapping resource="User.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>
