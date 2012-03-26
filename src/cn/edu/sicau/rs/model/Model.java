@@ -1,7 +1,9 @@
 package cn.edu.sicau.rs.model;
 
+import java.util.List;
 import java.util.Map;
-
+import java.sql.ResultSet;
+import java.util.List;
 import cn.edu.sicau.rs.bean.Admin;
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.bean.UserPager;
@@ -26,22 +28,19 @@ public class Model {
 	}
 	
 	
-	public boolean checkNameExist(String name) {
-		return ud.checkNameExist(name);
-	}
+//	public boolean checkNameExist(String name) {
+//		return ud.checkNameExist(name);
+//	}
 	
 	
-	public boolean updateUser(User user) {
-		return ud.updateUser(user);
-	}
 	
 	public User getUser(int id) {
 		return ud.getUser(id);
 	}
 	
-//	public Map getAllUsers() {
-//		return ud.getAllUsers();
-//	}
+	public ResultSet getUsers() {
+		return ud.getUsers();
+	}
 	
 	public boolean updatePassword (String username, String password) {
 		return ud.updatePassword(username,  password );
@@ -65,7 +64,7 @@ public class Model {
 		return ald.createAdmin(adminname, password);
 	}
 	
-	public Map getAllUsers() {
+	public List getAllUsers() {
 		return aud.getAllUsers();
 	}
 	public boolean deleteUserById(int id) {

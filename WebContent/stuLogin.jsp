@@ -15,34 +15,34 @@
 </head>
 <body class="back-color">
 	 <%@include file="nav.jsp" %>
-
-    <form class="form-horizontal" name="login" action="login" method="post">
-    	<fieldset>
-        	<legend>考生登录</legend>
-        	
-        	<div class="input-container">
-		    	<div class="control-group">
-		        	<label class="control-label" for="username">用户名：</label>
-		            <div class="controls">
-		              <input type="text" class="input-xlarge" id="username" name="username">
-		            </div>
-		    	</div>
-		    	
-	       		<div class="control-group">
-		           	<label class="control-label" for="psd">密码：</label>
-		           	<div class="controls">
-		       			<input type="text" class="input-xlarge" id="psd" name="password">
-		          	</div>
-	        	</div>
-            </div>
-            
-            <div class="form-actions">
-	            <button type="submit" class="btn btn-primary">登录</button>
-            </div>
-            
-     	</fieldset>
-    </form>
-    
+	<div class="form-container">
+	    <form class="form-horizontal" name="login" action="login" method="post">
+	    	<fieldset>
+	        	<legend>考生登录</legend>
+	        	
+	        	<div class="input-container">
+			    	<div class="control-group">
+			        	<label class="control-label" for="username">用户名：</label>
+			            <div class="controls">
+			              <input type="text" class="input-xlarge" id="username" name="username">
+			            </div>
+			    	</div>
+			    	
+		       		<div class="control-group">
+			           	<label class="control-label" for="psd">密码：</label>
+			           	<div class="controls">
+			       			<input type="text" class="input-xlarge" id="psd" name="password">
+			          	</div>
+		        	</div>
+	            </div>
+	            
+	            <div class="form-actions">
+		            <button type="submit" class="btn btn-primary">登录</button>
+	            </div>
+	            
+	     	</fieldset>
+	    </form>
+    </div>
    
 </body>
 </html>
