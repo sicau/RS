@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,13 +25,26 @@ import cn.edu.sicau.rs.exception.NameNotFoundException;
 
 public class UserDaoImpl implements UserDao{
 	
+	//this method has been refactored by hibernate
 	public boolean saveUser(User user) {
 		boolean flag = false;
-		
+		Session s = null;
+		Transaction tx = null;
+		try {
+			s = HibernateUtil.getSession();
+			tx = s.beginTransaction();
+			s.save(user);
+			tx.commit();
+			flag = true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}finally {
+			s.close();
+		}
 		return flag;
 	}
 
-	//this method has been changed by hibernate
+	//this method has been refactored by hibernate
 	public User userLogin(String name,String password) {
 		User user = null;
 		Session s = null;
@@ -84,7 +98,7 @@ public class UserDaoImpl implements UserDao{
 //		return flag;
 //	}
 
-	/* get one user */
+	//this method has been refactored by hibernate
 	public User getUser(Serializable id) {
 		org.hibernate.Session s = null;
 		Transaction tx = null;
@@ -96,38 +110,33 @@ public class UserDaoImpl implements UserDao{
 			s.close();
 		}
 	}
-	
-	@Override
 
-
-
-	
-	public boolean updatePassword (String username, String password) {
+	//this method has been refactored by hibernate
+	public boolean updatePassword (String username , String password) {
 		Boolean flag = false;
-		
-		DbUtil dbutil = new DbUtil();
-		PreparedStatement pstmt = null;
-		String sql = "update tb_user set password = ? where name = ?";
+		Session s = null;
+		Transaction tx = null;
+		String hql = "update User user set user.userName = ? where user.password = ?";
 		try {
-			pstmt = dbutil.getCon().prepareStatement(sql);
-			pstmt.setString(1, password);
-			pstmt.setString(2, username);
-			pstmt.executeUpdate();
+			s = HibernateUtil.getSession();
+			tx = s.beginTransaction();
+			Query query = s.createQuery(hql);
+			query.setString(0, username);
+			query.setString(1, password);
+			query.executeUpdate();
+			tx.commit();
 			flag = true;
-		} catch (SQLException e) {
+		} catch (HibernateException e) {
 			e.printStackTrace();
 		}finally {
-			try {
-				pstmt.close();
-				dbutil.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			if(s != null) {
+				s.close();
 			}
 		}
 		return flag;
 	}
 
-	@Override
+	//this method has been refactored by hibernate
 	public boolean updateSignInfo(User user) {
 		boolean flag = false;
 		Session s = null;
@@ -145,5 +154,44 @@ public class UserDaoImpl implements UserDao{
 		}
 		return flag;
 	}
+
+	@Override
+	public ResultSet getUsers() {
+		// TODO Auto-generated method stub
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "select truename,testnumber,sex,birthday,politics,identity,subject,school,phone,mphone" +
+				",sa,spostcode,ha,hpostcode,lang,category,prize,speciality from tb_user";
+		try {
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			rs = ps.executeQuery();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
+	//this method has been refactored by hibernate
+	public boolean updateUser(User user) {
+		boolean flag = false;
+		Session s = null;
+		Transaction tx = null;
+		try {
+			s = HibernateUtil.getSession();
+			tx = s.beginTransaction();
+			s.update(user);
+			tx.commit();
+			flag = true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}finally {
+			s.close();
+		}
+		return flag;
+	}
+
+	
 	
 }

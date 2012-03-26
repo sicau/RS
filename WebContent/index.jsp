@@ -46,8 +46,7 @@
  
       <footer>
         <p>&copy; Company 2012  
-        <a href="signInfo.jsp">测试</div>
-        </p>
+        <a href="excelDownLoadServlet">测试</a><a href="downLoadServlet?path=D://1332586763603.xls">下载</a></div>
       </footer>
  
     </div> <!-- /container -->

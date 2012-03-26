@@ -1,8 +1,6 @@
 package cn.edu.sicau.rs.dao;
 
 import java.util.List;
-import java.util.Map;
-
 import cn.edu.sicau.rs.bean.UserPager;
 
 public interface AdminUserDao {
