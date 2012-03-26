@@ -31,13 +31,11 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		Transaction tx = null;
 		List userList = null;
 		try {
-			String hql = "from User as user";
 			s = HibernateUtil.getSession();
-			tx = s.beginTransaction();
+			String hql = "from User as user";
 			Query query = s.createQuery(hql);
 			userList = query.list();
 		}catch(HibernateException e) {
-
 			e.printStackTrace();
 		}
 		return userList;
