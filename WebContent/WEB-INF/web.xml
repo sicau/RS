@@ -4,9 +4,11 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+<!-- 
   <listener>
     <listener-class>cn.edu.sicau.rs.listener.UserLoginListener</listener-class>
   </listener>
+-->
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.LoginServlet</servlet-class>
@@ -71,9 +73,11 @@
     <servlet-name>DownLoadServlet</servlet-name>
     <url-pattern>/downLoadServlet</url-pattern>
   </servlet-mapping>
+<!--   
   <listener>
     <listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
   </listener>
+-->
   <servlet>
     <servlet-name>AdminLoginServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.AdminLoginServlet</servlet-class>
