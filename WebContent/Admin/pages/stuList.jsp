@@ -76,7 +76,7 @@
 			<c:forEach items="${stuList}" varStatus="i" var="item" >   
 	            <tr class="gradeX">
 					<td class="center">
-						<a href="stuShowViewServlet?${item.id}">${item.userName}</a>
+						<a href="stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
 					</td>
 					<td class="center">${item.sex}</td>
 					<td class="center">${item.birthday}</td>
