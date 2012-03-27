@@ -29,10 +29,10 @@ public class StuShowViewServlet extends HttpServlet{
 		User user = null;
 		try {
 			
-			//user = model.getUser(id);
+			user = model.getUser(id);
 			
-//			request.getSession().setAttribute("user", user); 
-//			response.sendRedirect("stuShowView.jsp");
+			request.getSession().setAttribute("user", user); 
+			response.sendRedirect("stuShowView.jsp");
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
