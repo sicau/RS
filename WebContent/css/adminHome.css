@@ -1,5 +1,22 @@
 body {
-	margin-top:60px;
+	margin-top:100px;
+	background-color:#b8c4cb;
+}
+
+.wired {
+	margin-left:0px;
+	position:fixed;
+	top:0px;
+	background-color:white;
+	width:100%;
+	height:80px;
+	border-bottom:2px solid black;
+	display:inline-table;
+}
+
+.wired h2 {
+	margin-top:20px;
+	display:inline-table;
 }
 
 iframe {

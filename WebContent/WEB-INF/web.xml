@@ -39,6 +39,10 @@
     <servlet-name>StuListServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.StuListServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>StuShowViewServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.StuShowViewServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
@@ -91,8 +95,12 @@
     <servlet-name>DeleteFileServlet</servlet-name>
     <url-pattern>/DeleteFileServlet</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>StuListServlet</servlet-name>
-    <url-pattern>/stuListServlet</url-pattern>
+    <url-pattern>/Admin/pages/stuListServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>StuShowViewServlet</servlet-name>
+    <url-pattern>/Admin/pages/stuShowViewServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -9,6 +9,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/dataTable.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/stuList.css" />
 	<style type="text/css" media="screen">
 		@import "../../css/jquery-ui.css";		
 	</style>
@@ -16,6 +17,7 @@
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-ui.js"></script>
+	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/stuList.js"></script>
 	<script type="text/javascript">
 	$('document').ready(function() {
 		$('#example').dataTable( {
@@ -44,6 +46,20 @@
 	<title>所有报名者信息</title>
 </head>
 <body>
+	<h2>	
+	<c:if test="${type==0}">
+		报考学生列表
+    </c:if>
+    <c:if test="${type==1}">
+		初试学生列表
+    </c:if>
+    <c:if test="${type==2}">
+		复试学生列表
+    </c:if>
+    <c:if test="${type==3}">
+		录取学生列表
+    </c:if>   
+	</h2>
 	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 		<thead>
 			<tr>
@@ -59,7 +75,9 @@
 		<tbody>
 			<c:forEach items="${stuList}" varStatus="i" var="item" >   
 	            <tr class="gradeX">
-					<td class="center">${item.userName}</td>
+					<td class="center">
+						<a href="stuShowViewServlet?${item.id}">${item.userName}</a>
+					</td>
 					<td class="center">${item.sex}</td>
 					<td class="center">${item.birthday}</td>
 					<td class="center">${item.politics}</td>
