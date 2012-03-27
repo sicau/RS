@@ -67,6 +67,7 @@ public class Model {
 	public List getAllUsers() {
 		return aud.getAllUsers();
 	}
+	
 	public boolean deleteUserById(int id) {
 		return aud.deleteUserById(id);
 	}
@@ -75,6 +76,11 @@ public class Model {
 	}
 	public boolean verifyStu(int id, int type) {
 		return aud.verifyStu(id, type);
+	}
+
+
+	public List stuList(int type) {
+		return aud.stuList(type);
 	}
 
 
