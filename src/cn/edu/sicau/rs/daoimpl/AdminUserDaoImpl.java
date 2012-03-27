@@ -26,18 +26,15 @@ public class AdminUserDaoImpl implements AdminUserDao {
 
 	@Override
 	public List getAllUsers() {
-		// TODO Auto-generated method stub
 		Session s = null;
 		Transaction tx = null;
 		List userList = null;
 		try {
-			String hql = "from User as user";
 			s = HibernateUtil.getSession();
-			tx = s.beginTransaction();
+			String hql = "from User as user";
 			Query query = s.createQuery(hql);
 			userList = query.list();
 		}catch(HibernateException e) {
-
 			e.printStackTrace();
 		}
 		return userList;
@@ -192,6 +189,23 @@ public class AdminUserDaoImpl implements AdminUserDao {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public List stuList(int type) {
+		Session s = null;
+		Transaction tx = null;
+		List userList = null;
+		try {
+			s = HibernateUtil.getSession();
+			String hql = "from User as user where user.type = ?";
+			Query query = s.createQuery(hql);
+			query.setLong(0, type);
+			userList = query.list();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+		}
+		return userList;
 	}
 
 }

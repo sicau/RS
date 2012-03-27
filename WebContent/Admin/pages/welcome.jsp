@@ -5,13 +5,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/stuList.css" />
 	<title>欢迎您</title>
 </head>
 <body>
 	 <div class="hero-unit">
 	     <h1>欢迎您</h1>
-	     <p>这里是四川农业大学自主招生管理系统</p>
-	     
+	     <p>这里是四川农业大学自主招生管理系统</p>  
      </div>
 </body>
 </html>
