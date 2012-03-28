@@ -5,13 +5,16 @@ import java.util.Map;
 import java.sql.ResultSet;
 import java.util.List;
 import cn.edu.sicau.rs.bean.Admin;
+import cn.edu.sicau.rs.bean.News;
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.bean.UserPager;
 import cn.edu.sicau.rs.dao.AdminLoginDao;
 import cn.edu.sicau.rs.dao.AdminUserDao;
+import cn.edu.sicau.rs.dao.NewsDao;
 import cn.edu.sicau.rs.dao.UserDao;
 import cn.edu.sicau.rs.daoimpl.AdminLoginDaoImpl;
 import cn.edu.sicau.rs.daoimpl.AdminUserDaoImpl;
+import cn.edu.sicau.rs.daoimpl.NewsDaoImpl;
 import cn.edu.sicau.rs.daoimpl.UserDaoImpl;
 
 public class Model {
@@ -76,6 +79,27 @@ public class Model {
 	}
 	public boolean verifyStu(int id, int type) {
 		return aud.verifyStu(id, type);
+	}
+	
+	/*news*/
+	NewsDao nd = new NewsDaoImpl();
+	public boolean addNews(News news){
+		return nd.addNews(news);
+	}
+	public boolean delNews(int ids[]) {
+		return nd.delNews(ids);
+	}
+	public boolean updateNews() {
+		return nd.updateNews();
+	}
+	public Map getAllNews() {
+		return nd.getAllNews();
+	}
+	public List getAllNewses() {
+		return nd.getAllNewses();
+	}
+	public News getByID(int id) {
+		return nd.getByID(id);
 	}
 
 

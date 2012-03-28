@@ -132,11 +132,10 @@
     <div class="form-actions">
         	<button type="submit" class="btn btn-primary">提交</button>
             <a class="btn">取消</a>
+            <a href="downInfo.jsp">下载</a>
     </div>
    
    </form>
-   
-  <input type="button" onclick="exportword(PrintA);" value="导出Word"/>
 
 </body>
 </html>
