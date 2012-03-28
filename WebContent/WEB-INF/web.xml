@@ -3,109 +3,92 @@
   <display-name>RS</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
-   
   </welcome-file-list>
   <listener>
-       <listener-class>cn.edu.sicau.rs.listener.UserLoginListener</listener-class>
+    <listener-class>cn.edu.sicau.rs.listener.UserLoginListener</listener-class>
   </listener>
-  
   <servlet>
-     <servlet-name>LoginServlet</servlet-name>
-     <servlet-class>cn.edu.sicau.rs.servlet.LoginServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-      <servlet-name>RegisterServlet</servlet-name>
-      <servlet-class>cn.edu.sicau.rs.servlet.RegisterServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-       <servlet-name>UpdatepwdServlet</servlet-name>
-       <servlet-class>cn.edu.sicau.rs.servlet.UpdatePasswordSerlvet</servlet-class>
-  </servlet>
-  
-  <servlet>
-       <servlet-name>UpdateSignInfoServlet</servlet-name>
-       <servlet-class>cn.edu.sicau.rs.servlet.UpdateSignInfoServlet</servlet-class>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet>
-  		<servlet-name>UploadServlet</servlet-name>
-  		<servlet-class>cn.edu.sicau.rs.servlet.UploadServlet</servlet-class>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.RegisterServlet</servlet-class>
   </servlet>
-  
-  
-  
+  <servlet>
+    <servlet-name>UpdatepwdServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.UpdatePasswordSerlvet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateSignInfoServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.UpdateSignInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.UploadServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
-      <servlet-name>LoginServlet</servlet-name>
-      <url-pattern>/login</url-pattern>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-      <servlet-name>RegisterServlet</servlet-name>
-      <url-pattern>/register</url-pattern>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-       <servlet-name>UpdatepwdServlet</servlet-name>
-       <url-pattern>/updatepwd</url-pattern>
+    <servlet-name>UpdatepwdServlet</servlet-name>
+    <url-pattern>/updatepwd</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-       <servlet-name>UpdateSignInfoServlet</servlet-name>
-       <url-pattern>/updateSignInfo</url-pattern>
+    <servlet-name>UpdateSignInfoServlet</servlet-name>
+    <url-pattern>/updateSignInfo</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  		<servlet-name>UploadServlet</servlet-name>
-  		<url-pattern>/uploadServlet</url-pattern>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/uploadServlet</url-pattern>
   </servlet-mapping>
-  
-
-  
-  
-  
-  <!-- 后台部分 -->
   <listener>
-  		<listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
+    <listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
   </listener>
-  
-  <!-- 
-  <filter>
-  		<filter-name>code</filter-name>
-  		<filter-class>cn.edu.sicau.rs.filter.UnicodeFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  		<filter-name>code</filter-name>
-  		<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  		<filter-name>adminlogin</filter-name>
-  		<filter-class>cn.edu.sicau.rs.filter.AdminLoginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  		<filter-name>adminlogin</filter-name>
-  		<url-pattern>/Admin/pages/*</url-pattern>
-  </filter-mapping>
-  -->
- <!-- 
-  <filter>
-  		<filter-name>code</filter-name>
-  		<filter-class></filter-class>
-  </filter>
-  <filter-mapping>
-  		<filter-name>code</filter-name>
-  		<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  -->
   <servlet>
-  		<servlet-name>AdminLoginServlet</servlet-name>
-  		<servlet-class>cn.edu.sicau.rs.servlet.AdminLoginServlet</servlet-class>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.AdminLoginServlet</servlet-class>
   </servlet>
-  
-  
   <servlet-mapping>
-  		<servlet-name>AdminLoginServlet</servlet-name>
-  		<url-pattern>/adminLoginServlet</url-pattern>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <url-pattern>/adminLoginServlet</url-pattern>
   </servlet-mapping>
-
   <session-config>
-        <session-timeout>1</session-timeout>
+    <session-timeout>1</session-timeout>
   </session-config>
+  <servlet>
+    <description></description>
+    <display-name>AddNewsServlet</display-name>
+    <servlet-name>AddNewsServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.AddNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddNewsServlet</servlet-name>
+    <url-pattern>/AddNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListNewsServlet</display-name>
+    <servlet-name>ListNewsServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.ListNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListNewsServlet</servlet-name>
+    <url-pattern>/ListNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetOneNewsServlet</display-name>
+    <servlet-name>GetOneNewsServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.GetOneNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetOneNewsServlet</servlet-name>
+    <url-pattern>/GetOneNewsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

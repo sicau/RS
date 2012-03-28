@@ -22,7 +22,7 @@
    <%@include file="nav.jsp" %>
    
    
-   <form action="updateSignInfo" method = "post">	
+  <form action="updateSignInfo" method = "post">	
    	<input type="hidden" name="user_id" id="user_id" value="${user.id}"/>
     <div class="signInfo signInfo-container">
  	
@@ -130,10 +130,9 @@
     <div class="form-actions">
         	<button type="submit" class="btn btn-primary">提交</button>
             <a class="btn">取消</a>
+            <a href="downInfo.jsp">下载</a>
     </div>
    
    </form>
-   
-
 </body>
 </html>
