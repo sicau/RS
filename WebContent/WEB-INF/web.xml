@@ -8,7 +8,10 @@
   <listener>
     <listener-class>cn.edu.sicau.rs.listener.UserLoginListener</listener-class>
   </listener>
+<<<<<<< HEAD
 -->
+=======
+>>>>>>> 7b5c40f85acec7da85faff712912e3115a23526e
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.LoginServlet</servlet-class>
@@ -90,7 +93,6 @@
     <session-timeout>1</session-timeout>
   </session-config>
   <servlet>
-    <description></description>
     <display-name>DeleteFileServlet</display-name>
     <servlet-name>DeleteFileServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.DeleteFileServlet</servlet-class>
@@ -106,5 +108,34 @@
    <servlet-mapping>
     <servlet-name>StuShowViewServlet</servlet-name>
     <url-pattern>/Admin/pages/stuShowViewServlet</url-pattern>
+    </servlet-mapping>
+  <servlet>
+    <display-name>AddNewsServlet</display-name>
+    <servlet-name>AddNewsServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.AddNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddNewsServlet</servlet-name>
+    <url-pattern>/AddNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListNewsServlet</display-name>
+    <servlet-name>ListNewsServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.ListNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListNewsServlet</servlet-name>
+    <url-pattern>/ListNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetOneNewsServlet</display-name>
+    <servlet-name>GetOneNewsServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.GetOneNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetOneNewsServlet</servlet-name>
+    <url-pattern>/GetOneNewsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -24,7 +24,7 @@
    <%@include file="nav.jsp" %>
    
    
-   <form action="updateSignInfo" method = "post">	
+   <form action="updateSignInfo" method = "post" enctype="multipart/form-data">
    	<input type="hidden" name="id" id="id" value="${user.id}"/>
     <div class="signInfo signInfo-container">
  	
@@ -132,11 +132,10 @@
     <div class="form-actions">
         	<button type="submit" class="btn btn-primary">提交</button>
             <a class="btn">取消</a>
+            <a href="downInfo.jsp">下载</a>
     </div>
    
    </form>
-   
-  <input type="button" onclick="exportword(PrintA);" value="导出Word"/>
 
 </body>
 </html>
