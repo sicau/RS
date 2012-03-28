@@ -156,16 +156,39 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public ResultSet getUsers() {
+	public ResultSet getUsers(int type) {
 		// TODO Auto-generated method stub
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select truename,testnumber,sex,birthday,politics,identity,subject,school,phone,mphone" +
-				",sa,spostcode,ha,hpostcode,lang,category,prize,speciality from tb_user";
+		String sql = "select truename," +
+						"testnumber," +
+						"sex," +
+						"birthday," +
+						"politics," +
+						"identity," +
+						"subject," +
+						"school," +
+						"phone," +
+						"mphone," +
+						"sa," +
+						"spostcode," +
+						"ha," +
+						"hpostcode," +
+						"lang," +
+						"category," +
+						"prize," +
+						"speciality " +
+						"from tb_user";
 		try {
+			if(type != 0) {
+				sql = sql + " where type = ?";
+			}
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
+			if(type != 0) {
+				ps.setLong(1, type);
+			}
 			rs = ps.executeQuery();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -192,6 +215,4 @@ public class UserDaoImpl implements UserDao{
 		return flag;
 	}
 
-	
-	
 }

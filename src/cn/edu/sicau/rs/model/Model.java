@@ -41,8 +41,8 @@ public class Model {
 		return ud.getUser(id);
 	}
 	
-	public ResultSet getUsers() {
-		return ud.getUsers();
+	public ResultSet getUsers(int type) {
+		return ud.getUsers(type);
 	}
 	
 	public boolean updatePassword (String username, String password) {

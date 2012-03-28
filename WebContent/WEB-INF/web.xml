@@ -8,10 +8,7 @@
   <listener>
     <listener-class>cn.edu.sicau.rs.listener.UserLoginListener</listener-class>
   </listener>
-<<<<<<< HEAD
 -->
-=======
->>>>>>> 7b5c40f85acec7da85faff712912e3115a23526e
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.LoginServlet</servlet-class>
@@ -70,11 +67,11 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ExcelDownLoadServlet</servlet-name>
-    <url-pattern>/excelDownLoadServlet</url-pattern>
+    <url-pattern>/Admin/pages/excelDownLoadServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DownLoadServlet</servlet-name>
-    <url-pattern>/downLoadServlet</url-pattern>
+    <url-pattern>/Admin/pages/downLoadServlet</url-pattern>
   </servlet-mapping>
 <!--   
   <listener>
@@ -99,7 +96,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteFileServlet</servlet-name>
-    <url-pattern>/DeleteFileServlet</url-pattern>
+    <url-pattern>/Admin/pages/DeleteFileServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>StuListServlet</servlet-name>
