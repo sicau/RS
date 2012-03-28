@@ -87,11 +87,9 @@
 				</tr>     
 	    	</c:forEach>   
 		</tbody>
-		  <tfoot>
-		    <a class="btn" href="">导出Excel</a>
-		  </tfoot>
-
-		
 	</table>
+		  
+	<a class="btn" href="excelDownLoadServlet?type=${type}">导出Excel</a>
+
 </body>
 </html>
