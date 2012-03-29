@@ -47,6 +47,7 @@
 			           	<div class="controls">
 			       			<input type="text" class="input-xlarge" id="validation" name="validation">
 			          	</div>
+			          	<label><img src="RandomCodeServlet"></label>
 		        	</div>
 		        
 	            
