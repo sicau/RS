@@ -45,6 +45,10 @@
   <servlet-name>StuShowViewServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.StuShowViewServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>ChangeStuStatusServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.ChangeStuStatusServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
@@ -72,6 +76,10 @@
   <servlet-mapping>
     <servlet-name>DownLoadServlet</servlet-name>
     <url-pattern>/Admin/pages/downLoadServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>ChangeStuStatusServlet</servlet-name>
+    <url-pattern>/Admin/pages/changeStuStatusServlet</url-pattern>
   </servlet-mapping>
 <!--   
   <listener>
