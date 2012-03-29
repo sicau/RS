@@ -12,10 +12,7 @@
 </head>
 <body>
 	<%@include file="navbar.jsp" %>
-	<form action="updateSignInfo" method = "post">	
-   	<input type="hidden" name="id" id="id" value="${user.id}"/>
     <div class="signInfo signInfo-container">
- 	
       <table width="831" height="661" border="1">
       	  <h2>四川农业大学2012年自主选拔录取考生报名表</h2>
       	  <br/> 
@@ -93,12 +90,18 @@
  	
     </div> <!-- /container -->
     
-    <div class="form-actions">
+   		<form class="form-actions well form-inline" action="changeStuStatusServlet">
+   		 	<input type="hidden" name="id" id="id" value="${user.id}"/>
+   			<label>考生状态:</label>
+   			<select class="check-result" name="type">
+   				 <option value ="0">审核中</option>
+				 <option value ="1">通过初试</option>
+				 <option value="2">通过复试</option>
+				 <option value="3">已录取</option>
+   			</select>
         	<button type="submit" class="btn btn-primary">提交</button>
             <a class="btn">取消</a>
-    </div>
-   
-   </form>
-	
+        </form>
+   	
 </body>
 </html>
