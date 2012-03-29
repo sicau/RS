@@ -16,7 +16,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import cn.edu.sicau.rs.exception.PictureErrorException;
 
 public class Picture {
-	public boolean uploadImg(HttpServletRequest request, String id) throws UnsupportedEncodingException{
+	public String uploadImg(HttpServletRequest request) throws UnsupportedEncodingException{
 		
 		final long MAX_SIZE = 3*1024*1024;
 		
@@ -39,19 +39,20 @@ public class Picture {
 	    if(fileList == null || fileList.size() == 0) {
     		throw new PictureErrorException("上传图片错误，没有选择图片！");
 	    }
+
 	    Iterator fileItr = fileList.iterator();
 	    while (fileItr.hasNext()) {
 	    	FileItem fileItem = null;
 	    	String path = null;
 	    	long size = 0;
+	    	
 	    	fileItem = (FileItem) fileItr.next();
-	    	if(fileItem == null || fileItem.isFormField()) {
-	    		String formName = fileItem.getString();
-	    		String value = fileItem.getFieldName();
-	    		value = new String(value.getBytes(), "gb2312");
-	    		formName = new String(formName.getBytes(), "gb2312"); 
-	    		System.out.println(formName);
-	    		//continue;    //忽略非type=“file”字段
+	    	if (fileItem.isFormField()) {
+	    		String content = fileItem.getString("UTF-8");        
+	    		String fieldName = fileItem.getFieldName();     
+	    		
+	    		request.getSession().setAttribute(fieldName, content);
+	    		
 	    	}else {
 	    		path = fileItem.getName();     //得到文件的完整路径
 		    	size = fileItem.getSize();     //get file size
@@ -69,16 +70,15 @@ public class Picture {
 		    	String u_name = now+"."+t_ext;    //重命名
 		    	try {
 		    		fileItem.write(new File(paths, u_name));
-		    		System.out.println(u_name + size );
-		    		return true;
+		    		System.out.println(u_name);
+		    		return paths+u_name;
 		    	} catch(Exception e) {
 		    		e.printStackTrace();
 		    	}
 	    	}
 	    	  
-		    	
 	    }
-	    return false;
+	    return null;
 	}
 
 }
