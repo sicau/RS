@@ -4,11 +4,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-<!-- 
-  <listener>
-    <listener-class>cn.edu.sicau.rs.listener.UserLoginListener</listener-class>
-  </listener>
--->
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.LoginServlet</servlet-class>
@@ -42,8 +37,12 @@
     <servlet-class>cn.edu.sicau.rs.servlet.StuListServlet</servlet-class>
   </servlet>
   <servlet>
-  <servlet-name>StuShowViewServlet</servlet-name>
+    <servlet-name>StuShowViewServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.StuShowViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ChangeStuStatusServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.ChangeStuStatusServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -72,6 +71,10 @@
   <servlet-mapping>
     <servlet-name>DownLoadServlet</servlet-name>
     <url-pattern>/Admin/pages/downLoadServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>ChangeStuStatusServlet</servlet-name>
+    <url-pattern>/Admin/pages/changeStuStatusServlet</url-pattern>
   </servlet-mapping>
 <!--   
   <listener>
@@ -102,10 +105,10 @@
     <servlet-name>StuListServlet</servlet-name>
     <url-pattern>/Admin/pages/stuListServlet</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>StuShowViewServlet</servlet-name>
     <url-pattern>/Admin/pages/stuShowViewServlet</url-pattern>
-    </servlet-mapping>
+  </servlet-mapping>
   <servlet>
     <display-name>AddNewsServlet</display-name>
     <servlet-name>AddNewsServlet</servlet-name>
@@ -134,5 +137,25 @@
   <servlet-mapping>
     <servlet-name>GetOneNewsServlet</servlet-name>
     <url-pattern>/GetOneNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RandomCodeServlet</display-name>
+    <servlet-name>RandomCodeServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.RandomCodeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RandomCodeServlet</servlet-name>
+    <url-pattern>/RandomCodeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckRandomCode</display-name>
+    <servlet-name>CheckRandomCode</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.CheckRandomCode</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckRandomCode</servlet-name>
+    <url-pattern>/CheckRandomCode</url-pattern>
   </servlet-mapping>
 </web-app>

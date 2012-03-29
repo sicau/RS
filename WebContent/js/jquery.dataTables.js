@@ -1942,8 +1942,8 @@
 			
 			var sSearchStr = oSettings.oLanguage.sSearch;
 			sSearchStr = (sSearchStr.indexOf('_INPUT_') !== -1) ?
-			  sSearchStr.replace('_INPUT_', '<input type="text" />') :
-			  sSearchStr==="" ? '<input type="text" />' : sSearchStr+' <input type="text" />';
+			  sSearchStr.replace('_INPUT_', '<input type="text" class="serach"/>') :
+			  sSearchStr==="" ? '<input type="text" class="serach"/>' : sSearchStr+' <input type="text" class="serach"/>';
 			
 			var nFilter = document.createElement( 'div' );
 			nFilter.className = oSettings.oClasses.sFilter;

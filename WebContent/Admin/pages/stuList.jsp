@@ -9,7 +9,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/dataTable.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/stuList.css" />
 	<style type="text/css" media="screen">
 		@import "../../css/jquery-ui.css";		
 	</style>

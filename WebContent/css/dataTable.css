@@ -1,3 +1,17 @@
+body {
+	background-color:#b8c4cb;
+}
+
+.volume {
+	width:70px;
+	margin-right:0px;
+	diaplay:inline-table;
+}
+
+#example_length {
+	width:450px;
+}
+
 .dataTables_info { 
 	padding-top: 0; 
 }

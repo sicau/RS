@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.HibernateException;
 
-import com.jspsmart.upload.SmartUpload;
-import com.jspsmart.upload.SmartUploadException;
 
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.exception.PictureErrorException;
@@ -21,40 +19,38 @@ public class UpdateSignInfoServlet extends HttpServlet {
 	public void doGet (HttpServletRequest request, HttpServletResponse response) 
 	        throws ServletException , IOException {
 		request.setCharacterEncoding("UTF-8");
-		
-		
-		request.setCharacterEncoding("UTF-8");
-		User user = new User();
 		Model model = new Model();
-		int id  = Integer.parseInt(request.getParameter("id"));
-		user = model.getUser(id);
+		Picture picture = new Picture();
+		try {
+			String src = picture.uploadImg(request);
+			User user = new User();
+			user.setTrueName((String)request.getSession().getAttribute("truename"));
+			System.out.println((String)request.getSession().getAttribute("truename"));
+			user.setTestNumber("123446");
+			user.setSex((String)request.getSession().getAttribute("sex"));
+			user.setBirthday((String)request.getSession().getAttribute("birthday"));
+			user.setPolitics((String)request.getSession().getAttribute("politics"));
+			user.setIdentity((String)request.getSession().getAttribute("identity"));
+			user.setSubject((String)request.getSession().getAttribute("subject"));
+			user.setSchool((String)request.getSession().getAttribute("school"));
+			user.setPhone((String)request.getSession().getAttribute("phone"));
+			user.setMphone((String)request.getSession().getAttribute("mphone"));
+			user.setSa((String)request.getSession().getAttribute("sa"));
+			user.setSpostcode((String)request.getSession().getAttribute("spostcode"));
+			user.setHa((String)request.getSession().getAttribute("ha"));
+			user.setHpostcode((String)request.getSession().getAttribute("hpostcode"));
+			user.setLang((String)request.getSession().getAttribute("lang"));
+			user.setCategory((String)request.getSession().getAttribute("category"));
+			user.setPrize((String)request.getSession().getAttribute("prize"));
+			user.setSrc(src);
+			user.setSpeciality((String)request.getSession().getAttribute("speciality"));
+			
+			model.updateSignInfo(user);
+			
+			request.getRequestDispatcher("selfHome.jsp").forward(request, response);
 		
-		user.setTrueName(request.getParameter("truename"));
-		user.setTestNumber("123446");
-		user.setSex(request.getParameter("sex"));
-		user.setBirthday(request.getParameter("birthday"));
-		System.out.println(request.getParameter("birthday"));
-		user.setPolitics(request.getParameter("politics"));
-		user.setIdentity(request.getParameter("identity"));
-		user.setSubject(request.getParameter("subject"));
-		user.setSchool(request.getParameter("school"));
-		user.setPhone(request.getParameter("phone"));
-		user.setMphone(request.getParameter("mphone"));
-		user.setSa(request.getParameter("sa"));
-		user.setSpostcode(request.getParameter("spostcode"));
-		user.setHa(request.getParameter("ha"));
-		user.setHpostcode(request.getParameter("hpostcode"));
-		user.setLang(request.getParameter("lang"));
-		user.setCategory(request.getParameter("category"));
-		user.setPrize(request.getParameter("prize"));
-		user.setSpeciality(request.getParameter("speciality"));
-		
-		try{
-			model.updateSignInfo(user); 
-			response.sendRedirect("selfHome.jsp");
-		} catch(HibernateException e) {
-			e.printStackTrace();
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+		} catch(PictureErrorException e) {
+			request.setAttribute("massage", e.getMessage());
 		}
 	}
 	
@@ -63,5 +59,5 @@ public class UpdateSignInfoServlet extends HttpServlet {
 		this.doGet(request, response);
 	}
 
-	//test
+	
 }
