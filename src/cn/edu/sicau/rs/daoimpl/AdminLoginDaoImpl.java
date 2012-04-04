@@ -3,47 +3,54 @@ package cn.edu.sicau.rs.daoimpl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 
 
 import cn.edu.sicau.rs.bean.Admin;
+import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.common.DbUtil;
+import cn.edu.sicau.rs.common.HibernateUtil;
 import cn.edu.sicau.rs.dao.AdminLoginDao;
+import cn.edu.sicau.rs.exception.ErrPwdException;
 import cn.edu.sicau.rs.exception.NameNotFound;
+import cn.edu.sicau.rs.exception.NameNotFoundException;
 import cn.edu.sicau.rs.exception.PasswordError;
 
 public class AdminLoginDaoImpl implements AdminLoginDao {
 
 	@Override
-	public boolean login(Admin admin) {
-		// TODO Auto-generated method stub
-		DbUtil dbutil = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
+	public Admin login(Admin admin) {
+		Admin ad = null;
+		Session s = null;
+		String password = admin.getPassword();
 		try {
-			dbutil = new DbUtil();
-			String sql = "select * from tb_admin where adminname = ?";
-			ps = dbutil.getCon().prepareStatement(sql);
-			ps.setString(1, admin.getAdminName());
-			rs = ps.executeQuery();
-			if(rs.next()) {
-				if(rs.getString("password").equals(admin.getPassword())) {
-					return true;
-				} else {
-					throw new PasswordError("密码错误！");
+			s = HibernateUtil.getSession();
+			String hql = "from Admin as admin where admin.adminName = ?";
+			Query query = s.createQuery(hql);
+			query.setString(0, admin.getAdminName());
+			List list = query.list();
+			if(list.size()!= 0) {
+				ad = (Admin)list.get(0);
+				if(!password.equals(ad.getPassword())) {
+					throw new ErrPwdException("密码不正确！！");
 				}
-			} else {
-				throw new NameNotFound("账号错误！");
+			}else {
+				throw new NameNotFoundException("用户名不存在！！");
 			}
-		} catch (NameNotFound nnf) { 
-			throw nnf;
-		} catch (PasswordError pe) {
-			throw pe;
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			e.printStackTrace();
+		}finally {
+			if(s!=null) {
+				s.close();
+			}
 		}
-
-		return false;
+		return ad;
 	}
 
 	@Override

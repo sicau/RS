@@ -1,12 +1,32 @@
 package cn.edu.sicau.rs.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tb_user")
 public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@Column(name="signumber")
 	private String sigNumber;
+	
+	@Column(name="username")
 	private String userName;
 	private String password;
+	
+	@Column(name="truename")
 	private String trueName;
+	
+	@Column(name="testnumber")
 	private String testNumber;
+	
 	private String sex;
 	private String birthday;
 	private String politics;

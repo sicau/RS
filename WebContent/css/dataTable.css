@@ -8,10 +8,6 @@ body {
 	diaplay:inline-table;
 }
 
-#example_length {
-	width:450px;
-}
-
 .dataTables_info { 
 	padding-top: 0; 
 }
@@ -21,7 +17,7 @@ body {
 }
 
 .css_right { 
-		float: right;
+	float: right;
 }
 
 #example_wrapper .fg-toolbar { 
@@ -36,4 +32,25 @@ body {
 .fg-button {
 	margin:0px 5px 0px 5px;
 	cursor:pointer;
+}
+
+.btn:link {
+	color:black;
+	display:block;
+	width:75px;
+	height:20px;
+	border:2px solid #BBBBBB;
+	background-color:#D4FFD4;
+	text-decoration:none;
+}
+
+.btn:visited {
+	color:black;
+	border:2px solid #BBBBBB;
+	text-decoration:none;
+}
+
+.btn:hover {
+	border:2px solid #BBBBBB;
+	background-color:#E6E6E6;
 }

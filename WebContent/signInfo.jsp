@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +18,7 @@
 	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
 	<script type="text/javascript" src="js/signInfo.js"></script>
 	
-	   <script type="text/javascript" src="js/My.js"></script>
+	<script type="text/javascript" src="js/My.js"></script>
 	   
 </head>
 <body>
@@ -45,13 +46,13 @@
 		    <td width="78"><div align="center">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 别</div></td>
 		    <td colspan="2">
 		    	<select name="sex">
-		    		<option value="男" {if user.sex == '男'}selected{{/if}}>男</option>
-		    		<option value="女" {if user.sex == '女'}selected{{/if}}>女</option>
+		    		<option value="男" <c:if test="${user.sex=='男'}">selected</c:if> >男</option>
+		    		<option value="女" <c:if test="${user.sex=='女'}">selected</c:if> >女</option>
 		    	</select>
 		    </td>
 		    <td width="149" rowspan="3">
 		    	<a href="#" class="thumbnail">
-		    		<img id="img-preview" />
+		    		<img id="img-preview" src="${user.src}" />
 		    	</a>
 		    	<input type="file" name="selimg" id="selimg">
 		    </td>
@@ -130,9 +131,19 @@
     </div> <!-- /container -->
     
     <div class="form-actions">
-        	<button type="submit" class="btn btn-primary">提交</button>
+        	<button type="submit" class="btn btn-primary">
+        		<c:if test="${user.id==null}">
+					注册
+    			</c:if>
+    			<c:if test="${user.id!=null}">
+					更新
+    			</c:if>
+        	</button>
             <a class="btn">取消</a>
-            <a href="downInfo.jsp">下载</a>
+            <a class="btn-success btn" href="downInfo.jsp">
+            	<i class="icon-download-alt"></i>
+            	下载
+            </a>
     </div>
    
    </form>

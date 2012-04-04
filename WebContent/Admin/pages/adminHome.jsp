@@ -26,8 +26,8 @@
 	           <li class="li"><a href="stuListServlet?type=1" target="contentIframe">初试学生列表</a></li>
 	           <li class="li"><a href="stuListServlet?type=2" target="contentIframe">复试学生列表</a></li>
 	           <li class="li"><a href="stuListServlet?type=3" target="contentIframe">录取学生列表</a></li>
-	           <li class="nav-header">管理员管理</li>
-	           <li class="li"><a href="#">其他管理员</a></li>
+	           <li class="nav-header">管理员设置</li>
+	           <li class="li"><a href="#">管理员列表</a></li>
 	           <li class="li"><a href="#">修改个人密码</a></li>
 	           <li class="nav-header">新闻发布</li>
 	           <li class="li"><a href="#">Link</a></li>

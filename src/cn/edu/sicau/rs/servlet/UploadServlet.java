@@ -17,15 +17,13 @@ public class UploadServlet extends HttpServlet{
 					throws ServletException , IOException{
 		request.setCharacterEncoding("UTF-8");
 		String dsf = "fdskf";
-//		HttpServletRequest req = request;
+		String path = null;
 		Picture picture = new Picture();
 		try{
-			if(picture.uploadImg(request, dsf)) {
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-			} else {
-				request.getRequestDispatcher("selfHome.jsp").forward(request, response);
-			}
+			path = picture.uploadImg(request);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} catch(PictureErrorException e) {
+			request.getRequestDispatcher("selfHome.jsp").forward(request, response);
 			request.setAttribute("massage", e.getMessage());
 		}
 	}

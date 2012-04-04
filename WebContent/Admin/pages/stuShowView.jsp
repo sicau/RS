@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +30,7 @@
 		    <td colspan="2">${user.sex}</td>
 		    <td width="149" rowspan="3">
 		    	<a href="#" class="thumbnail">
-		    		<img id="img-preview" />
+		    		<img id="img-preview" src="${user.src}" />
 		    	</a>
 		    </td>
 		  </tr>
@@ -94,13 +95,13 @@
    		 	<input type="hidden" name="id" id="id" value="${user.id}"/>
    			<label>考生状态:</label>
    			<select class="check-result" name="type">
-   				 <option value ="0">审核中</option>
-				 <option value ="1">通过初试</option>
-				 <option value="2">通过复试</option>
-				 <option value="3">已录取</option>
+   				 <option value ="0" <c:if test="${user.type==0}">selected</c:if> >审核中</option>
+				 <option value ="1" <c:if test="${user.type==1}">selected</c:if> >通过初试</option>
+				 <option value="2" <c:if test="${user.type==2}">selected</c:if> >通过复试</option>
+				 <option value="3" <c:if test="${user.type==3}">selected</c:if> >已录取</option>
    			</select>
         	<button type="submit" class="btn btn-primary">提交</button>
-            <a class="btn">取消</a>
+            <a class="btn" href="adminHome.jsp">返回</a>
         </form>
    	
 </body>
