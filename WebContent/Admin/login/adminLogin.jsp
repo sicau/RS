@@ -5,33 +5,35 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
-	<link rel="stylesheet" type="text/css" href="../Admin/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="../Admin/css/content.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/adminHome.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/content.css" />
+	
 		
 	<script type="text/javascript" src="../Admin/js/jquery-1.7.1.js" ></script>
-	<script type="text/javascript" src="../Admin/js/stuLogin.js" ></script>
 	
-<title>考生登录</title>
+<title>管理员登录</title>
 </head>
 <body>
-	 <%@include file="nav.jsp" %>
+
+	<%@include file="../pages/navbar.jsp" %>
 
     <form class="form-horizontal" name="login" action="adminLoginServlet" method="post">
     	<fieldset>
-        	<legend>考生登录</legend>
-        	
+        	<legend>管理员登录</legend>
         	<div class="input-container">
 		    	<div class="control-group">
 		        	<label class="control-label" for="username">用户名：</label>
 		            <div class="controls">
-		              <input type="text" class="input-xlarge" id="username" name="username">
+		              <input type="text" class="input-xlarge" id="adminname" name="adminname">
 		            </div>
 		    	</div>
 		    	
 	       		<div class="control-group">
 		           	<label class="control-label" for="psd">密码：</label>
 		           	<div class="controls">
-		       			<input type="text" class="input-xlarge" id="psd" name="password">
+		       			<input type="password" class="input-xlarge" id="password" name="password">
+		       			<p class="help-block">${message}</p>
 		          	</div>
 	        	</div>
             </div>
@@ -39,10 +41,8 @@
             <div class="form-actions">
 	            <button type="submit" class="btn btn-primary">登录</button>
             </div>
-            
      	</fieldset>
     </form>
-    
    
 </body>
 </html>

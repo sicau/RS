@@ -35,7 +35,13 @@ form {
 	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#b8c4cb,endColorStr=#f6f6f8); 
 	background:-moz-linear-gradient(top,#b8c4cb,#f6f6f8);  
 	background:-webkit-gradient(linear, 0% 0%, 100% 100%, from(#b8c4cb), to(#f6f6f8)); 
-} 
+}
 
+.validate-img {
+	margin-bottom:-6px;
+}
 
+.help-block {
+	color:#ff6c00;
+}
 

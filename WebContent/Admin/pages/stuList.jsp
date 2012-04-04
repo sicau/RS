@@ -88,7 +88,7 @@
 		</tbody>
 	</table>
 		  
-	<a class="btn" href="excelDownLoadServlet?type=${type}">导出Excel</a>
+	<a class="btn" href="excelDownLoadServlet?type=${type}" >导出Excel</a>
 
 </body>
 </html>

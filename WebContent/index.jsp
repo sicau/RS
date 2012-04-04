@@ -7,10 +7,11 @@
 	<title>四川农业大学自主招生</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="css/content.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	
-	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>	
 	<script type="text/javascript" src="js/index.js"></script>
-	
+
 </head>
 <body>
 
@@ -20,9 +21,16 @@
  
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <img src="img/sicau.jpg" /> 
-      </div>
- 
+	      <div id="abgneBlock">
+	      	<ul class="list">
+				<li><img src="img/sicau.jpg" /></li>
+				<li><img src="img/sicau.jpg" /></li>
+				<li><img src="img/sicau.jpg" /></li>
+				<li><img src="img/sicau.jpg" /></li>
+				<li><img src="img/sicau.jpg" /></li>
+			</ul>
+	      </div>
+ 	 </div>
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
@@ -46,7 +54,7 @@
  
       <footer>
         <p>&copy; Company 2012  
-        <a href="Admin/pages/adminHome.jsp">测试</a><a href="downLoadServlet?path=D://1332586763603.xls">下载</a></div>
+        <a href="Admin/login/adminLogin.jsp">后台登陆</a></div>
       </footer>
  
     </div> <!-- /container -->

@@ -31,28 +31,28 @@
 		       		<div class="control-group">
 			           	<label class="control-label" for="psd">密码：</label>
 			           	<div class="controls">
-			       			<input type="text" class="input-xlarge" id="psd" name="password">
+			       			<input type="password" class="input-xlarge" id="psd" name="password">
 			          	</div>
 		        	</div>
 		        	
 		        	<div class="control-group">
 			           	<label class="control-label" for="rePsd">确认密码：</label>
 			           	<div class="controls">
-			       			<input type="text" class="input-xlarge" id="rePsd" name="rePsd">
+			       			<input type="password" class="input-xlarge" id="rePsd" name="rePsd">
 			          	</div>
 		        	</div>
 		        	
 		        	<div class="control-group">
 			           	<label class="control-label" for="validation">验证码：</label>
 			           	<div class="controls">
-			       			<input type="text" class="input-xlarge" id="validation" name="validation">
+			       			<input type="text" class="input-medium" id="validation" name="validation">
+			       			<img class="validate-img" src="RandomCodeServlet">
 			          	</div>
-			          	<label><img src="RandomCodeServlet"></label>
 		        	</div>
 		        
 	            
 	            <div class="form-actions">
-		            <button type="submit" class="btn btn-primary">注册</button>
+		            <button type="submit" class="btn btn-primary">下一步</button>
 	            </div>
 	            
 	     	</fieldset>

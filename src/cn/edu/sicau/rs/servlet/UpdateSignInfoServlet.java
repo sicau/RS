@@ -19,13 +19,12 @@ public class UpdateSignInfoServlet extends HttpServlet {
 	public void doGet (HttpServletRequest request, HttpServletResponse response) 
 	        throws ServletException , IOException {
 		request.setCharacterEncoding("UTF-8");
+		User user = (User)request.getSession().getAttribute("user");
 		Model model = new Model();
 		Picture picture = new Picture();
 		try {
 			String src = picture.uploadImg(request);
-			User user = new User();
 			user.setTrueName((String)request.getSession().getAttribute("truename"));
-			System.out.println((String)request.getSession().getAttribute("truename"));
 			user.setTestNumber("123446");
 			user.setSex((String)request.getSession().getAttribute("sex"));
 			user.setBirthday((String)request.getSession().getAttribute("birthday"));
@@ -45,10 +44,8 @@ public class UpdateSignInfoServlet extends HttpServlet {
 			user.setSrc(src);
 			user.setSpeciality((String)request.getSession().getAttribute("speciality"));
 			
-			model.updateSignInfo(user);
-			
+			model.saveUser(user);
 			request.getRequestDispatcher("selfHome.jsp").forward(request, response);
-		
 		} catch(PictureErrorException e) {
 			request.setAttribute("massage", e.getMessage());
 		}

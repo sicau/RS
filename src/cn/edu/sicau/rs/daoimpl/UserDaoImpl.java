@@ -56,7 +56,7 @@ public class UserDaoImpl implements UserDao{
 			Query query = s.createQuery(hql);
 			query.setString(0, name);
 			List list = query.list();
-			
+			tx.commit();
 			if(list.size()!= 0) {
 				user = (User)list.get(0);
 				if(!password.equals(user.getPassword())) {

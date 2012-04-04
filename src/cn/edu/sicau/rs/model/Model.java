@@ -57,7 +57,7 @@ public class Model {
 	/*admin*/
     AdminLoginDao ald = new AdminLoginDaoImpl();
     AdminUserDao aud = new AdminUserDaoImpl();
-	public boolean login (Admin admin) {
+	public Admin login (Admin admin) {
 		return ald.login(admin);
 	}
 	public boolean updatePassword(Admin admin) {
@@ -69,6 +69,10 @@ public class Model {
 	
 	public List getAllUsers() {
 		return aud.getAllUsers();
+	}
+	
+	public boolean changeStuStatus(int id,int type) {
+		return aud.changeStuStatus(id,type);
 	}
 	
 	public boolean deleteUserById(int id) {
