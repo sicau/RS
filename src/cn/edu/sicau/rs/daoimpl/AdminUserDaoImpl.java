@@ -208,4 +208,25 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		return userList;
 	}
 
+	@Override
+	public boolean changeStuStatus(int id, int type) {
+		boolean flag = false;
+		Session s = null;
+		Transaction tx = null;
+		try {
+			s = HibernateUtil.getSession();
+			tx = s.beginTransaction();
+			String hql = "update User user set user.type = ? where user.id = ?";
+			Query query = s.createQuery(hql);
+			query.setLong(0, type);
+			query.setLong(1, id);
+			query.executeUpdate();
+			tx.commit();
+			flag = true;
+		}catch(HibernateException e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
 }

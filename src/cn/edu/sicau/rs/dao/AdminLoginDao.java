@@ -4,7 +4,7 @@ import cn.edu.sicau.rs.bean.Admin;
 
 public interface AdminLoginDao {
 	
-	public boolean login (Admin admin);
+	public Admin login (Admin admin);
 	public boolean updatePassword(Admin admin);
 	public boolean createAdmin(String adminname,String password);
 

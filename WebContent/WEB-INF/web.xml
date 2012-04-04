@@ -41,7 +41,7 @@
     <servlet-class>cn.edu.sicau.rs.servlet.StuShowViewServlet</servlet-class>
   </servlet>
   <servlet>
-  <servlet-name>ChangeStuStatusServlet</servlet-name>
+  	<servlet-name>ChangeStuStatusServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.ChangeStuStatusServlet</servlet-class>
   </servlet>
   <servlet-mapping>
@@ -87,7 +87,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AdminLoginServlet</servlet-name>
-    <url-pattern>/adminLoginServlet</url-pattern>
+    <url-pattern>/Admin/login/adminLoginServlet</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>1</session-timeout>

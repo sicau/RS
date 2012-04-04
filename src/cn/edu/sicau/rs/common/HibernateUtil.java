@@ -2,6 +2,7 @@ package cn.edu.sicau.rs.common;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 public final class HibernateUtil {
@@ -11,7 +12,7 @@ public final class HibernateUtil {
 	}
 	
 	static {
-		Configuration cfg = new Configuration();
+		AnnotationConfiguration cfg = new AnnotationConfiguration();
 		cfg.configure();
 		sessionFactory = cfg.buildSessionFactory();
 	}
