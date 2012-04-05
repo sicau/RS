@@ -28,7 +28,7 @@
     	<c:forEach var="item" items="${newsList}">
     		<tr align="center">
     			<td><a href="GetOneNewsServlet?id=${item.id}">${item.subject }</a></td>
-    			<td>${item.createTime }  ${item.id }</td>
+    			<td>${item.createTime } </td>
     			
     		</tr>
     	</c:forEach>

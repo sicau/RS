@@ -21,8 +21,9 @@ public class Picture {
 		final long MAX_SIZE = 3*1024*1024;
 		
 		DiskFileItemFactory dfif = new DiskFileItemFactory();   
-	    dfif.setSizeThreshold(4096);  
-	    dfif.setRepository(new File("D://upload"));
+	    dfif.setSizeThreshold(4096);
+	    String route= request.getSession().getServletContext().getRealPath("/");
+	    dfif.setRepository(new File(route+"upload"));
 	    
 	    ServletFileUpload sfu = new ServletFileUpload(dfif);
 	    sfu.setSizeMax(MAX_SIZE);
@@ -64,14 +65,11 @@ public class Picture {
 		    	
 		    	long now = System.currentTimeMillis();
 		    	String prefix = String.valueOf(now);
-		    	String paths = "D:/upload/";  // 指定图片存放目录
-		    	File file = new File(paths);
-		    	file.mkdir();
 		    	String u_name = now+"."+t_ext;    //重命名
 		    	try {
-		    		fileItem.write(new File(paths, u_name));
-		    		System.out.println(u_name);
-		    		return paths+u_name;
+		    		fileItem.write(new File(route+"upload", u_name));
+		    		System.out.println(route+u_name);
+		    		return route+u_name;
 		    	} catch(Exception e) {
 		    		e.printStackTrace();
 		    	}

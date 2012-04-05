@@ -45,7 +45,7 @@
        </div>
         <div class="span4">
           <h2>新闻动态</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><%@ include file="listnews.jsp" %></p>
           <p><a class="btn" href="#">查看详细 &raquo;</a></p>
         </div>
       </div>

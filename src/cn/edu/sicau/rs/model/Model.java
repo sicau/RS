@@ -93,6 +93,9 @@ public class Model {
 	public boolean delNews(int ids[]) {
 		return nd.delNews(ids);
 	}
+	public boolean delNews(int id) {
+		return nd.delNews(id);
+	}
 	public boolean updateNews() {
 		return nd.updateNews();
 	}
