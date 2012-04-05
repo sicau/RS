@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int id;
 	
 	@Column(name="adminname")
 	private String adminName;
@@ -20,10 +20,11 @@ public class Admin {
 	private String type;
 	
 	
-	public String getId() {
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getAdminName() {

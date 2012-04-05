@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
-
-
+<%@ include file = "tools.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 	<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/dataTable.css" />
 	<style type="text/css" media="screen">
@@ -19,7 +18,7 @@
 	<script type="text/javascript">
 	$('document').ready(function() {
 		$('#example').dataTable( {
-		   "bStateSave": true,
+		   "bStateSave":true,
 		   "bJQueryUI": true,
 		   "sPaginationType": "full_numbers",
 		   "oLanguage": {
@@ -41,54 +40,33 @@
 		} );
 	})
 	</script>
-	
-	<title>所有报名者信息</title>
+	<title>管理员权限管理管理</title>
+
 </head>
+
 <body>
-	<h2>	
-	<c:if test="${type==0}">
-		报考学生列表
-    </c:if>
-    <c:if test="${type==1}">
-		初试学生列表
-    </c:if>
-    <c:if test="${type==2}">
-		复试学生列表
-    </c:if>
-    <c:if test="${type==3}">
-		录取学生列表
-    </c:if>   
-	</h2>
-	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+	<h2>管理员列表</h2>
+   <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 		<thead>
 			<tr>
-				<th>姓名</th>
-				<th>性别</th>
-				<th>出生日期</th>
-				<th>政治面貌</th>
-				<th>科类</th>
-				<th>外语语种</th>
-				<th>考生类别</th>
+				<th>序号</th>
+				<th>用户名</th>
+				<th>用户类型</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${stuList}" varStatus="i" var="item" >   
+			<c:forEach items="${adminList}" varStatus="i" var="item" >   
 	            <tr class="gradeX">
+	            	<td class="center">${item.id}</td>
 					<td class="center">
-						<a href="stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
+						<a href="adminShowViewServlet?id=${item.id}">${item.adminName}</a>
 					</td>
-					<td class="center">${item.sex}</td>
-					<td class="center">${item.birthday}</td>
-					<td class="center">${item.politics}</td>
-					<td class="center">${item.subject}</td>
-					<td class="center">${item.lang}</td>
-					<td class="center">${item.category}</td>
+					<td class="center">${item.type}</td>
 				</tr>     
 	    	</c:forEach>   
 		</tbody>
 	</table>
-		  
-	<a class="btn" href="excelDownLoadServlet?type=${type}" >导出Excel</a>
-
+	<a href="" >添加</a>
+	<a href="" >删除</a>
 </body>
 </html>

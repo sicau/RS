@@ -110,6 +110,22 @@ public class UserDaoImpl implements UserDao{
 			s.close();
 		}
 	}
+	
+	@Override
+	public List getAllUsers() {
+		Session s = null;
+		Transaction tx = null;
+		List userList = null;
+		try {
+			s = HibernateUtil.getSession();
+			String hql = "from User as user";
+			Query query = s.createQuery(hql);
+			userList = query.list();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+		}
+		return userList;
+	}
 
 	//this method has been refactored by hibernate
 	public boolean updatePassword (String username , String password) {

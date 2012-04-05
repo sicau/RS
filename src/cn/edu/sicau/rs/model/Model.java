@@ -45,6 +45,10 @@ public class Model {
 		return ud.getUsers(type);
 	}
 	
+	public List getAllUsers() {
+		return ud.getAllUsers();
+	}
+	
 	public boolean updatePassword (String username, String password) {
 		return ud.updatePassword(username,  password );
 	}
@@ -67,8 +71,12 @@ public class Model {
 		return ald.createAdmin(adminname, password);
 	}
 	
-	public List getAllUsers() {
-		return aud.getAllUsers();
+	public Admin getAdmin(int id) {
+		return aud.getAdmin(id);
+	}
+	
+	public List getAllAdmin() {
+		return aud.getAllAdmin();
 	}
 	
 	public boolean changeStuStatus(int id,int type) {
@@ -85,6 +93,10 @@ public class Model {
 		return aud.verifyStu(id, type);
 	}
 	
+	public List stuList(int type) {
+		return aud.stuList(type);
+	}
+
 	/*news*/
 	NewsDao nd = new NewsDaoImpl();
 	public boolean addNews(News news){
@@ -107,9 +119,6 @@ public class Model {
 	}
 
 
-	public List stuList(int type) {
-		return aud.stuList(type);
-	}
-
+	
 
 }
