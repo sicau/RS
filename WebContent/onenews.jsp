@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>${news.subject }</title>
 </head>
 <body>
-	
+
 	<div>
-		<table width="700px">
+		<table width="700px" align="center">
 			<tr>
-			  	<td align="center"colspan="2"><h4>${news.subject }</h4></td>
+			  	<td align="center"colspan="2"><h2>${news.subject }</h2></td>
 			</tr>
 			<tr>
 				<td align="center">作者：${news.author }</td>
@@ -23,5 +23,6 @@
 			</tr>
 		</table>
 	</div>
+	
 </body>
 </html>

@@ -80,15 +80,10 @@
     <servlet-name>DownLoadServlet</servlet-name>
     <url-pattern>/Admin/pages/downLoadServlet</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>ChangeStuStatusServlet</servlet-name>
     <url-pattern>/Admin/pages/changeStuStatusServlet</url-pattern>
   </servlet-mapping>
-<!--   
-  <listener>
-    <listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
-  </listener>
--->
   <servlet>
     <servlet-name>AdminLoginServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.AdminLoginServlet</servlet-class>
@@ -173,5 +168,35 @@
   <servlet-mapping>
     <servlet-name>CheckRandomCode</servlet-name>
     <url-pattern>/CheckRandomCode</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllNewsServlet</display-name>
+    <servlet-name>GetAllNewsServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.GetAllNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllNewsServlet</servlet-name>
+    <url-pattern>/GetAllNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteNewsByIdServlet</display-name>
+    <servlet-name>DeleteNewsByIdServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.DeleteNewsByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteNewsByIdServlet</servlet-name>
+    <url-pattern>/DeleteNewsByIdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TopSignServlet</display-name>
+    <servlet-name>TopSignServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.TopSignServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TopSignServlet</servlet-name>
+    <url-pattern>/TopSignServlet</url-pattern>
   </servlet-mapping>
 </web-app>
