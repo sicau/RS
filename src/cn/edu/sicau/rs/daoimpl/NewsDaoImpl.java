@@ -22,7 +22,7 @@ public class NewsDaoImpl implements NewsDao{
 		// TODO Auto-generated method stub
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
-		String sql = "insert into tb_news values (null,?,?,?,?,?)";
+		String sql = "insert into tb_news values (null,?,?,?,?,?,?)";
 		try {
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
@@ -31,6 +31,7 @@ public class NewsDaoImpl implements NewsDao{
 			ps.setString(3, news.getContent());
 			ps.setString(4, news.getAuthor());
 			ps.setString(5, news.getType());
+			ps.setString(6, news.getTop());
 			
 			int i = ps.executeUpdate();
 			if(i != 0) {
@@ -200,6 +201,72 @@ public class NewsDaoImpl implements NewsDao{
 		}
 		
 		return null;
+	}
+
+	@Override
+	public boolean delNews(int id) {
+		// TODO Auto-generated method stub
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		Connection conn = null;
+		String sql = "delete from tb_news where id = ?";
+		try {
+			dbutil = new DbUtil();
+			conn = dbutil.getCon();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if(i != 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			try {
+				conn.rollback();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}finally {
+			try {
+				ps.close();
+				dbutil.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean topSign(int id,String top) {
+		// TODO Auto-generated method stub
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		String sql;
+		if(top.equals(0)){
+			sql = "update tb_user set top = 1 where id = ?";
+		} else {
+			sql = "update tb_user set top =0 where id = ?";
+		}
+		
+		try {
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if(i != 0) {
+				return true;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				dbutil.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
 	}
 
 }

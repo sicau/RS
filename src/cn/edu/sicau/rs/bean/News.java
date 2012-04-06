@@ -7,8 +7,15 @@ public class News {
 	private String content;
 	private String author;
 	private String type;
+	private String top;
 	
 	
+	public String getTop() {
+		return top;
+	}
+	public void setTop(String top) {
+		this.top = top;
+	}
 	public int getId() {
 		return id;
 	}

@@ -1,5 +1,6 @@
 package cn.edu.sicau.rs.daoimpl;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import org.hibernate.Transaction;
 
 
 
+import cn.edu.sicau.rs.bean.Admin;
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.bean.UserPager;
 import cn.edu.sicau.rs.common.DbUtil;
@@ -25,19 +27,19 @@ import cn.edu.sicau.rs.dao.AdminUserDao;
 public class AdminUserDaoImpl implements AdminUserDao {
 
 	@Override
-	public List getAllUsers() {
+	public List getAllAdmin() {
 		Session s = null;
 		Transaction tx = null;
-		List userList = null;
+		List adminList = null;
 		try {
 			s = HibernateUtil.getSession();
-			String hql = "from User as user";
+			String hql = "from Admin as admin";
 			Query query = s.createQuery(hql);
-			userList = query.list();
+			adminList = query.list();
 		}catch(HibernateException e) {
 			e.printStackTrace();
 		}
-		return userList;
+		return adminList;
 	}
 
 	@Override
@@ -161,7 +163,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		UserPager up = new UserPager();
 		up.setUserMap(userMap);   
 		up.setPageSize(pageSize);    //
-		up.setTotalNum(getAllUsers().size());  //
+		up.setTotalNum(getAllAdmin().size());  //
 		return up;
 	}
 
@@ -229,4 +231,16 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		return flag;
 	}
 
+	@Override
+	public Admin getAdmin(int id) {
+		org.hibernate.Session s = null;
+		Transaction tx = null;
+		try {
+			s = HibernateUtil.getSession();
+			Admin admin = (Admin)s.get(Admin.class, id);
+			return admin;
+		} finally {
+			s.close();
+		}
+	}
 }
