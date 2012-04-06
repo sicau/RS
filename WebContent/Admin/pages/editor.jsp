@@ -27,13 +27,13 @@
 	</script>
 </head>
 <body>
-	<form name="form1" action="AddNewsServlet" method="post">
+	<form name="form1" action="../../AddNewsServlet" method="post">
 		<table width="800px" height="300px" border="01">
 			<tr>
 				<td width="100">新闻类型</td>
 				<td>
-					<input type="radio" name="type" value="1" >通知公告
-					<input type="radio" name="type" value="2">招生新闻
+					<input type="radio" name="type" value="0" >通知公告
+					<input type="radio" name="type" value="1">招生新闻
 				</td>
 				<td>新闻标题</td>
 				<td><input type="text" name="title"/></td>
@@ -42,7 +42,7 @@
 				<td >作&nbsp;&nbsp;&nbsp;&nbsp;者</td>
 				<td><input type="text" name="author"></td>
 				<td >发布时间</td>
-				<td><input type="text" name="time"/></td>
+				<td><input type="text" name="time" value="now"/></td>
 			</tr>
 			<tr>
 				<td>新闻内容</td>

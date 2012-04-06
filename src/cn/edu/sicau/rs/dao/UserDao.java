@@ -20,4 +20,6 @@ public interface UserDao {
 	boolean updatePassword(String username, String password);
 	
 	public ResultSet getUsers(int type);
+
+	public List getAllUsers();
 }

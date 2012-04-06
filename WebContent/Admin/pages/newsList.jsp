@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新闻管理</title>
+  <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/dataTable.css" />
 	<style type="text/css" media="screen">
 		@import "../../css/jquery-ui.css";		
@@ -16,10 +15,10 @@
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-ui.js"></script>
+	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/stuList.js"></script>
 	<script type="text/javascript">
 	$('document').ready(function() {
 		$('#example').dataTable( {
-		   "bStateSave": true,
 		   "bJQueryUI": true,
 		   "sPaginationType": "full_numbers",
 		   "oLanguage": {
@@ -42,53 +41,30 @@
 	})
 	</script>
 	
-	<title>所有报名者信息</title>
 </head>
 <body>
-	<h2>	
-	<c:if test="${type==0}">
-		报考学生列表
-    </c:if>
-    <c:if test="${type==1}">
-		初试学生列表
-    </c:if>
-    <c:if test="${type==2}">
-		复试学生列表
-    </c:if>
-    <c:if test="${type==3}">
-		录取学生列表
-    </c:if>   
-	</h2>
 	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 		<thead>
 			<tr>
-				<th>姓名</th>
-				<th>性别</th>
-				<th>出生日期</th>
-				<th>政治面貌</th>
-				<th>科类</th>
-				<th>外语语种</th>
-				<th>考生类别</th>
+				<th>标题</th>
+				<th>作者</th>
+				<th>发布日期</th>
+				<th>置顶</th>
+				<th>删除</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${stuList}" varStatus="i" var="item" >   
+			<c:forEach items="${newsList}" varStatus="i" var="item" >   
 	            <tr class="gradeX">
-					<td class="center">
-						<a href="stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
-					</td>
-					<td class="center">${item.sex}</td>
-					<td class="center">${item.birthday}</td>
-					<td class="center">${item.politics}</td>
 					<td class="center">${item.subject}</td>
-					<td class="center">${item.lang}</td>
-					<td class="center">${item.category}</td>
+					<td class="center">${item.author}</td>
+					<td class="center">${item.createTime}</td>
+					<td class="center"><a href="../../TopSignServlet?id=${item.id }"></a>置顶</td>
+					<td class="center"><a href="../../DeleteNewsByIdServlet?id=${item.id }">删除</a></td>
 				</tr>     
 	    	</c:forEach>   
 		</tbody>
 	</table>
-		  
-	<a class="btn" href="excelDownLoadServlet?type=${type}" >导出Excel</a>
 
 </body>
 </html>
