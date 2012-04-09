@@ -17,8 +17,8 @@
     <servlet-class>cn.edu.sicau.rs.servlet.UpdatePasswordSerlvet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>UpdateSignInfoServlet</servlet-name>
-    <servlet-class>cn.edu.sicau.rs.servlet.UpdateSignInfoServlet</servlet-class>
+    <servlet-name>SaveSignInfoServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.SaveSignInfoServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>UploadServlet</servlet-name>
@@ -65,8 +65,8 @@
     <url-pattern>/updatepwd</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>UpdateSignInfoServlet</servlet-name>
-    <url-pattern>/updateSignInfo</url-pattern>
+    <servlet-name>SaveSignInfoServlet</servlet-name>
+    <url-pattern>/saveSignInfo</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>

@@ -15,7 +15,7 @@ import cn.edu.sicau.rs.exception.PictureErrorException;
 import cn.edu.sicau.rs.function.Picture;
 import cn.edu.sicau.rs.model.Model;
 
-public class UpdateSignInfoServlet extends HttpServlet {
+public class SaveSignInfoServlet extends HttpServlet {
 	public void doGet (HttpServletRequest request, HttpServletResponse response) 
 	        throws ServletException , IOException {
 		request.setCharacterEncoding("UTF-8");

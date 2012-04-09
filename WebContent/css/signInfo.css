@@ -23,10 +23,23 @@ body {
 	width:160px;
 }
 
+.signInfo .long-input{
+	width:400px;
+}
+
+.signInfo .long-textarea{
+	margin-left:5px;
+	width:700px;
+}
+
 .signInfo select{
 	border:0px;
 	margin:5px;
 	width:60px;
+}
+
+.signInfo #category {
+	width:100px;
 }
 
 .signInfo h2{
@@ -41,4 +54,11 @@ body {
 	background: #2D2D2D;
 	margin-bottom:0px;
 	padding:4px 0 6px 0;
+}
+
+.help-block {
+	color:#ff6c00;
+	margin-top:0px;
+	margin-left:3px;
+	padding-top:0px;
 }
