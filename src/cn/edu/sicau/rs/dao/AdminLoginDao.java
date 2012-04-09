@@ -6,6 +6,6 @@ public interface AdminLoginDao {
 	
 	public Admin login (Admin admin);
 	public boolean updatePassword(Admin admin);
-	public boolean createAdmin(String adminname,String password);
+	public boolean createAdmin(String adminname,String password, int type);
 
 }

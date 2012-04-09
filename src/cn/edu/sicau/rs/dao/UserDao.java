@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import cn.edu.sicau.rs.bean.User;
+import cn.edu.sicau.rs.bean.UserPager;
 
 public interface UserDao {
 	public boolean saveUser(User user);    // зЂВс
@@ -22,4 +23,6 @@ public interface UserDao {
 	public ResultSet getUsers(int type);
 
 	public List getAllUsers();
+	
+
 }
