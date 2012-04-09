@@ -58,12 +58,13 @@ public class AdminLoginDaoImpl implements AdminLoginDao {
 		// TODO Auto-generated method stub
 		DbUtil dbutil = null;
 		PreparedStatement pstmt = null;
-		String sql = "update tb_admin set password = ? where name =?";
+		String sql = "update tb_admin set password = ? , name =? where id = ?";
 		try {
 			dbutil = new DbUtil();
 			pstmt = dbutil.getCon().prepareStatement(sql);
 			pstmt.setString(1, admin.getPassword());
 			pstmt.setString(2, admin.getAdminName());
+			pstmt.setInt(3, admin.getId());
 			int i = pstmt.executeUpdate();
 			if(i != 0) {
 				return true;
@@ -82,17 +83,18 @@ public class AdminLoginDaoImpl implements AdminLoginDao {
 	}
 
 	@Override
-	public boolean createAdmin(String adminname, String password) {
+	public boolean createAdmin(String adminname, String password, int type) {
 		// TODO Auto-generated method stub
 		boolean flag = false;
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
-		String sql = "insert into tb_admin values(null,?,?,null)";
+		String sql = "insert into tb_admin values(null,?,?,?)";
 		try {
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
 			ps.setString(1, adminname);
 			ps.setString(2, password);
+			ps.setInt(3, type);
 			int i = ps.executeUpdate();
 			if(i != 0) {
 				flag = true;

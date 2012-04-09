@@ -11,13 +11,14 @@
 </head>
 <body>
 
-	<form class="form-horizontal">
+	<form class="form-horizontal" action="../../AdminInfoServlet" method="post">
 		<fieldset>
 			<legend>管理员个人信息</legend>
 			<div class="control-group">
 				<label class="control-label" for="adminname">用户名:</label>
 				<div class="controls">
 					<input type="text" class="input-xlarge" id="adminname" name="adminname" value="${admin.adminName}"/>
+					<input type="hidden" name="id" value="${admin.id }"/>
 				</div>
 			</div>
 		

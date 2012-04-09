@@ -20,10 +20,12 @@ public class Picture {
 		
 		final long MAX_SIZE = 3*1024*1024;
 		
+		String filename = null;
 		DiskFileItemFactory dfif = new DiskFileItemFactory();   
 	    dfif.setSizeThreshold(4096);
-	    String route= request.getSession().getServletContext().getRealPath("/");
-	    dfif.setRepository(new File(route+"upload"));
+	    String route= request.getSession().getServletContext().getRealPath("upload")+"\\";
+	    System.out.println(route);
+	    dfif.setRepository(new File(route));
 	    
 	    ServletFileUpload sfu = new ServletFileUpload(dfif);
 	    sfu.setSizeMax(MAX_SIZE);
@@ -50,8 +52,9 @@ public class Picture {
 	    	fileItem = (FileItem) fileItr.next();
 	    	if (fileItem.isFormField()) {
 	    		String content = fileItem.getString("UTF-8");        
-	    		String fieldName = fileItem.getFieldName();     
-	    		
+	    		String fieldName = fileItem.getFieldName();
+	    		//System.out.println(fieldName);
+	    		//System.out.println(content);
 	    		request.getSession().setAttribute(fieldName, content);
 	    		
 	    	}else {
@@ -67,16 +70,16 @@ public class Picture {
 		    	String prefix = String.valueOf(now);
 		    	String u_name = now+"."+t_ext;    //÷ÿ√¸√˚
 		    	try {
-		    		fileItem.write(new File(route+"upload", u_name));
+		    		fileItem.write(new File(route, u_name));
 		    		System.out.println(route+u_name);
-		    		return route+u_name;
+		    		filename = u_name;
 		    	} catch(Exception e) {
 		    		e.printStackTrace();
 		    	}
 	    	}
 	    	  
 	    }
-	    return null;
+	    return filename;
 	}
 
 }

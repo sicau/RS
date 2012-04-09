@@ -16,7 +16,8 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println("username="+username);
+		String code = (String) request.getSession().getAttribute("randomCode");
+		System.out.println("code="+code);
 	    User user = new User();
 	    user.setUserName(username);
 	    user.setPassword(password);

@@ -67,8 +67,8 @@ public class Model {
 	public boolean updatePassword(Admin admin) {
 		return ald.updatePassword(admin);
 	}
-	public boolean createAdmin(String adminname,String password) {
-		return ald.createAdmin(adminname, password);
+	public boolean createAdmin(String adminname,String password,int type) {
+		return ald.createAdmin(adminname, password, type);
 	}
 	
 	public Admin getAdmin(int id) {
@@ -96,6 +96,9 @@ public class Model {
 	public List stuList(int type) {
 		return aud.stuList(type);
 	}
+	public UserPager getUserPage(int index, int pageSize,int type) {
+		return aud.getUserPager(index, pageSize,type);
+	}
 
 	/*news*/
 	NewsDao nd = new NewsDaoImpl();
@@ -120,8 +123,8 @@ public class Model {
 	public News getByID(int id) {
 		return nd.getByID(id);
 	}
-
-
-	
+	public boolean topSign(int id,String top) {
+		return nd.topSign(id, top);
+	}
 
 }
