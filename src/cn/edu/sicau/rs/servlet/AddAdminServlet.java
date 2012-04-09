@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import cn.edu.sicau.rs.model.Model;
 
 /**
- * Servlet implementation class TopSignServlet
+ * Servlet implementation class AddAdminServlet
  */
-public class TopSignServlet extends HttpServlet {
+public class AddAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TopSignServlet() {
+    public AddAdminServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,15 +28,13 @@ public class TopSignServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		int id = Integer.parseInt(request.getParameter("id"));
-		String top = request.getParameter("top");
-		System.out.print(top);
-		Model model = new Model();
-		if(model.topSign(id, top)) {
-			response.sendRedirect("GetAllNewsServlet");
+		String adminame = request.getParameter("adminame");
+		String password = request.getParameter("password");
+		int type = Integer.parseInt( request.getParameter("type") );
+		Model model = new Model(); 
+		if (model.createAdmin(adminame, password, type)) {
+			response.sendRedirect("Admin/pages/addAdmin.jsp");
 		}
-		
-		
 		
 	}
 

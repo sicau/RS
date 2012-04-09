@@ -26,22 +26,28 @@ public class AdminLoginServlet extends HttpServlet{
 		admin.setPassword(password);
 		Model model = new Model();
 		try {
-			model.login(admin);
-			request.getSession().setAttribute("admin", admin);  
-			response.sendRedirect("../pages/adminHome.jsp");
-//			ServletContext context = this.getServletContext();
-//			List adminList = (List) context.getAttribute("adminList");
-//			if(!adminList.contains("admin")) {
-//				request.getSession().setAttribute("admin", admin);
-//				String href = request.getContextPath()+"/Admin/pages/adminConter.jsp";
-//				response.sendRedirect(href);
-//			} else {
-//				request.setAttribute("message", "ÒÑµÇÂ¼");
-//				request.getRequestDispatcher("Admin/pages/adminLogin.jsp").forward(request, response);
-//			}
+			admin = model.login(admin);
+			
+//			request.getSession().setAttribute("admin", admin);  
+//			response.sendRedirect("../pages/adminHome.jsp");
+			ServletContext context = this.getServletContext();
+			List adminList = (List) context.getAttribute("adminList");
+			if(!adminList.contains("admin")) {
+				request.getSession().setAttribute("admin", admin);
+				String href = request.getContextPath()+"/Admin/pages/adminHome.jsp";
+				response.sendRedirect(href);
+			} else {
+				request.setAttribute("message", "ÒÑµÇÂ¼");
+				request.getRequestDispatcher("Admin/pages/adminLogin.jsp").forward(request, response);
+			}
+		} catch(NameNotFound nnf) {
+			request.setAttribute("message", nnf.getMessage());
+			request.getRequestDispatcher("Admin/login/adminLogin.jsp").forward(request, response);
+		} catch(PasswordError pe) {
+			request.setAttribute("message", pe.getMessage());
+			request.getRequestDispatcher("Admin/login/adminLogin.jsp").forward(request, response);
 		} catch (Exception e) {
-			request.setAttribute("message", e.getMessage());
-			request.getRequestDispatcher("../login/adminLogin.jsp").forward(request, response);
+			e.printStackTrace();
 		}
 	}
 	

@@ -59,7 +59,7 @@
 					<td class="center">${item.subject}</td>
 					<td class="center">${item.author}</td>
 					<td class="center">${item.createTime}</td>
-					<td class="center"><a href="../../TopSignServlet?id=${item.id }"></a>置顶</td>
+					<td class="center"><a href="../../TopSignServlet?id=${item.id }&top=${item.top}">置顶</a></td>
 					<td class="center"><a href="../../DeleteNewsByIdServlet?id=${item.id }">删除</a></td>
 				</tr>     
 	    	</c:forEach>   

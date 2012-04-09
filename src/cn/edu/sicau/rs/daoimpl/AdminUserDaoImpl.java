@@ -42,6 +42,38 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		return adminList;
 	}
 
+	public List getAllUser() {
+		Session s = null;
+		Transaction tx = null;
+		List stuList = null;
+		try {
+			s = HibernateUtil.getSession();
+			String hql = "from User as User";
+			Query query = s.createQuery(hql);
+			stuList = query.list();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+		}
+		return stuList;
+	}
+	
+	public List getAllUser(int type) {
+		Session s = null;
+		Transaction tx = null;
+		List stuList = null;
+		try {
+			s = HibernateUtil.getSession();
+			String hql = "from User user where user.type = ?";
+		//	update User user set user.type = ? where user.id = ?
+			Query query = s.createQuery(hql);
+			query.setLong(0, type);
+			stuList = query.list();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+		}
+		return stuList;
+	}
+	
 	@Override
 	public boolean deleteUserById(int id) {
 		// TODO Auto-generated method stub
@@ -108,7 +140,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
 	}
 
 	@Override
-	public UserPager getUserPager(int index, int pageSize) {
+	public UserPager getUserPager(int index, int pageSize, int type) {
 		// TODO Auto-generated method stub
 		Map userMap = new HashMap();
 		DbUtil dbutil = null;
@@ -116,10 +148,11 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		ResultSet rs = null;
 		try {
 			dbutil = new DbUtil();
-			String sql = "select * from tb_user limit ?,?";
+			String sql = "select * from tb_user where type = ? limit ?,? ";
 			ps = dbutil.getCon().prepareStatement(sql);
-			ps.setInt(1, index);
-			ps.setInt(2, pageSize);
+			ps.setInt(1, type);
+			ps.setInt(2, index);
+			ps.setInt(3, pageSize);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				User user = new User();
@@ -163,7 +196,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		UserPager up = new UserPager();
 		up.setUserMap(userMap);   
 		up.setPageSize(pageSize);    //
-		up.setTotalNum(getAllAdmin().size());  //
+		up.setTotalNum(getAllUser(type).size());  //
 		return up;
 	}
 
@@ -243,4 +276,6 @@ public class AdminUserDaoImpl implements AdminUserDao {
 			s.close();
 		}
 	}
+	
+	
 }

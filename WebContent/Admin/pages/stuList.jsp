@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://jsptags.com/tags/navigation/pager" prefix="pg"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,31 +17,7 @@
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-ui.js"></script>
-	<script type="text/javascript">
-	$('document').ready(function() {
-		$('#example').dataTable( {
-		   "bStateSave": true,
-		   "bJQueryUI": true,
-		   "sPaginationType": "full_numbers",
-		   "oLanguage": {
-			   "oPaginate": {
-			   		"sPrevious": "前一页",
-			   		"sNext": "下一页",
-			   		"sFirst": "首页",
-					"sLast": "最后一页"
-				},
-			   "sInfo": "第  _START_ 到  _END_ 共  _TOTAL_ 记录 ",
-			   "sLengthMenu": '页面容量 <select>'+
-				             '<option value="10">10</option>'+
-				             '<option value="15">15</option>'+
-				             '<option value="20">20</option>'+
-				             '<option value="25">25</option>'+
-				             '</select> 条记录',
-				"sSearch": "搜索:"
-		   }
-		} );
-	})
-	</script>
+	
 	
 	<title>所有报名者信息</title>
 </head>
@@ -69,13 +46,14 @@
 				<th>科类</th>
 				<th>外语语种</th>
 				<th>考生类别</th>
+				<th>删除</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${stuList}" varStatus="i" var="item" >   
+			<c:forEach items="${userList}" varStatus="i" var="item" >   
 	            <tr class="gradeX">
 					<td class="center">
-						<a href="stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
+						<a href="Admin/pages/stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
 					</td>
 					<td class="center">${item.sex}</td>
 					<td class="center">${item.birthday}</td>
@@ -83,12 +61,51 @@
 					<td class="center">${item.subject}</td>
 					<td class="center">${item.lang}</td>
 					<td class="center">${item.category}</td>
+					<td class="center"><a href="DeleteUserServlet?id=${id}">删除</a></td>
 				</tr>     
-	    	</c:forEach>   
+	    	</c:forEach>  
+	    	 
+	    <div>
+			<table>
+				<tr>
+					<td>
+						<pg:pager items="${userPager.totalNum }" maxPageItems="${userPager.pageSize}"  export="currentPage = pageNumber"   url="GetUserPageServlet">
+							<pg:param name="pageSize" value="${userPager.pageSize }" />
+							<pg:param name="pageNo" value="${currentPage }" />
+							<pg:param name="type" value="${type}"/>
+							<pg:first>
+								<a href="${pageUrl }">首页</a>
+							</pg:first>
+							<pg:prev>
+								<a href="${pageUrl }">上一页</a>
+							</pg:prev>
+							<pg:pages>
+								<c:choose>
+									<c:when test="${userPager.currentPage eq pageNumber }">
+										<font color = "red">${pageNumber }</font>
+									</c:when>
+									<c:otherwise>
+										<a href="${pageUrl }">${pageNumber} </a>
+									</c:otherwise>
+								</c:choose>
+							</pg:pages>
+							<pg:next>
+								<a href="${pageUrl }">下一页</a>
+							</pg:next>
+							<pg:last>
+								<a href="${pageUrl }">尾页</a>
+							</pg:last>
+						</pg:pager>
+					</td>				
+			</table>
+		</div>
+		
 		</tbody>
+		
+		
 	</table>
 		  
-	<a class="btn" href="excelDownLoadServlet?type=${type}" >导出Excel</a>
+	<a class="btn" href="Admin/pages/excelDownLoadServlet?type=${type}" >导出Excel</a>
 
 </body>
 </html>

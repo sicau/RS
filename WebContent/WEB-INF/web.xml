@@ -4,6 +4,12 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <listener>
+    <listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>cn.edu.sicau.rs.listener.UserLoginListener</listener-class>
+  </listener>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.LoginServlet</servlet-class>
@@ -45,11 +51,11 @@
     <servlet-class>cn.edu.sicau.rs.servlet.AdminShowViewServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>ChangeStuStatusServlet</servlet-name>
+    <servlet-name>ChangeStuStatusServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.ChangeStuStatusServlet</servlet-class>
   </servlet>
-   <servlet>
-  	<servlet-name>AdminListServlet</servlet-name>
+  <servlet>
+    <servlet-name>AdminListServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.AdminListServlet</servlet-class>
   </servlet>
   <servlet-mapping>
@@ -116,7 +122,7 @@
     <servlet-name>StuShowViewServlet</servlet-name>
     <url-pattern>/Admin/pages/stuShowViewServlet</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>AdminShowViewServlet</servlet-name>
     <url-pattern>/Admin/pages/adminShowViewServlet</url-pattern>
   </servlet-mapping>
@@ -198,5 +204,35 @@
   <servlet-mapping>
     <servlet-name>TopSignServlet</servlet-name>
     <url-pattern>/TopSignServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetUserPageServlet</display-name>
+    <servlet-name>GetUserPageServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.GetUserPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetUserPageServlet</servlet-name>
+    <url-pattern>/GetUserPageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddAdminServlet</display-name>
+    <servlet-name>AddAdminServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.AddAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAdminServlet</servlet-name>
+    <url-pattern>/AddAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminInfoServlet</display-name>
+    <servlet-name>AdminInfoServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.AdminInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminInfoServlet</servlet-name>
+    <url-pattern>/AdminInfoServlet</url-pattern>
   </servlet-mapping>
 </web-app>
