@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import cn.edu.sicau.rs.bean.Admin;
 import cn.edu.sicau.rs.bean.News;
+import cn.edu.sicau.rs.bean.NewsPager;
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.bean.UserPager;
 import cn.edu.sicau.rs.dao.AdminLoginDao;
@@ -114,8 +115,8 @@ public class Model {
 	public boolean updateNews() {
 		return nd.updateNews();
 	}
-	public Map getAllNews() {
-		return nd.getAllNews();
+	public Map getAllNews(int type) {
+		return nd.getAllNews(type);
 	}
 	public List getAllNewses() {
 		return nd.getAllNewses();
@@ -125,6 +126,9 @@ public class Model {
 	}
 	public boolean topSign(int id,String top) {
 		return nd.topSign(id, top);
+	}
+	public NewsPager getNewsPager(int index, int pageSize, int type) {
+		return nd.getNewsPager(index, pageSize, type);
 	}
 
 }

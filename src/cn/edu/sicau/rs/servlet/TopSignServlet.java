@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.edu.sicau.rs.bean.NewsPager;
 import cn.edu.sicau.rs.model.Model;
 
 /**
@@ -30,10 +31,14 @@ public class TopSignServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int id = Integer.parseInt(request.getParameter("id"));
 		String top = request.getParameter("top");
-		System.out.print(top);
+		String type = request.getParameter("type");
+		NewsPager np = (NewsPager)request.getAttribute("newsPager");
+		System.out.println(top);
 		Model model = new Model();
 		if(model.topSign(id, top)) {
-			response.sendRedirect("GetAllNewsServlet");
+//			response.sendRedirect("GetNewsPagerServlet?type="+type+"&pageSize="+np.getPageSize()+"&pager.offset= 0");
+//	
+			response.sendRedirect("GetNewsPagerServlet?type=0&pageSize=5&pager.offset=0");
 		}
 		
 		
