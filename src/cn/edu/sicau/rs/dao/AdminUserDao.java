@@ -7,9 +7,11 @@ import cn.edu.sicau.rs.bean.UserPager;
 
 public interface AdminUserDao {
 	public List getAllAdmin();
+	public List getAllUser();
+	public List getAllUser(int type);
 	public boolean deleteUserById(int id);
 	public boolean deleteUsers(int [] ids);
-	public UserPager getUserPager(int index, int pageSize);
+	public UserPager getUserPager(int index, int pageSize, int type);
 	public boolean verifyStu(int id, int type);
 	public List stuList(int type);
 	public boolean changeStuStatus(int id, int type);

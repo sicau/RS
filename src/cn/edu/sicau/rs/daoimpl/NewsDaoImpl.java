@@ -102,7 +102,7 @@ public class NewsDaoImpl implements NewsDao{
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select * from tb_news";
+		String sql = "select * from tb_news order by top desc , createtime desc";
 		try {
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
@@ -115,6 +115,7 @@ public class NewsDaoImpl implements NewsDao{
 				news.setContent(rs.getString("content"));
 				news.setAuthor(rs.getString("author"));
 				news.setType(rs.getString("type"));
+				news.setTop(rs.getString("top"));
 				newsMap.put(new Integer(news.getId()),news);     
 				
 			}
@@ -139,7 +140,7 @@ public class NewsDaoImpl implements NewsDao{
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select * from tb_news";
+		String sql = "select * from tb_news order by top desc , createtime desc";
 		try {
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
@@ -152,6 +153,7 @@ public class NewsDaoImpl implements NewsDao{
 				news.setContent(rs.getString("content"));
 				news.setAuthor(rs.getString("author"));
 				news.setType(rs.getString("type"));
+				news.setTop(rs.getString("top"));
 				newsList.add(news);     
 				
 			}
@@ -192,6 +194,7 @@ public class NewsDaoImpl implements NewsDao{
 				news.setCreateTime(rs.getString("createtime"));
 				news.setType(rs.getString("type"));
 				news.setAuthor(rs.getString("author"));
+				news.setTop(rs.getString("top"));
 				return news;
 			} else {
 				System.out.println("该新闻不存在！！");
@@ -242,10 +245,10 @@ public class NewsDaoImpl implements NewsDao{
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		String sql;
-		if(top.equals(0)){
-			sql = "update tb_user set top = 1 where id = ?";
+		if(top.equals("1")){
+			sql = "update tb_news set top = 0 where id = ?";
 		} else {
-			sql = "update tb_user set top =0 where id = ?";
+			sql = "update tb_news set top = 1 where id = ?";
 		}
 		
 		try {

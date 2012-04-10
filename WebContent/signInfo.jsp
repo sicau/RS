@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="js/CJL.0.1.min.js"></script>
 	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
 	<script type="text/javascript" src="js/signInfo.js"></script>
+	<script type="text/javascript" src="DatePicker/WdatePicker.js"></script>
 	
 	<script type="text/javascript" src="js/My.js"></script>
 	   
@@ -25,7 +26,7 @@
    <%@include file="nav.jsp" %>
    
    
-   <form action="updateSignInfo" method = "post" enctype="multipart/form-data" >
+   <form action="saveSignInfo" method = "post" enctype="multipart/form-data" >
    	<input type="hidden" name="id" id="id" value="${user.id}"/>
     <div class="signInfo signInfo-container">
  	
@@ -42,6 +43,7 @@
 		    <td height="49"><div align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 		    <td width="198">
 		    	<input type="text" id="truename" name="truename" value="${user.trueName}"/>
+		    	<p class="help-block truename"></p> 
 		    </td>
 		    <td width="78"><div align="center">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 别</div></td>
 		    <td colspan="2">
@@ -55,74 +57,98 @@
 		    		<img id="img-preview" src="${user.src}" />
 		    	</a>
 		    	<input type="file" name="selimg" id="selimg">
+		    	<p class="help-block selimg"></p> 
 		    </td>
 		  </tr>
 		  <tr>
 		    <td height="50"><div align="center">出生日期</div></td>
 		    <td>
-		    	<input type="text" id="birthday" name="birthday" value="${user.birthday}"/>
+		    	<input type="text" id="birthday" name="birthday" value="${user.birthday}"  />
+		    	<p class="help-block birthday"></p> 
 		    </td>
 		    <td><div align="center">政治面貌</div></td>
 		    <td colspan="2">
-		    	<input type="text" id="politics" name="politics" value="${user.politics}" />
+		    	<select name="politics" id="politics">
+		    		<option value="群众" <c:if test="${user.politics=='群众'}">selected</c:if> >群众</option>
+		    		<option value="团员" <c:if test="${user.politics=='团员'}">selected</c:if> >团员</option>
+		    		<option value="党员" <c:if test="${user.politics=='党员'}">selected</c:if> >党员</option>
+		    	</select>
 		    </td>
 		  </tr>
 		  <tr>
 		    <td height="52"><div align="center">身份证号</div></td>
 		    <td>
 		    	<input type="text" id="identity" name="identity" value="${user.identity}"/>
+		    	<p class="help-block identity"></p> 
 		    </td>
 		    <td><div align="center">科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类</div></td>
 		    <td colspan="2">
-		    	<input type="text" id="subject" name="subject" value="${user.subject}" />
+		    	<select name="subject" id="subject">
+		    		<option value="文科" <c:if test="${user.subject=='文科'}">selected</c:if> >文科</option>
+		    		<option value="理科" <c:if test="${user.subject=='理科'}">selected</c:if> >理科</option>
+		    	</select>
 		    </td>
 		  </tr>
 		  <tr>
 		    <td><div align="center">中学名称</div></td>
 		    <td>
 		    	<input type="text" id="school" name="school" value="${user.school}"/>
+		    	<p class="help-block school"></p> 
 		    </td>
 		    <td><div align="center">本人电话</div></td>
 		    <td>
 		    	<input type="text" id="mphone" name="mphone" value="${user.mphone}"/>
+		    	<p class="help-block mphone"></p> 
 		    </td>
 		    <td width="73"><div align="center">住宅电话</div></td>
 		    <td>
 		    	<input type="text" id="phone" name="phone" value="${user.phone}"/>
+		    	<p class="help-block phone"></p> 
 		    </td>
 		  </tr>
 		  <tr>
 		    <td><div align="center">中学通讯地址及邮编</div></td>
 		    <td colspan="3">
-		    	<input type="text" id="sa" name="sa" value="${user.sa}"/>
+		    	<input type="text" id="sa" name="sa" class="long-input" value="${user.sa}"/>
+		    	<p class="help-block sa"></p> 
 		    	<input type="text" id="spostcode" name="spostcode" value="${user.spostcode}"/>
+		    	<p class="help-block spostcode"></p> 
 		    </td>
 		    <td><div align="center">外语语种</div></td>
 		    <td>
 		    	<input type="text" id="lang" name="lang" value="${user.lang}"/>
+		    	<p class="help-block lang"></p> 
 		    </td>
 		  </tr>
 		  <tr>
 		    <td><div align="center">家庭通讯地址及邮编</div></td>
 		    <td colspan="3">
-		    	<input type="text" id="ha" name="ha" value="${user.ha}"/>
+		    	<input type="text" id="ha" name="ha" class="long-input" value="${user.ha}"/>
+		    	<p class="help-block ha"></p> 
 		    	<input type="text" id="hpostcode" name="hpostcode" value="${user.hpostcode}" />
+		    	<p class="help-block hpostcode"></p> 
 		    </td>
 		    <td><div align="center">考生类别</div></td>
 		    <td>
-		    	<input type="text" id="category" name="category" value="${user.category}"/>
+		    	<select  name="category" id="category">
+		    		<option value="城市应届" <c:if test="${user.category=='城市应届'}">selected</c:if> >城市应届</option>
+		    		<option value="农村应届" <c:if test="${user.category=='农村应届'}">selected</c:if> >农村应届</option>
+		    		<option value="城市往届" <c:if test="${user.category=='城市往届'}">selected</c:if> >城市往届</option>
+		    		<option value="农村往届" <c:if test="${user.category=='农村往届'}">selected</c:if> >农村往届</option>
+		    	</select>
+		    	
 		    </td>
 		  </tr>
 		  <tr>
 		    <td height="153"><div align="center">个人获奖情况（仅限高中阶段）请注明获奖时间</div></td>
 		    <td colspan="5">
-		    	<textarea id="prize" name="prize">${user.prize}</textarea>
+		    	<textarea  rows="4" class="long-textarea" id="prize" name="prize">${user.prize}</textarea>
 		    </td>
 		  </tr>
 		  <tr>
 		    <td height="129"><div align="center">个人特长及社会实践活动等方面所获得的成绩</div></td>
 		    <td colspan="5">
-		    	<textarea id="speciality" name="speciality">${user.speciality}</textarea>
+		    	<textarea rows="4" class="long-textarea" id="speciality" name="speciality">${user.speciality}</textarea>
 		    </td>
 		  </tr>
 		</table>
@@ -131,19 +157,14 @@
     </div> <!-- /container -->
     
     <div class="form-actions">
-        	<button type="submit" class="btn btn-primary">
-        		<c:if test="${user.id==null}">
-					注册
-    			</c:if>
-    			<c:if test="${user.id!=null}">
-					更新
-    			</c:if>
-        	</button>
-            <a class="btn">取消</a>
-            <a class="btn-success btn" href="downInfo.jsp">
-            	<i class="icon-download-alt"></i>
-            	下载
-            </a>
+		<c:if test="${user.id==0}">
+			<input type="button" class="btn btn-primary save" value="注册" />
+		</c:if>
+		<c:if test="${user.id!=0}">
+			<input type="button" class="btn btn-primary update" value="更新" />
+		</c:if>
+		<a class="btn">取消</a>
+		<a class="btn-success btn" href="downInfo.jsp"><i class="icon-download-alt"></i>下载</a>
     </div>
    
    </form>

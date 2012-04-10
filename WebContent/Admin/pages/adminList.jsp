@@ -15,6 +15,7 @@
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-ui.js"></script>
+<!-- 
 	<script type="text/javascript">
 	$('document').ready(function() {
 		$('#example').dataTable( {
@@ -40,33 +41,37 @@
 		} );
 	})
 	</script>
+ -->
 	<title>管理员权限管理管理</title>
 
 </head>
 
 <body>
 	<h2>管理员列表</h2>
-   <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+   <table cellpadding="1" cellspacing="1" border="1" class="display" id="example" align="center">
 		<thead>
-			<tr>
-				<th>序号</th>
-				<th>用户名</th>
-				<th>用户类型</th>
+			<tr align="center">
+				<th width="50">序号</th>
+				<th width="70">用户名</th>
+				<th width="100">用户类型</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${adminList}" varStatus="i" var="item" >   
-	            <tr class="gradeX">
-	            	<td class="center">${item.id}</td>
-					<td class="center">
+	            <tr class="gradeX" align="center">
+	            	<td class="center" width="50">${item.id}</td>
+					<td class="center" width="70">
 						<a href="adminShowViewServlet?id=${item.id}">${item.adminName}</a>
 					</td>
-					<td class="center">${item.type}</td>
+					<td class="center" width="100">${item.type}</td>
 				</tr>     
 	    	</c:forEach>   
+	    		<tr>
+	    			<td><a href="addAdmin.jsp">增加</a></td>
+	    			<td><a href="">删除</a></td>
+	    		</tr>
 		</tbody>
 	</table>
-	<a href="" >添加</a>
-	<a href="" >删除</a>
+	
 </body>
 </html>
