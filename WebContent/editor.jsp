@@ -11,23 +11,34 @@
 	<script charset="utf-8" src="kindeditor/kindeditor.js"></script>
 	<script charset="utf-8" src="kindeditor/lang/zh_CN.js"></script>
 	<script charset="utf-8" src="kindeditor/plugins/code/prettify.js"></script>
-	<script type="text/javascript">
-		 var editor;
-	     KindEditor.ready(function(K) {
-	             editor = K.create('#editor_id');
-	     });
-	     
-	     var options = {
-	    	        cssPath : '/css/index.css',
-	    	        filterMode : true
-	    	};
-	    	var editor = K.create('textarea[name="content"]', options);
-
-	    	html = editor.html();
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="content"]', {
+				cssPath : '../../kindeditor/plugins/code/prettify.css',
+				uploadJson : '../../kindeditor/jsp/upload_json.jsp',
+				fileManagerJson : '../../kindeditor/jsp/file_manager_json.jsp',
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						document.forms['info'].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						document.forms['info'].submit();
+					});
+				}
+			});
+			prettyPrint();
+		});
 	</script>
+	
+	
+	
 </head>
 <body>
-	<form name="form1" action="AddNewsServlet" method="post">
+	<form name="info" action="AddNewsServlet" method="post">
 		<table width="800px" height="300px" border="01">
 			<tr>
 				<td width="100">新闻类型</td>
