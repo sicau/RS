@@ -11,6 +11,7 @@ import java.util.Map;
 
 
 import cn.edu.sicau.rs.bean.News;
+import cn.edu.sicau.rs.bean.NewsPager;
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.common.DbUtil;
 import cn.edu.sicau.rs.dao.NewsDao;
@@ -96,16 +97,17 @@ public class NewsDaoImpl implements NewsDao{
 	}
 
 	@Override
-	public Map getAllNews() {
+	public Map getAllNews(int type) {
 		// TODO Auto-generated method stub
 		Map newsMap = new HashMap();
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select * from tb_news order by top desc , createtime desc";
+		String sql = "select * from tb_news where type = ? order by top desc , createtime desc";
 		try {
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
+			ps.setInt(1, type);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				News news = new News();
@@ -270,6 +272,51 @@ public class NewsDaoImpl implements NewsDao{
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public NewsPager getNewsPager(int index, int pageSize, int type) {
+		// TODO Auto-generated method stub
+		Map newsMap = new HashMap();
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "select * from tb_news where type = ? limit ?,?";
+		try {
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			ps.setInt(1, type);
+			ps.setInt(2, index);
+			ps.setInt(3, pageSize);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				News news = new News();
+				news.setId(rs.getInt("id"));
+				news.setSubject(rs.getString("subject"));
+				news.setCreateTime(rs.getString("createtime"));
+				news.setContent(rs.getString("content"));
+				news.setAuthor(rs.getString("author"));
+				news.setType(rs.getString("type"));
+				news.setTop(rs.getString("top"));
+				newsMap.put(news.getId(),news);     
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+//				rs.close();
+				ps.close();
+				dbutil.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		NewsPager np = new NewsPager();
+		np.setNewsMap(newsMap);
+		np.setPageSize(pageSize);
+		np.setTotalNum(getAllNews(type).size());
+		return np;
 	}
 
 }

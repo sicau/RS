@@ -34,7 +34,7 @@
 	           <li class="li"><a href="adminShowView.jsp" target="contentIframe">修改个人密码</a></li>
 	           <li class="nav-header">新闻发布</li>
 	           <li class="li"><a href="editor.jsp" target="contentIframe">添加新闻</a></li>
-	           <li class="li"><a href="../../GetAllNewsServlet" target="contentIframe">管理新闻</a></li>
+	           <li class="li"><a href="../../GetNewsPagerServlet?type=0" target="contentIframe">管理新闻</a></li>
 	           <li class="li"><a href="#">Link</a></li>
 	         </ul>
 	       </div><!--/.well -->

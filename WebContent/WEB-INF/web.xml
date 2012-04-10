@@ -235,4 +235,14 @@
     <servlet-name>AdminInfoServlet</servlet-name>
     <url-pattern>/AdminInfoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetNewsPagerServlet</display-name>
+    <servlet-name>GetNewsPagerServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.GetNewsPagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetNewsPagerServlet</servlet-name>
+    <url-pattern>/GetNewsPagerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
