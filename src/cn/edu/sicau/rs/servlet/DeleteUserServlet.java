@@ -9,10 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.sicau.rs.model.Model;
 
-public class DeleteUserServlet extends HttpServlet {
+public class DeleteUserServlet extends HttpServlet { 
 	public  void doGet(HttpServletRequest request, HttpServletResponse response)
 					throws ServletException , IOException {
-		String users_str = request.getParameter("userIDs");
+		String users_str = request.getParameter("userIds");
+		String pageOffset = request.getParameter("pageOffset");
+		String pageSize = request.getParameter("pageSize");
+		String type = request.getParameter("type");
+		
 		String[] ids_str = null;
 		
 		if(users_str != "") {
@@ -24,8 +28,13 @@ public class DeleteUserServlet extends HttpServlet {
 		}
 		Model model = new Model();
 		if(model.deleteUsers(ids)) {
-			request.getRequestDispatcher("getAllUsersServlet").forward(request, response);
+			request.getRequestDispatcher("GetUserPageServlet?pager.offset="+pageOffset+"&pageSize="+pageSize+"&type="+type).forward(request, response);
 		}
+	}
+	public void doPost(HttpServletRequest request, HttpServletResponse response) 
+					throws ServletException, IOException {
+		this.doGet(request, response);
+		
 	}
 
 }

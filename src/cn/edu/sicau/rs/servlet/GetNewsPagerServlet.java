@@ -53,7 +53,7 @@ public class GetNewsPagerServlet extends HttpServlet {
 		newsPager.setPageSize(pageSize);
 		newsPager.setCurrentPage(currentPage);
 		request.setAttribute("type", type);
-		request.setAttribute("newsPager", newsPager);
+		request.getSession().setAttribute("newsPager", newsPager);
 		request.setAttribute("newsList", newsPager.getNewsMap().values());
 		request.getRequestDispatcher("Admin/pages/newsList.jsp").forward(request, response);
 	}
