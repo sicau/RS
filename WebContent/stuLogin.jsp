@@ -31,7 +31,7 @@
 		       		<div class="control-group">
 			           	<label class="control-label" for="psd">密码：</label>
 			           	<div class="controls">
-			       			<input type="text" class="input-xlarge" id="psd" name="password">
+			       			<input type="password" class="input-xlarge" id="psd" name="password" />
 			          	</div>
 		        	</div>
 	            </div>

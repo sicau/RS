@@ -13,34 +13,38 @@
 	<link rel="stylesheet" type="text/css" href="css/signInfo.css" />
 	
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
-	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="js/CJL.0.1.min.js"></script>
 	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
 	<script type="text/javascript" src="js/signInfo.js"></script>
 	<script type="text/javascript" src="DatePicker/WdatePicker.js"></script>
 	
-	<script type="text/javascript" src="js/My.js"></script>
 	   
 </head>
 <body>
    <%@include file="nav.jsp" %>
    
+	<c:if test="${user.id==0}">
+		<form action="saveSignInfo" method = "post" enctype="multipart/form-data" >
+	</c:if>
+	<c:if test="${user.id!=0}">
+		<form action="updateSignInfo" method = "post" enctype="multipart/form-data" >
+	</c:if>
    
-   <form action="saveSignInfo" method = "post" enctype="multipart/form-data" >
    	<input type="hidden" name="id" id="id" value="${user.id}"/>
+   	<input type="hidden" name="isUpload" id="isUpload" />
     <div class="signInfo signInfo-container">
  	
       <table width="831" height="661" border="1">
       	  <h2>四川农业大学2012年自主选拔录取考生报名表</h2>
       	  <br/> 
 		  <tr>
-		    <td width="179"><div align="center">考生号</div></td>
+		    <td height="55" width="179"><div align="center">考生号</div></td>
 		    <td colspan="2">&nbsp;</td>
 		    <td width="114"><div align="center">报名编号</div></td>
 		    <td colspan="2">&nbsp;</td>
 		  </tr>
 		  <tr>
-		    <td height="49"><div align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
+		    <td height="60"><div align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 		    <td width="198">
 		    	<input type="text" id="truename" name="truename" value="${user.trueName}"/>
 		    	<p class="help-block truename"></p> 
@@ -54,14 +58,15 @@
 		    </td>
 		    <td width="149" rowspan="3">
 		    	<a href="#" class="thumbnail">
-		    		<img id="img-preview" src="${user.src}" />
+		    		<img id="upload-preview" />
+		    		<img id="img-preview" <c:if test="${user.src!=null}">src="<%=request.getContextPath()%>/${user.src}"</c:if> />
 		    	</a>
-		    	<input type="file" name="selimg" id="selimg">
+		    	<input type="file" name="selimg" id="selimg" />
 		    	<p class="help-block selimg"></p> 
 		    </td>
 		  </tr>
 		  <tr>
-		    <td height="50"><div align="center">出生日期</div></td>
+		    <td height="60"><div align="center">出生日期</div></td>
 		    <td>
 		    	<input type="text" id="birthday" name="birthday" value="${user.birthday}"  />
 		    	<p class="help-block birthday"></p> 
@@ -76,7 +81,7 @@
 		    </td>
 		  </tr>
 		  <tr>
-		    <td height="52"><div align="center">身份证号</div></td>
+		    <td height="60"><div align="center">身份证号</div></td>
 		    <td>
 		    	<input type="text" id="identity" name="identity" value="${user.identity}"/>
 		    	<p class="help-block identity"></p> 
@@ -90,7 +95,7 @@
 		    </td>
 		  </tr>
 		  <tr>
-		    <td><div align="center">中学名称</div></td>
+		    <td height="60"><div align="center">中学名称</div></td>
 		    <td>
 		    	<input type="text" id="school" name="school" value="${user.school}"/>
 		    	<p class="help-block school"></p> 
@@ -125,8 +130,8 @@
 		    <td colspan="3">
 		    	<input type="text" id="ha" name="ha" class="long-input" value="${user.ha}"/>
 		    	<p class="help-block ha"></p> 
-		    	<input type="text" id="hpostcode" name="hpostcode" value="${user.hpostcode}" />
-		    	<p class="help-block hpostcode"></p> 
+		    	<input type="text" id="homepostcode" name="hpostcode" value="${user.hpostcode}"/>
+		    	<p class="help-block homepostcode"></p> 
 		    </td>
 		    <td><div align="center">考生类别</div></td>
 		    <td>
@@ -164,7 +169,7 @@
 			<input type="button" class="btn btn-primary update" value="更新" />
 		</c:if>
 		<a class="btn">取消</a>
-		<a class="btn-success btn" href="downInfo.jsp"><i class="icon-download-alt"></i>下载</a>
+		<a class="btn-success btn" href="downWordServlet?id=${user.id}"><i class="icon-download-alt"></i>下载</a>
     </div>
    
    </form>

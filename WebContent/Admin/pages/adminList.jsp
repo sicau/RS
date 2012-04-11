@@ -16,32 +16,34 @@
 </head>
 
 <body>
-	<h2>管理员列表</h2>
-    <table cellpadding="1" cellspacing="1"  class="display table table-striped" id="example" align="center">
-		<thead>
-			<tr align="center">
-				<th width="50">序号</th>
-				<th width="70">用户名</th>
-				<th width="100">用户类型</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${adminList}" varStatus="i" var="item" >   
-	            <tr class="gradeX" align="center">
-	            	<td class="center" width="50">${item.id}</td>
-					<td class="center" width="70">
-						<a href="adminShowViewServlet?id=${item.id}">${item.adminName}</a>
-					</td>
-					<td class="center" width="100">${item.type}</td>
-				</tr>     
-	    	</c:forEach>   
-		</tbody>
-	</table>
-	
-	<div class="form-actions">
-		<a href="addAdmin.jsp" class="btn btn-primary">增加</a>
-		<a href="#" class="btn">删除</a>
+	<div>
+		<h2>管理员列表</h2>
+		<div class="content-container">
+		    <table cellpadding="1" cellspacing="1"  class="display table table-striped" id="example" align="center">
+				<thead>
+					<tr align="center">
+						<th width="50">序号</th>
+						<th width="70">用户名</th>
+						<th width="100">用户类型</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${adminList}" varStatus="i" var="item" >   
+			            <tr class="gradeX" align="center">
+			            	<td class="center" width="50">${item.id}</td>
+							<td class="center" width="70">
+								<a href="adminShowViewServlet?id=${item.id}">${item.adminName}</a>
+							</td>
+							<td class="center" width="100">${item.type}</td>
+						</tr>     
+			    	</c:forEach>   
+				</tbody>
+			</table>
+		</div>
+		<div class="form-actions">
+			<a href="addAdmin.jsp" class="btn btn-primary">增加</a>
+			<a href="#" class="btn">删除</a>
+		</div>
 	</div>
-	
 </body>
 </html>

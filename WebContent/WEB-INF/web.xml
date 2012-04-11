@@ -27,8 +27,16 @@
     <servlet-class>cn.edu.sicau.rs.servlet.SaveSignInfoServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>UpdateSignInfoServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.UpdateSignInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>UploadServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownWordServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.DownWordServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ExcelDownLoadServlet</servlet-name>
@@ -73,6 +81,10 @@
   <servlet-mapping>
     <servlet-name>SaveSignInfoServlet</servlet-name>
     <url-pattern>/saveSignInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateSignInfoServlet</servlet-name>
+    <url-pattern>/updateSignInfo</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>
@@ -244,5 +256,9 @@
   <servlet-mapping>
     <servlet-name>GetNewsPagerServlet</servlet-name>
     <url-pattern>/GetNewsPagerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownWordServlet</servlet-name>
+    <url-pattern>/downWordServlet</url-pattern>
   </servlet-mapping>
 </web-app>
