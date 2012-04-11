@@ -9,11 +9,10 @@
 	
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/adminHome.js"></script>
-<%! %>
 
 	<title>后台管理</title>
 </head>
-<!-- 采用iframe，将失去back button的功能,这个需要fix -->
+
 <body>
 
 	 <%@include file="navbar.jsp" %>
@@ -33,7 +32,7 @@
 	           <li class="li"><a href="addAdmin.jsp" target="contentIframe">增加管理员</a></li>
 	           <li class="li"><a href="adminShowView.jsp" target="contentIframe">修改个人密码</a></li>
 	           <li class="nav-header">新闻发布</li>
-	           <li class="li"><a href="editor.jsp" target="contentIframe">添加新闻</a></li>
+	           <li class="li"><a href="addNews.jsp" target="contentIframe">添加新闻</a></li>
 	           <li class="li"><a href="../../GetNewsPagerServlet?type=0" target="contentIframe">管理新闻</a></li>
 	           <li class="li"><a href="#">Link</a></li>
 	         </ul>

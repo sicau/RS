@@ -1,62 +1,17 @@
 body {
-	background-color:#b8c4cb;
-}
-
-.volume {
-	width:70px;
-	margin-right:0px;
-	diaplay:inline-table;
+	background-color:white;
 }
 
 h2 {
-	width:200px;
+	width:150px;
 	margin-left:auto;
 	margin-right:auto;
 }
 
-.dataTables_info { 
-	padding-top: 0; 
-}
 
-.dataTables_paginate { 
-	padding-top: 0; 
-}
-
-.css_right { 
-	float: right;
-}
-
-#example_wrapper .fg-toolbar { 
-	font-size: 1.0em 
-}
-
-#theme_links span {
-	float: left;
-	padding: 2px 10px; 
-}
-
-.fg-button {
-	margin:0px 5px 0px 5px;
-	cursor:pointer;
-}
-
-.btn:link {
-	color:black;
-	display:block;
-	width:75px;
-	height:20px;
-	border:2px solid #BBBBBB;
-	background-color:#D4FFD4;
-	text-decoration:none;
-}
-
-.btn:visited {
-	color:black;
-	border:2px solid #BBBBBB;
-	text-decoration:none;
-}
-
-.btn:hover {
-	border:2px solid #BBBBBB;
-	background-color:#E6E6E6;
+.form-actions {
+	position: fixed;
+	right: 0; bottom: 0px; left: 0;
+	margin-bottom:0px;
+	padding-left:160px;
 }

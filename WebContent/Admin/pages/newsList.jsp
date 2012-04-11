@@ -7,20 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>新闻管理</title>
-  <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/dataTable.css" />
-	<style type="text/css" media="screen">
-		@import "../../css/jquery-ui.css";		
-	</style>
+
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/dataTable.css" />
 	
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
-	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-ui.js"></script>
-	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/stuList.js"></script>
+	
 	
 </head>
 <body>
-	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+	<h2>管理新闻</h2>
+	
+	<table cellpadding="0" cellspacing="0" border="0" class="display table table-striped" id="example">
 		<thead>
 			<tr>
 				<th>标题</th>
@@ -39,41 +37,42 @@
 					<td class="center"><a href="TopSignServlet?id=${item.id }&top=${item.top}&type=${type }">置顶</a></td>
 					<td class="center"><a href="../../DeleteNewsByIdServlet?id=${item.id }">删除</a></td>
 				</tr>     
-	    	</c:forEach>   
-	    	<tr>
-	    		<td>
-	    			<pg:pager items="${newsPager.totalNum }" maxPageItems="${newsPager.pageSize}"  export="currentPage = pageNumber"   url="GetNewsPagerServlet">
+	    	</c:forEach> 
+	    </tbody>
+	</table>  
+	    	<div class="pagination">
+	    		<ul>
+	    			<pg:pager items="${newsPager.totalNum}" maxPageItems="${newsPager.pageSize}"  export="currentPage = pageNumber"   url="GetNewsPagerServlet">
 	    			
 	    				<pg:param name="pageSize" value="${newsPager.pageSize }"/>
 	    				<pg:param name="pageNo" value="${currentPage }"/>
 	    				<pg:param name="type" value="${type }"/>
 	    				<pg:first>
-	    					<a href="${pageUrl }">首页</a>
+	    					<li><a href="${pageUrl}">首页</a></li>
 	    				</pg:first>
 	    				<pg:prev>
-	    					<a href="${pageUrl }">上一页</a>
+	    					<li><a href="${pageUrl}">上一页</a></li>
 	    				</pg:prev>
 	    				<pg:pages>
 	    					<c:choose>
 	    						<c:when test="${newsPager.currentPage eq pageNamber }">
-	    							<font color = "red">${pageNumber }</font>
+	    							<li class="active"><a href="#">${pageNumber }</a></li>
 	    						</c:when>
 	    						<c:otherwise>
-	    							<a href="${pageUrl }">${pageNumber}</a>
+	    							<li><a href="${pageUrl}">${pageNumber}</a></li>
 	    						</c:otherwise>
 	    					</c:choose>
 	    				</pg:pages>
 	    				<pg:next>
-	    					<a href="${pageUrl }">下一页</a>
+	    					<li><a href="${pageUrl}">下一页</a></li>
 	    				</pg:next>
 	    				<pg:last>
-	    					<a href="${pageUrl }">尾页</a>
+	    					<li><a href="${pageUrl}">尾页</a></li>
 	    				</pg:last>
 	    			</pg:pager>
-	    		</td>
-	    	</tr>
-		</tbody>
-	</table>
+	    		</ul>
+	    	</div>
+		
 
 </body>
 </html>
