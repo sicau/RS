@@ -26,6 +26,9 @@ public class Model {
 		return ud.saveUser(user);
 	}
 	
+	public boolean updateUser(User user) {
+		return ud.updateUser(user);
+	}
 	
 	public User userLogin(String name,String password) {
 		return ud.userLogin(name, password);
@@ -70,6 +73,9 @@ public class Model {
 	}
 	public boolean createAdmin(String adminname,String password,int type) {
 		return ald.createAdmin(adminname, password, type);
+	}
+	public boolean deleteAdmin(int id) {
+		return ald.deleteadmin(id);
 	}
 	
 	public Admin getAdmin(int id) {

@@ -12,7 +12,38 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/dataTable.css" />
 	
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
-	
+	<script type="text/javascript">
+		function selectAll() {
+			var deletes = document.getElementsByName("delete");
+			var selectAll = document.getElementById("selectAll");
+			for(var i = 0;i<deletes.length;i++) {
+				if(selectAll.checked == true) {
+					deletes[i].checked = true;
+				} else {
+					deletes[i].checked = false;
+				}
+			}
+		}
+		
+		function removeNews() {
+			var deletes = document.getElementById("delete");
+			var count = 0;
+			var news = new Array();
+			for(var i = 0 ;i<deletes.length;i++) {
+				if(deletes[i].checked) {
+					count++;
+					news.push(deletes[i].values);
+				}
+			}
+			if(count == 0) {
+				alert("还没有选中删除项！");
+				return false;
+			}
+			var oform = document.getElementsByTagName("form")[0];
+			oform.action = "../../DeleteNewsByIdServlet?id="+news;
+			oform.submit();
+		}
+	</script>
 	
 </head>
 <body>
@@ -25,25 +56,26 @@
 				<th>作者</th>
 				<th>发布日期</th>
 				<th>置顶</th>
-				<th>删除</th>
+				<th><input type="checkbox" id="selectAll" onclick="selectAll()"/>全/反选</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${newsList}" varStatus="i" var="item" >   
-	            <tr class="gradeX">
-					<td class="center">${item.subject}</td>
-					<td class="center">${item.author}</td>
-					<td class="center">${item.createTime}</td>
-					<td class="center"><a href="TopSignServlet?id=${item.id }&top=${item.top}&type=${type }">置顶</a></td>
-					<td class="center"><a href="../../DeleteNewsByIdServlet?id=${item.id }">删除</a></td>
-				</tr>     
-	    	</c:forEach> 
+			<form method="post" name="deleteform">
+				<c:forEach items="${newsList}" varStatus="i" var="item" >   
+		            <tr class="gradeX">
+						<td class="center">${item.subject}</td>
+						<td class="center">${item.author}</td>
+						<td class="center">${item.createTime}</td>
+						<td class="center"><a href="TopSignServlet?id=${item.id }&top=${item.top}&type=${type }">置顶</a></td>
+						<td class="center"><input type="checkbox" name="delete" value="${item.id }"/></td>
+					</tr>     
+		    	</c:forEach> 
+	    	</form>
 	    </tbody>
 	</table>  
 	    	<div class="pagination">
 	    		<ul>
 	    			<pg:pager items="${newsPager.totalNum}" maxPageItems="${newsPager.pageSize}"  export="currentPage = pageNumber"   url="GetNewsPagerServlet">
-	    			
 	    				<pg:param name="pageSize" value="${newsPager.pageSize }"/>
 	    				<pg:param name="pageNo" value="${currentPage }"/>
 	    				<pg:param name="type" value="${type }"/>
@@ -72,7 +104,6 @@
 	    			</pg:pager>
 	    		</ul>
 	    	</div>
-		
-
+	    	<input type="button" value="删除" onclick="removeNews()"/>
 </body>
 </html>

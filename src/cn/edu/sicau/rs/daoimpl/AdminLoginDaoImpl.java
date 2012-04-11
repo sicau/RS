@@ -111,6 +111,34 @@ public class AdminLoginDaoImpl implements AdminLoginDao {
 		}
 		return flag;
 	}
+
+	@Override
+	public boolean deleteadmin(int id) {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		String sql = "delete from tb_admin where id = ?";
+		try {
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if(i != 0) {
+				flag = true;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				dbutil.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return flag;
+	}
 	
 
 }

@@ -36,17 +36,22 @@ $(document).ready(function() {
 	
 	$(".save").click(function() {
 		if(checkAll()) {
+			$("form").attr("action",action+"?upload=1");
 			$("form").submit();
 		}
 	})
 	
 	$(".update").click(function() {
 		if(checkAll()) {
+			var action = $("form").attr("action");
+			var id = $("#id").val();
 			if($("#isUpload").val() == "1") {
-				alert($("#isUpload").val());
-				alert("image is changed");
+				$("form").attr("action",action+"?upload=1&id="+id); //image is changed
+			} else {
+				$("form").attr("action",action+"?upload=0&id="+id); //image is not changed
 			}
-			//$("form").submit();
+			console.log("success");
+			$("form").submit();
 		}
 	})
 	
