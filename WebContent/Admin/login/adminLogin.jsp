@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../../css/content.css" />
 	
 		
-	<script type="text/javascript" src="../Admin/js/jquery-1.7.1.js" ></script>
+	<script type="text/javascript" src="../../js/jquery-1.7.1.js" ></script>
 	
 <title>管理员登录</title>
 </head>
