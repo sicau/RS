@@ -1,4 +1,4 @@
-#Mon Apr 09 11:59:02 CST 2012
+#Tue Apr 10 20:55:38 CST 2012
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=7b5c40f85acec7da85faff712912e3115a23526e
@@ -12,5 +12,7 @@ encoding//WebContent/errorpage.jsp=UTF-8
 encoding//WebContent/index.jsp=UTF-8
 encoding//WebContent/js/signInfo.js=UTF-8
 encoding//WebContent/js/stuRegister.js=UTF-8
+encoding//WebContent/kindeditor/lang/zh_CN.js=UTF-8
+encoding//WebContent/kindeditor/lang/zh_TW.js=UTF-8
 encoding//WebContent/nav.jsp=UTF-8
 encoding//WebContent/signInfo.jsp=UTF-8
