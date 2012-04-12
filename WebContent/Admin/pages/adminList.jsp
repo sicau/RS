@@ -10,7 +10,18 @@
 	<link rel="stylesheet" type="text/css" href="../../css/dataTable.css" />
 	
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
-
+	<script type="text/javascript">
+	$(document).ready(function() {
+		function shownews() {
+			var url = "adminListServlet "
+			var myAjax = new Ajax.Request(
+				url,
+				{
+					method:"post",
+				});
+		}
+	})	
+	</script>
 	<title>管理员权限管理管理</title>
 	
 

@@ -26,13 +26,13 @@
 		}
 		
 		function removeNews() {
-			var deletes = document.getElementById("delete");
+			var deletes = document.getElementsByName("delete");
 			var count = 0;
 			var news = new Array();
 			for(var i = 0 ;i<deletes.length;i++) {
 				if(deletes[i].checked) {
 					count++;
-					news.push(deletes[i].values);
+					news.push(deletes[i].value);
 				}
 			}
 			if(count == 0) {
@@ -40,7 +40,8 @@
 				return false;
 			}
 			var oform = document.getElementsByTagName("form")[0];
-			oform.action = "../../DeleteNewsByIdServlet?id="+news;
+			oform.action = "DeleteNewsByIdServlet?id="+news;
+			alert(oform.action);
 			oform.submit();
 		}
 	</script>

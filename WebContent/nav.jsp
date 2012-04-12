@@ -15,6 +15,7 @@
 		              <li><a href="stuLogin.jsp">考生登录</a></li>
 		              <li><a href="stuRegister.jsp">考生注册</a></li>
 		              <li><a href="">考试公告</a></li>
+		              <li><a href="">招生政策</a>
 		            </ul>
 	        	</div>
 	        </div>
