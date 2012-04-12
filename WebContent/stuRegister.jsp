@@ -26,7 +26,7 @@
 			    	<div class="control-group">
 			        	<label class="control-label" for="username">用户名：</label>
 			            <div class="controls">
-			              <input type="text" class="input-xlarge" id="username" name="username" value="${user.userName}" />
+			              <input type="text" class="input-xlarge" id="username" name="username" />
 			              <p class="help-block username" ></p>
 			            </div>
 			    	</div>
@@ -34,7 +34,7 @@
 		       		<div class="control-group">
 			           	<label class="control-label" for="psd">密码：</label>
 			           	<div class="controls">
-			       			<input type="password" class="input-xlarge" id="psd" name="password" value="${user.password}"/>
+			       			<input type="password" class="input-xlarge" id="psd" name="password" />
 			       			 <p class="help-block psd"></p> 
 			          	</div>
 		        	</div>
@@ -42,7 +42,7 @@
 		        	<div class="control-group">
 			           	<label class="control-label" for="rePsd" >确认密码：</label>
 			           	<div class="controls">
-			       			<input type="password" class="input-xlarge" id="rePsd" name="rePsd" value="${user.password}" />
+			       			<input type="password" class="input-xlarge" id="rePsd" name="rePsd"  />
 			       			<p class="help-block rePsd"></p>
 			          	</div>
 		        	</div>

@@ -32,13 +32,12 @@ public class TopSignServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String top = request.getParameter("top");
 		String type = request.getParameter("type");
-		NewsPager np = (NewsPager)request.getAttribute("newsPager");
-		System.out.println(top);
+		NewsPager np = (NewsPager)request.getSession().getAttribute("newsPager");
+		int i = 0;
 		Model model = new Model();
 		if(model.topSign(id, top)) {
-//			response.sendRedirect("GetNewsPagerServlet?type="+type+"&pageSize="+np.getPageSize()+"&pager.offset= 0");
-//	
-			response.sendRedirect("GetNewsPagerServlet?type=0&pageSize=5&pager.offset=0");
+			response.sendRedirect("GetNewsPagerServlet?type="+type+"&pageSize="+np.getPageSize()+"&pager.offset = i");
+//			response.sendRedirect("GetNewsPagerServlet?type=0&pageSize=5&pager.offset=0");
 		}
 		
 		

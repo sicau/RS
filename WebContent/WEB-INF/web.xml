@@ -27,8 +27,16 @@
     <servlet-class>cn.edu.sicau.rs.servlet.SaveSignInfoServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>UpdateSignInfoServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.UpdateSignInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>UploadServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownWordServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.DownWordServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ExcelDownLoadServlet</servlet-name>
@@ -58,6 +66,14 @@
     <servlet-name>AdminListServlet</servlet-name>
     <servlet-class>cn.edu.sicau.rs.servlet.AdminListServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ShowSignInfoServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.ShowSignInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowSignInfoServlet</servlet-name>
+    <url-pattern>/showSignInfoServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
@@ -73,6 +89,10 @@
   <servlet-mapping>
     <servlet-name>SaveSignInfoServlet</servlet-name>
     <url-pattern>/saveSignInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateSignInfoServlet</servlet-name>
+    <url-pattern>/updateSignInfo</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>
@@ -244,5 +264,29 @@
   <servlet-mapping>
     <servlet-name>GetNewsPagerServlet</servlet-name>
     <url-pattern>/GetNewsPagerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownWordServlet</servlet-name>
+    <url-pattern>/downWordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteUserServlet</display-name>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <url-pattern>/DeleteUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteAdminServlet</display-name>
+    <servlet-name>DeleteAdminServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.DeleteAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAdminServlet</servlet-name>
+    <url-pattern>/Admin/pages/DeleteAdminServlet</url-pattern>
   </servlet-mapping>
 </web-app>

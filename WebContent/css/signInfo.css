@@ -62,3 +62,14 @@ body {
 	margin-left:3px;
 	padding-top:0px;
 }
+
+#img-preview {
+	width:100px;
+	height:144px;
+}
+
+#upload-preview {
+	width:100px;
+	height:144px;
+}
+

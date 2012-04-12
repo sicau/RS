@@ -15,31 +15,21 @@ import cn.edu.sicau.rs.exception.NameNotFoundException;
 import cn.edu.sicau.rs.model.Model;
 
 
-public class LoginServlet extends HttpServlet {
+public class ShowSignInfoServlet extends HttpServlet {
 	public void doGet (HttpServletRequest request, HttpServletResponse response)
 	           throws ServletException , IOException {
 		request.setCharacterEncoding("UTF-8");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		
+		int id = Integer.parseInt(request.getParameter("id"));
 		Model model = new Model();
-		try {
-			User user = model.userLogin(username, password);
+			User user = model.getUser(id);
 //			ServletContext context = this.getServletContext();    //设置上下文
 //			List nameList = (List) context.getAttribute("nameList");   
 //			
 //			request.getSession().setAttribute("username", username);    //在监听器中会把username放入namelist中
-			request.getSession().setAttribute("id", user.getId());  
-			request.getSession().setAttribute("type", user.getType()); 
-			response.sendRedirect("selfHome.jsp");
-			
-		} catch (NameNotFoundException e) {
-			request.setAttribute("NameNotFondException",e.getMessage());
-			request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
-		} catch (ErrPwdException e) {
-			request.setAttribute("ErrPwdException", e.getMessage());
-			request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
-		}
+			user.setSrc("upload/"+user.getSrc());
+			request.getSession().setAttribute("user", user);  //传给页面用的
+			System.out.println("success");
+			response.sendRedirect("signInfo.jsp");
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
