@@ -30,7 +30,7 @@ public class DeleteNewsByIdServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String str_id = request.getParameter("id");
 		System.out.println(str_id);
-		int id = Integer.parseInt(str_id);
+//		int id = Integer.parseInt(str_id);
 		String str_ids[] = null;
 		if(str_id != "") {
 			str_ids = str_id.split(",");
@@ -40,7 +40,7 @@ public class DeleteNewsByIdServlet extends HttpServlet {
 			ids[i] = Integer.parseInt(str_ids[i]);
 		}
 		Model model = new Model();
-		if(model.delNews(id)) {
+		if(model.delNews(ids)) {
 			response.sendRedirect("GetAllNewsServlet");
 			}
 		

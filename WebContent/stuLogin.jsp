@@ -10,6 +10,17 @@
 		
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
 	<script type="text/javascript" src="js/stuLogin.js" ></script>
+	<script type="text/javascript">
+		function removeNameErr() {
+			var tip = '${NameNotFondException}';
+	//		alert(tip);
+
+		}
+		function removePwdErr() {
+			var tip = '${ErrPwdException}';
+	//		alert(tip);
+		}
+	</script>
 	
 <title>考生登录</title>
 </head>
@@ -24,20 +35,25 @@
 			    	<div class="control-group">
 			        	<label class="control-label" for="username">用户名：</label>
 			            <div class="controls">
-			              <input type="text" class="input-xlarge" id="username" name="username">
+			              <input type="text" class="input-xlarge" id="username" name="username" onfocus="removeNameErr()">
 			            </div>
 			    	</div>
 			    	
 		       		<div class="control-group">
 			           	<label class="control-label" for="psd">密码：</label>
 			           	<div class="controls">
-			       			<input type="password" class="input-xlarge" id="psd" name="password" />
+			       			<input type="password" class="input-xlarge" id="psd" name="password" onfocus="removePwdErr()" />
 			          	</div>
+		        	</div>
+		        	
+		        	<div class="control-group">
+		        		<p align="center" >${NameNotFondException } ${ErrPwdException } </p>
 		        	</div>
 	            </div>
 	            
 	            <div class="form-actions">
 		            <button type="submit" class="btn btn-primary">登录</button>
+		            <button type="reset"  class="btn btn-primary">重置</button>
 	            </div>
 	            
 	     	</fieldset>

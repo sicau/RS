@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
 	<script language="javascript">
 	$(document).ready(function() {
-		shownews();
+//		shownews();
 		function shownews() {
 			var url = "ListNewsServlet "
 			var myAjax = new Ajax.Request(
