@@ -15,6 +15,40 @@
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-ui.js"></script>
+	<script type="text/javascript">
+		function selectAll() {
+			var deletes = document.getElementsByName("delete");
+			var selectAll = document.getElementById("selectAll");
+			for(var i = 0;i<deletes.length; i++) {
+				if(selectAll.checked == true) {
+					deletes[i].checked = true;
+				} else {
+					deletes[i].checked = false;
+				}
+			}
+		}
+		
+		function removeUser(pageOffset,pageSize,type) {
+			var deletes = document.getElementsByName("delete");
+			var count = 0;
+			var users = new Array();
+			for(var i = 0;i<deletes.length;i++) {
+				if(deletes[i].checked) {
+					count++;
+					users.push(deletes[i].value);
+				}
+			}
+			
+			if(count == 0) {
+				alert("还没有选中删除项");
+				return false;
+			}
+			var oform = document.getElementsByTagName("form")[0];
+			oform.action = "DeleteUserServlet?userIds="+users+"&pageOffset="+pageOffset+"&pageSize="+pageSize+"&type="+type;
+			oform.submit();
+		}
+	
+	</script>
 	
 	
 	<title>所有报名者信息</title>
@@ -44,24 +78,26 @@
 				<th>科类</th>
 				<th>外语语种</th>
 				<th>考生类别</th>
-				<th>删除</th>
+				<th><input type="checkbox" id="selectAll" onclick="selectAll()"/>全/反选</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${userList}" varStatus="i" var="item" >   
-	            <tr class="gradeX">
-					<td class="center">
-						<a href="Admin/pages/stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
-					</td>
-					<td class="center">${item.sex}</td>
-					<td class="center">${item.birthday}</td>
-					<td class="center">${item.politics}</td>
-					<td class="center">${item.subject}</td>
-					<td class="center">${item.lang}</td>
-					<td class="center">${item.category}</td>
-					<td class="center"><a href="DeleteUserServlet?id=${id}">删除</a></td>
-				</tr>     
-	    	</c:forEach>  
+			<form method="post" name="deleteform" >
+				<c:forEach items="${userList}" varStatus="i" var="item" >   
+		            <tr class="gradeX">
+						<td class="center">
+							<a href="Admin/pages/stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
+						</td>
+						<td class="center">${item.sex}</td>
+						<td class="center">${item.birthday}</td>
+						<td class="center">${item.politics}</td>
+						<td class="center">${item.subject}</td>
+						<td class="center">${item.lang}</td>
+						<td class="center">${item.category}</td>
+						<td class="center"><input type="checkbox" name="delete" value="${item.id }"/></td>
+					</tr>     
+		    	</c:forEach>  
+	    	</form>
 	    </tbody>
 	</table>
 	    	 
@@ -72,10 +108,10 @@
 					<pg:param name="pageNo" value="${currentPage }" />
 					<pg:param name="type" value="${type}"/>
 					<pg:first>
-						<li><a href="${pageUrl }">首页</a></li>
+						<li><a href="${pageUrl}">首页</a></li>
 					</pg:first>
 					<pg:prev>
-						<li><a href="${pageUrl }">上一页</a></li>
+						<li><a href="${pageUrl}">上一页</a></li>
 					</pg:prev>
 					<pg:pages>
 						<c:choose>
@@ -88,18 +124,15 @@
 						</c:choose>
 					</pg:pages>
 					<pg:next>
-						<li><a href="${pageUrl }">下一页</a></li>
+						<li><a href="${pageUrl}">下一页</a></li>
 					</pg:next>
 					<pg:last>
-						<li><a href="${pageUrl }">尾页</a></li>
+						<li><a href="${pageUrl}">尾页</a></li>
 					</pg:last>
 				</pg:pager>
 			</ul>				
 	</div>
-		
-		
-		  
+		<input type="button" value="删除" onclick="removeUser(${userPager.pageOffset},${userPager.pageSize },${type })"/>
 	<a class="btn pull-right" href="Admin/pages/excelDownLoadServlet?type=${type}" >导出Excel</a>
-
 </body>
 </html>

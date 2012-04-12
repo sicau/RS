@@ -1,19 +1,29 @@
 $(document).ready(function() {
+	$("#upload-preview").hide();
 	if(jQuery.browser.msie) {
-		var ip = new ImagePreview( $$("selimg"), $$("img-preview"), {
-			maxWidth: 200, maxHeight: 200
-		});
-		ip.img.src = ImagePreview.TRANSPARENT;
-		ip.file.onchange = function(){ ip.preview(); };
+			var options = {};
+			options.maxWidth = 100;
+			options.maxHeight = 144;
+			var ip = new ImagePreview( $$("selimg"), $$("upload-preview"),options);
+			ip.img.src = ImagePreview.TRANSPARENT;
+			ip.file.onchange = function(){
+				$("#img-preview").hide();
+				$("#upload-preview").show();
+				$("#isUpload").val("1");
+				ip.preview(); 
+			};
 	} else {
 		$("#selimg").bind("change", function() {
+			$("#img-preview").hide();
+			$("#upload-preview").show();
+			$("#isUpload").val("1");
 			var $inputUpload = $(this);
 			if (this.files && this.files.length > 0) {
 				var file = this.files[0];
 				var reader = new FileReader(file);
 				reader.onload = function(e) {
 					var data = e.target.result;
-					$("#img-preview").attr("src",data);
+					$("#upload-preview").attr("src",data);
 				}
 				reader.readAsDataURL(file);
 			}
@@ -26,6 +36,21 @@ $(document).ready(function() {
 	
 	$(".save").click(function() {
 		if(checkAll()) {
+			$("form").attr("action",action+"?upload=1");
+			$("form").submit();
+		}
+	})
+	
+	$(".update").click(function() {
+		if(checkAll()) {
+			var action = $("form").attr("action");
+			var id = $("#id").val();
+			if($("#isUpload").val() == "1") {
+				$("form").attr("action",action+"?upload=1&id="+id); //image is changed
+			} else {
+				$("form").attr("action",action+"?upload=0&id="+id); //image is not changed
+			}
+			console.log("success");
 			$("form").submit();
 		}
 	})
@@ -80,10 +105,12 @@ function checkAll() {
 		}
 	}
 	
-	if($("#selimg").val() == "") {
-		$(".selimg").html("请上传2寸图片");
+	if($("#id").val() == 0 && $("#isUpload").val() != "1") {
+		$(".selimg").html("请上传1寸图片");
 		return false;
 	}
+	console.log($("#id").val());
+	console.log($("#isUpload").val());
 	
 	if($("#school").val() == "") {
 		$(".school").html("请输入中学名称");
@@ -129,13 +156,13 @@ function checkAll() {
 		$(".ha").html("请输入家庭通讯地址");
 		return false;
 	}
-	console.log($("#hpostcode").val());
-	if($("#hpostcode").val() == "") {
-		$(".hpostcode").html("请输入邮编");
+	
+	if($("#homepostcode").val() == "") {
+		$(".homepostcode").html("请输入邮编");
 		return false;
 	} else {
-		if(!zipcode.test($("#hpostcode").val())) {
-			$(".hpostcode").html("邮编无效，请输入例如：666666");
+		if(!zipcode.test($("#homepostcode").val())) {
+			$(".homepostcode").html("邮编无效，请输入例如：666666");
 			return false;
 		}
 	}

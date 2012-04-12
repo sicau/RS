@@ -17,7 +17,7 @@ import cn.edu.sicau.rs.exception.PictureErrorException;
 
 public class Picture {
 	public String uploadImg(HttpServletRequest request) throws UnsupportedEncodingException{
-		
+		int upload =Integer.parseInt(request.getParameter("upload"));
 		final long MAX_SIZE = 3*1024*1024;
 		
 		String filename = null;
@@ -58,24 +58,29 @@ public class Picture {
 	    		request.getSession().setAttribute(fieldName, content);
 	    		
 	    	}else {
-	    		path = fileItem.getName();     //得到文件的完整路径
-		    	size = fileItem.getSize();     //get file size
-		    	if("".equals(path)||size == 0) {
-		    		throw new PictureErrorException("上传有误！");
-		    	}
-		    	String t_name = path.substring(path.lastIndexOf("\\") + 1);
-		    	String t_ext = t_name.substring(t_name.lastIndexOf(".") + 1);
-		    	
-		    	long now = System.currentTimeMillis();
-		    	String prefix = String.valueOf(now);
-		    	String u_name = now+"."+t_ext;    //重命名
-		    	try {
-		    		fileItem.write(new File(route, u_name));
-		    		System.out.println(route+u_name);
-		    		filename = u_name;
-		    	} catch(Exception e) {
-		    		e.printStackTrace();
-		    	}
+	    		if(upload == 1 ) {
+	    			System.out.println("image is uploaded");
+	    			path = fileItem.getName();     //得到文件的完整路径
+			    	size = fileItem.getSize();     //get file size
+			    	if("".equals(path)||size == 0) {
+			    		throw new PictureErrorException("上传有误！");
+			    	}
+			    	String t_name = path.substring(path.lastIndexOf("\\") + 1);
+			    	String t_ext = t_name.substring(t_name.lastIndexOf(".") + 1);
+			    	
+			    	long now = System.currentTimeMillis();
+			    	String prefix = String.valueOf(now);
+			    	String u_name = now+"."+t_ext;    //重命名
+			    	try {
+			    		fileItem.write(new File(route, u_name));
+			    		System.out.println(route+u_name);
+			    		filename = u_name;
+			    	} catch(Exception e) {
+			    		e.printStackTrace();
+			    	}
+	    		} else {
+	    			System.out.println("image is not uploaded");
+	    		}
 	    	}
 	    	  
 	    }
