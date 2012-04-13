@@ -1,6 +1,6 @@
 package cn.edu.sicau.rs.bean;
 
-public class News {
+public class News implements java.io.Serializable {
 	private int id;
 	private String subject;
 	private String createTime;

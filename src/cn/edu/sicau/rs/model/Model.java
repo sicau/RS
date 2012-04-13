@@ -124,8 +124,8 @@ public class Model {
 	public Map getAllNews(int type) {
 		return nd.getAllNews(type);
 	}
-	public List getAllNewses() {
-		return nd.getAllNewses();
+	public List getAllNewses(int type) {
+		return nd.getAllNewses(type);
 	}
 	public News getByID(int id) {
 		return nd.getByID(id);

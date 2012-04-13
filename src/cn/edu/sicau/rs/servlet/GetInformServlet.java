@@ -1,9 +1,7 @@
 package cn.edu.sicau.rs.servlet;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,15 +12,15 @@ import cn.edu.sicau.rs.bean.News;
 import cn.edu.sicau.rs.model.Model;
 
 /**
- * Servlet implementation class ListNewsServlet
+ * Servlet implementation class GetInformServlet
  */
-public class ListNewsServlet extends HttpServlet {
+public class GetInformServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListNewsServlet() {
+    public GetInformServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,9 +39,9 @@ public class ListNewsServlet extends HttpServlet {
 		try {
 			newsList = model.getAllNewses(type);
 			if(!newsList.isEmpty()) {
-				request.getSession().setAttribute("newsList", newsList);
+				request.getSession().setAttribute("informList", newsList);
 				request.getSession().setAttribute("news", news);
-//				request.getRequestDispatcher("index1.jsp").forward(request, response);
+//				response.sendRedirect("index1.jsp");
 			}else {
 				System.out.println("shibai");
 			}

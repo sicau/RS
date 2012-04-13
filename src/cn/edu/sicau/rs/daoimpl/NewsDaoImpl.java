@@ -136,16 +136,23 @@ public class NewsDaoImpl implements NewsDao{
 		
 	}
 	
-	public List getAllNewses() {
+	public List getAllNewses(int type) {
 		// TODO Auto-generated method stub
 		List newsList = new ArrayList();
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select * from tb_news order by top desc , createtime desc";
+		String sql = null;
+		if(type == 0) {
+			sql = "select * from tb_news where type = ? and top = 1 order by top desc , createtime desc";
+		}else{
+			sql = "select * from tb_news where type = ? order by top desc , createtime desc";
+		}
+		
 		try {
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
+			ps.setInt(1, type);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				News news = new News();
