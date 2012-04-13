@@ -289,4 +289,14 @@
     <servlet-name>DeleteAdminServlet</servlet-name>
     <url-pattern>/Admin/pages/DeleteAdminServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetInformServlet</display-name>
+    <servlet-name>GetInformServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.GetInformServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetInformServlet</servlet-name>
+    <url-pattern>/GetInformServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

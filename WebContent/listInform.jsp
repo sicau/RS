@@ -5,37 +5,36 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<script type="text/javascript" src="js/prototype.js"></script>
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
 	<script language="javascript">
 	$(document).ready(function() {
-		$("body").hide();
 		shownews();
 		function shownews() {
-			var ul = "ListNewsServlet "
-				$.ajax({
-					  type:"post",
-					  url: ul 
-				}).done(function() { 
-					$("body").show();
+			var url = "GetInformServlet?type=0";
+			var myAjax = new Ajax.Request(
+				url,
+				{
+					method:"post",
 				});
 		}
-	})	
+	});	
 	</script>
+	<style >
+		p{
+			padding:30px 35px 0 35px;
+		}
+		a{
+			color:#36322B;
+		}
+	</style>
 </head>
 <body>
-	<table>
-	   	<c:forEach var="item" items="${newsList}">
-	   		<tr>
-	   			<td width="400">
-		   			<ul class="list">
-		   			<li><span>*</span><a href="GetOneNewsServlet?id=${item.id}">${item.subject }</a></li>
-		  		  	</ul>
-	  		  	</td>
-	  		  	<td width="100">${item.createTime }</td>
-	  	    </tr>
-	   	</c:forEach>
-    </table>
+	<c:forEach var="item" items="${informList }">
+		<p class="welcome">
+			<span class="orange"><a href="GetOneNewsServlet?id=${item.id}" >${item.subject }</a></span><br/>
+			${item.content }
+		</p>
+	</c:forEach>
 </body>
 </html>
