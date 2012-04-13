@@ -17,7 +17,7 @@ public class Admin implements java.io.Serializable {
 	@Column(name="adminname")
 	private String adminName;
 	private String password;
-	private String type;
+	private int type;
 	
 	
 	
@@ -39,10 +39,10 @@ public class Admin implements java.io.Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getType() {
+	public int getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 	

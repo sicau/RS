@@ -13,8 +13,10 @@
 	<link rel="stylesheet" type="text/css" href="css/signInfo.css" />
 	
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
+	<script type="text/javascript" src="js/ajaxfileupload.js" ></script>
 	<script type="text/javascript" src="js/CJL.0.1.min.js"></script>
 	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
+	<script type="text/javascript" src="js/spin.min.js"></script>
 	<script type="text/javascript" src="js/signInfo.js"></script>
 	<script type="text/javascript" src="DatePicker/WdatePicker.js"></script>
 	
@@ -23,15 +25,16 @@
 <body>
    <%@include file="nav.jsp" %>
    
-	<c:if test="${user.id==0}">
-		<form action="saveSignInfo" method = "post" enctype="multipart/form-data" >
-	</c:if>
-	<c:if test="${user.id!=0}">
-		<form action="updateSignInfo" method = "post" enctype="multipart/form-data" >
-	</c:if>
+   <%if (request.getSession().getAttribute("username")!=null) {%>
+		<form action="saveSignInfo" method = "post" enctype="multipart/form-data">
+	<%} else { %>
+		<form action="updateSignInfo" method = "post" enctype="multipart/form-data">
+	<%} %>
    
    	<input type="hidden" name="id" id="id" value="${user.id}"/>
    	<input type="hidden" name="isUpload" id="isUpload" />
+   	<input type="hidden" name="password" id="password" value="${password}" />
+   	<input type="hidden" name="username" id="username" value="${username}" />
     <div class="signInfo signInfo-container">
  	
       <table width="831" height="661" border="1">
@@ -61,7 +64,7 @@
 		    		<img id="upload-preview" />
 		    		<img id="img-preview" <c:if test="${user.src!=null}">src="<%=request.getContextPath()%>/${user.src}"</c:if> />
 		    	</a>
-		    	<input type="file" name="selimg" id="selimg" />
+		    	<input type="file" id="selimg" name="selimg" />
 		    	<p class="help-block selimg"></p> 
 		    </td>
 		  </tr>
@@ -162,17 +165,17 @@
     </div> <!-- /container -->
     
     <div class="form-actions">
-		<c:if test="${user.id==0}">
-			<input type="button" class="btn btn-primary save" value="注册" />
-		</c:if>
-		<c:if test="${user.id!=0}">
-			<input type="button" class="btn btn-primary update" value="更新" />
-		</c:if>
+			<%if (request.getSession().getAttribute("username")!=null) {%>
+				<input type="button" class="btn btn-primary save" value="注册" />
+			<%} else { %>
+				<input type="button" class="btn btn-primary update" value="更新" />
+			<%} %>
 		<a class="btn">取消</a>
 		<a class="btn-success btn" href="downWordServlet?id=${user.id}"><i class="icon-download-alt"></i>下载</a>
     </div>
    
    </form>
-
+	
+	
 </body>
 </html>

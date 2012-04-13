@@ -14,6 +14,7 @@
 		
 		<mapping class="cn.edu.sicau.rs.bean.User"/>
 		<mapping class="cn.edu.sicau.rs.bean.Admin"/>
+		<mapping class="cn.edu.sicau.rs.bean.News"/>
 		
 	</session-factory>
 </hibernate-configuration>
