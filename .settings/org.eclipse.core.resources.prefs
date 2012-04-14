@@ -1,4 +1,4 @@
-#Tue Apr 10 20:55:38 CST 2012
+#Sat Apr 14 00:29:56 CST 2012
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=7b5c40f85acec7da85faff712912e3115a23526e
@@ -9,7 +9,6 @@ encoding//WebContent/Admin/pages/stuList.jsp=UTF-8
 encoding//WebContent/Admin/pages/stuShowView.jsp=UTF-8
 encoding//WebContent/Admin/pages/welcome.jsp=UTF-8
 encoding//WebContent/errorpage.jsp=UTF-8
-encoding//WebContent/index.jsp=UTF-8
 encoding//WebContent/js/signInfo.js=UTF-8
 encoding//WebContent/js/stuRegister.js=UTF-8
 encoding//WebContent/kindeditor/lang/zh_CN.js=UTF-8

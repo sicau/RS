@@ -24,9 +24,9 @@ public class GetAllNewsServlet extends HttpServlet {
 		News news = new News();
 		Model model = new Model();
 		List newsList = null;
-		
+		int type =Integer.parseInt(request.getParameter("type"));
 		try {
-			newsList = model.getAllNewses();
+			newsList = model.getAllNewses(type);
 			if(!newsList.isEmpty()) {
 				request.getSession().setAttribute("newsList", newsList);
 				request.getSession().setAttribute("news", news);

@@ -12,7 +12,7 @@ public interface NewsDao {
 	public boolean delNews(int id);
 	public boolean updateNews();
 	public Map getAllNews(int type);
-	public List getAllNewses();
+	public List getAllNewses(int type);
 	public News getByID(int id);
 	public boolean topSign(int id , String top);
 	public NewsPager getNewsPager(int index, int pageSize, int type);

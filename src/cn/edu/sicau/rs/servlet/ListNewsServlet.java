@@ -32,23 +32,24 @@ public class ListNewsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		News news = new News();
-		Model model = new Model();
-		List newsList = null;
-		
-		try {
-			newsList = model.getAllNewses();
-			if(!newsList.isEmpty()) {
-				request.getSession().setAttribute("newsList", newsList);
-				request.getSession().setAttribute("news", news);
-				response.sendRedirect("listnews.jsp");
-			}else {
-				System.out.println("shibai");
-			}
-		} catch(Exception e ) {
-			e.printStackTrace();
-		}
+//		request.setCharacterEncoding("UTF-8");
+//		int type = Integer.parseInt(request.getParameter("type"));
+//		News news = new News();
+//		Model model = new Model();
+//		List newsList = null;
+//		
+//		try {
+//			newsList = model.getAllNewses(type);
+//			if(!newsList.isEmpty()) {
+//				request.getSession().setAttribute("newsList", newsList);
+//				request.getSession().setAttribute("news", news);
+////				request.getRequestDispatcher("index1.jsp").forward(request, response);
+//			}else {
+//				System.out.println("shibai");
+//			}
+//		} catch(Exception e ) {
+//			e.printStackTrace();
+//		}
 	}
 
 	/**

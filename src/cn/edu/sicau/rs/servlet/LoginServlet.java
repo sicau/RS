@@ -35,10 +35,10 @@ public class LoginServlet extends HttpServlet {
 			
 		} catch (NameNotFoundException e) {
 			request.setAttribute("NameNotFondException",e.getMessage());
-			request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
+			request.getRequestDispatcher("index1.jsp").forward(request, response);
 		} catch (ErrPwdException e) {
 			request.setAttribute("ErrPwdException", e.getMessage());
-			request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
+			request.getRequestDispatcher("index1.jsp").forward(request, response);
 		}
 	}
 	

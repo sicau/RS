@@ -18,12 +18,11 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String code = (String) request.getSession().getAttribute("randomCode");
 		System.out.println("code="+code);
-	    User user = new User();
-	    user.setUserName(username);
-	    user.setPassword(password);
-	    request.getSession().setAttribute("user", user);
-	    response.sendRedirect("signInfo.jsp");
-			     
+	    
+	    request.getSession().setAttribute("username",username);
+	    request.getSession().setAttribute("password",password);
+	    request.getSession().setAttribute("status","register");
+	    request.getRequestDispatcher("signInfo.jsp").forward(request, response);
 	}
 	
 	public void doPost (HttpServletRequest request, HttpServletResponse response)

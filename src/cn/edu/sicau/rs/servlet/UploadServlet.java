@@ -19,13 +19,14 @@ public class UploadServlet extends HttpServlet{
 		String dsf = "fdskf";
 		String path = null;
 		Picture picture = new Picture();
-		try{
+		System.out.println("success");
+//		try{
 			path = picture.uploadImg(request);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		} catch(PictureErrorException e) {
-			request.getRequestDispatcher("selfHome.jsp").forward(request, response);
-			request.setAttribute("massage", e.getMessage());
-		}
+//			request.getRequestDispatcher("index.jsp").forward(request, response);
+//		} catch(PictureErrorException e) {
+//			request.getRequestDispatcher("selfHome.jsp").forward(request, response);
+//			request.setAttribute("massage", e.getMessage());
+//		}
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
