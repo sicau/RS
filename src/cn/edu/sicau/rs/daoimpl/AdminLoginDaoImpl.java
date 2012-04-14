@@ -55,61 +55,46 @@ public class AdminLoginDaoImpl implements AdminLoginDao {
 
 	@Override
 	public boolean updatePassword(Admin admin) {
-		// TODO Auto-generated method stub
-		DbUtil dbutil = null;
-		PreparedStatement pstmt = null;
-		String sql = "update tb_admin set password = ? , name =? where id = ?";
+		boolean flag = false;
+		Session s = null;
+		Transaction tx = null;
 		try {
-			dbutil = new DbUtil();
-			pstmt = dbutil.getCon().prepareStatement(sql);
-			pstmt.setString(1, admin.getPassword());
-			pstmt.setString(2, admin.getAdminName());
-			pstmt.setInt(3, admin.getId());
-			int i = pstmt.executeUpdate();
-			if(i != 0) {
-				return true;
-			}
-		} catch (Exception e) {
+			s = HibernateUtil.getSession();
+			tx = s.beginTransaction();
+			s.update(admin);
+			tx.commit();
+			flag = true;
+		} catch (HibernateException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				pstmt.close();
-				dbutil.close();
-			}catch (SQLException e){
-				e.printStackTrace();
-			}
+		}finally {
+			s.close();
 		}
-		return false;
+		return flag;
 	}
 
 	@Override
 	public boolean createAdmin(String adminname, String password, int type) {
-		// TODO Auto-generated method stub
 		boolean flag = false;
-		DbUtil dbutil = null;
-		PreparedStatement ps = null;
-		String sql = "insert into tb_admin values(null,?,?,?)";
+		Admin admin = new Admin();
+		admin.setAdminName(adminname);
+		admin.setPassword(password);
+		admin.setType(type);
+		
+		Session s = null;
+		Transaction tx = null;
 		try {
-			dbutil = new DbUtil();
-			ps = dbutil.getCon().prepareStatement(sql);
-			ps.setString(1, adminname);
-			ps.setString(2, password);
-			ps.setInt(3, type);
-			int i = ps.executeUpdate();
-			if(i != 0) {
-				flag = true;
-			}
-		} catch (SQLException e) {
+			s = HibernateUtil.getSession();
+			tx = s.beginTransaction();
+			s.save(admin);
+			tx.commit();
+			flag = true;
+		} catch (HibernateException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				ps.close();
-				dbutil.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		}finally {
+			s.close();
 		}
 		return flag;
+		
 	}
 
 	@Override

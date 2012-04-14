@@ -30,7 +30,7 @@
 		    <td colspan="2">${user.sex}</td>
 		    <td width="149" rowspan="3">
 		    	<a href="#" class="thumbnail">
-		    		<img id="img-preview" src="${user.src}" />
+		    		<img id="img-preview" src="<%=request.getContextPath()%>/${user.src}" />
 		    	</a>
 		    </td>
 		  </tr>

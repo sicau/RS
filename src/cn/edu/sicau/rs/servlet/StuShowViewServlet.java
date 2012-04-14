@@ -30,7 +30,7 @@ public class StuShowViewServlet extends HttpServlet{
 		try {
 			
 			user = model.getUser(id);
-			
+			user.setSrc("upload/"+user.getSrc());
 			request.getSession().setAttribute("user", user); 
 			response.sendRedirect("stuShowView.jsp");
 		} catch (HibernateException e) {

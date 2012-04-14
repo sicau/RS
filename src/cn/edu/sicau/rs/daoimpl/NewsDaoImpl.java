@@ -9,51 +9,41 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 
 import cn.edu.sicau.rs.bean.News;
 import cn.edu.sicau.rs.bean.NewsPager;
 import cn.edu.sicau.rs.bean.User;
 import cn.edu.sicau.rs.common.DbUtil;
+import cn.edu.sicau.rs.common.HibernateUtil;
 import cn.edu.sicau.rs.dao.NewsDao;
 
 public class NewsDaoImpl implements NewsDao{
 
 	@Override
 	public boolean addNews(News news) {
-		// TODO Auto-generated method stub
-		DbUtil dbutil = null;
-		PreparedStatement ps = null;
-		String sql = "insert into tb_news values (null,?,?,?,?,?,?)";
+		boolean flag = false;
+		Session s = null;
+		Transaction tx = null;
 		try {
-			dbutil = new DbUtil();
-			ps = dbutil.getCon().prepareStatement(sql);
-			ps.setString(1,news.getSubject());
-			ps.setString(2, news.getCreateTime());
-			ps.setString(3, news.getContent());
-			ps.setString(4, news.getAuthor());
-			ps.setString(5, news.getType());
-			ps.setString(6, news.getTop());
-			
-			int i = ps.executeUpdate();
-			if(i != 0) {
-				return true;
-			}
-		} catch(SQLException e) {
+			s = HibernateUtil.getSession();
+			tx = s.beginTransaction();
+			s.save(news);
+			tx.commit();
+			flag = true;
+		} catch (HibernateException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				ps.close();
-				dbutil.close();
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
+		}finally {
+			s.close();
 		}
-		return false;
+		return flag;
 	}
 
 	@Override
 	public boolean delNews(int ids[]) {
-		// TODO Auto-generated method stub
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		Connection conn = null;
@@ -91,7 +81,7 @@ public class NewsDaoImpl implements NewsDao{
 
 	@Override
 	public boolean updateNews() {
-		// TODO Auto-generated method stub
+		
 		
 		return false;
 	}
@@ -136,16 +126,23 @@ public class NewsDaoImpl implements NewsDao{
 		
 	}
 	
-	public List getAllNewses() {
+	public List getAllNewses(int type) {
 		// TODO Auto-generated method stub
 		List newsList = new ArrayList();
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select * from tb_news order by top desc , createtime desc";
+		String sql = null;
+		if(type == 0) {
+			sql = "select * from tb_news where type = ? and top = 1 order by top desc , createtime desc";
+		}else{
+			sql = "select * from tb_news where type = ? order by top desc , createtime desc";
+		}
+		
 		try {
 			dbutil = new DbUtil();
 			ps = dbutil.getCon().prepareStatement(sql);
+			ps.setInt(1, type);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				News news = new News();

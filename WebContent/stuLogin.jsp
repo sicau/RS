@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/content.css" />
 		
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
+	<script type="text/javascript" src="js/spin.min.js"></script>
 	<script type="text/javascript" src="js/stuLogin.js" ></script>
 	<script type="text/javascript">
 		function removeNameErr() {
@@ -52,7 +53,7 @@
 	            </div>
 	            
 	            <div class="form-actions">
-		            <button type="submit" class="btn btn-primary">登录</button>
+		            <input type="submit" class="btn btn-primary login" value="登录" />
 		            <button type="reset"  class="btn btn-primary">重置</button>
 	            </div>
 	            

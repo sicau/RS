@@ -38,7 +38,6 @@
 		
 			<div class="form-actions">
 				<button type="submit" class="btn btn-primary">修改</button>
-				<button class="btn">返回</button>
 			</div>
 		</fieldset>
 	</form>

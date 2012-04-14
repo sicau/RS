@@ -13,7 +13,7 @@
 		<fieldset>
 			<legend>增加普通管理员</legend>
 			<div class="control-group">
-				<label class="control-label" for="adminame">管理员名:</label>
+				<label class="control-label" for="adminname">管理员名:</label>
 				<div class="controls">
 					<input type="text" class="input-xlarge" id="adminname" name="adminname" value=""/>
 				</div>

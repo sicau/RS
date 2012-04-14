@@ -5,12 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <title>${news.subject }</title>
 </head>
 <body>
-
-	<div>
-		<table width="700px" align="center">
+<div id="main_container">
+<%@include file="header.jsp" %>
+    <div class="menu">
+    	<ul>                                                                         
+    		<li class="selected"><a href="index1.jsp">首页</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">demo</a></li>
+            <li><a href="#">license</a></li>
+            <li><a href="#">新闻中心</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+    	</ul>
+    </div>
+	<div class="center_content">
+		<div>
+		<table width="700px" height="atuo" align="center">
 			<tr>
 			  	<td align="center"colspan="2"><h2>${news.subject }</h2></td>
 			</tr>
@@ -23,6 +37,8 @@
 			</tr>
 		</table>
 	</div>
-	
+	</div>
+<%@include file="footer.jsp" %>
+</div>
 </body>
 </html>
