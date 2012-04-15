@@ -16,9 +16,8 @@
 </head>
 <body>
 
-	<%@include file="../pages/navbar.jsp" %>
 
-    <form class="form-horizontal" name="login" action="adminLoginServlet" method="post">
+    <form class="form-horizontal form-window" name="login" action="adminLoginServlet" method="post">
     	<fieldset>
         	<legend>管理员登录</legend>
         	<div class="input-container">

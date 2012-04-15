@@ -1,0 +1,27 @@
+body {
+	margin-top:60px;
+	background-color:#b8c4cb;
+}
+
+.signInfo-container{
+	padding:10px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:6%;
+	width:831px;
+	overflow:auto;
+	background-color:#FFFFFF;
+}
+
+.form-actions {
+	padding:10px;
+	position:fixed;
+	bottom:0px;right:0px;left:0px;
+	margin-bottom:0px;
+	text-align:center;
+}
+
+.signInfo h2{
+	text-align:center;
+	width:831px;
+}
