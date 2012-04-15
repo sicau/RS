@@ -119,7 +119,7 @@
 								<li class="active"><a href="#">${pageNumber }</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="${pageUrl }">${pageNumber} </a></li>
+								<li><a href="${pageUrl}">${pageNumber} </a></li>
 							</c:otherwise>
 						</c:choose>
 					</pg:pages>
@@ -132,7 +132,11 @@
 				</pg:pager>
 			</ul>				
 	</div>
-		<input type="button" value="删除" onclick="removeUser(${userPager.pageOffset},${userPager.pageSize },${type })"/>
-	<a class="btn pull-right" href="Admin/pages/excelDownLoadServlet?type=${type}" >导出Excel</a>
+		
+	<div class="btn-group">
+		<input class="btn" type="button" value="删除" onclick="removeUser(${userPager.pageOffset},${userPager.pageSize },${type })"/>
+		<a class="btn" href="Admin/pages/excelDownLoadServlet?type=${type}" >导出Excel</a>
+	</div>
+	
 </body>
 </html>

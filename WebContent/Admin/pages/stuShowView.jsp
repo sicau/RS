@@ -6,8 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/signInfo.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/adminHome.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/stuShowView.css" />
 	
 	<title>学生个人信息</title>
 </head>
