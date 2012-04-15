@@ -22,16 +22,16 @@
 	     <div class="span3">
 	       <div class="well sidebar-nav">
 	         <ul class="nav nav-list">
-	           <li class="nav-header">学生信息管理</li>
+	           <li class="nav-header stu">学生信息管理</li>
 	           <li class="li"><a href="../../GetUserPageServlet?type=0" target="contentIframe">报考学生列表</a></li>
 	           <li class="li"><a href="../../GetUserPageServlet?type=1" target="contentIframe">初试学生列表</a></li>
 	           <li class="li"><a href="../../GetUserPageServlet?type=2" target="contentIframe">复试学生列表</a></li>
 	           <li class="li"><a href="../../GetUserPageServlet?type=3" target="contentIframe">录取学生列表</a></li>
-	           <li class="nav-header">管理员设置</li>
+	           <li class="nav-header admin">管理员设置</li>
 	           <li class="li"><a href="adminListServlet" target="contentIframe">管理员列表</a></li>
 	           <li class="li"><a href="addAdmin.jsp" target="contentIframe">增加管理员</a></li>
 	           <li class="li"><a href="adminShowView.jsp" target="contentIframe">修改个人密码</a></li>
-	           <li class="nav-header">新闻发布</li>
+	           <li class="nav-header news">新闻发布</li>
 	           <li class="li"><a href="addNews.jsp" target="contentIframe">添加新闻</a></li>
 	           <li class="li"><a href="../../GetNewsPagerServlet?type=0" target="contentIframe">管理新闻</a></li>
 	           <li class="li"><a href="../../GetNewsPagerServlet?type=1" target="contentIframe">管理公告</a></li>

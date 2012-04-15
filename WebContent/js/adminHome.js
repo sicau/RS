@@ -3,4 +3,4 @@ $(document).ready(function() {
 		$(".li").removeClass("active");
 		$(this).addClass("active");
 	});
-})
+});
