@@ -22,6 +22,11 @@
 	   
 </head>
 <body>
+	<%
+	if(request.getAttribute("username") == null && request.getSession().getAttribute("username")==null ) { 
+		response.sendRedirect("index.jsp");
+	} 
+	%>
 	<div id="main_container">
 		<%@include file="header.jsp" %>
 		<div class="menu">
@@ -34,7 +39,7 @@
 	   	 </div>
 		
 		<div class="center_content">
-		 <%if (request.getSession().getAttribute("username")!=null) {%>
+		 <%if (request.getAttribute("username")!=null) {%>
 			<form action="saveSignInfo" method = "post" enctype="multipart/form-data">
 		<%} else { %>
 			<form action="updateSignInfo" method = "post" enctype="multipart/form-data">
@@ -171,7 +176,7 @@
 		    </div>
 		    
 		    <div class="form-actions">
-					<%if (request.getSession().getAttribute("username")!=null) {%>
+					<%if (request.getAttribute("username")!=null) {%>
 						<input type="button" class="btn btn-primary save" value="注册" />
 					<%} else { %>
 					<c:if test="${user.type<2}">
@@ -179,7 +184,7 @@
 					</c:if> 
 					<%} %>
 				
-				 <%if (request.getSession().getAttribute("username")==null) {%>
+				 <%if (request.getSession().getAttribute("username")!=null) {%>
 				 	<a class="btn-success btn" href="downWordServlet?id=${user.id}"><i class="icon-download-alt"></i>下载</a>
 				<%} %>
 				

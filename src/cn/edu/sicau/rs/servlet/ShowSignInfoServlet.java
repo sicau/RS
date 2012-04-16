@@ -28,7 +28,7 @@ public class ShowSignInfoServlet extends HttpServlet {
 //			request.getSession().setAttribute("username", username);    //在监听器中会把username放入namelist中
 			user.setSrc("upload/"+user.getSrc());
 			request.getSession().setAttribute("user", user);  
-			System.out.println("success");
+			request.setAttribute("status","update");
 			response.sendRedirect("signInfo.jsp");
 	}
 	

@@ -31,8 +31,8 @@ public class AdminLoginFilter implements Filter {
 		HttpServletResponse httpresp = (HttpServletResponse) response;
 		Admin admin = (Admin) httpreq.getSession().getAttribute("admin");
 		if(admin == null) {
-			System.out.println("Ã»ÓÐadminµÇÂ½");
-			httpreq.getRequestDispatcher("adminLoginError.jsp").forward(httpreq, httpresp);
+			System.out.println(admin);
+			httpreq.getRequestDispatcher("../login/adminLogin.jsp").forward(httpreq, httpresp);
 		} else {
 			chain.doFilter(httpreq, response);
 		}
