@@ -63,7 +63,7 @@ public class DataToExcel {
 			while (rs.next()) {
 				int j = 3;
 				row = sheet.createRow((short)j);
-				for(int i = 0; i <= rs.getMetaData().getColumnCount()-1;i++) {
+				for(int i = 0; i < rs.getMetaData().getColumnCount();i++) {
 					cell = row.createCell(i);
 					cell.setCellStyle(tableStyle);
 					cell.setCellValue(new HSSFRichTextString(rs.getString(i+1)));
@@ -85,7 +85,7 @@ public class DataToExcel {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
-		return "nopath";
+		return null;
 		
 	}
 	
