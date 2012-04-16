@@ -44,7 +44,6 @@ public class UserDaoImpl implements UserDao{
 		return flag;
 	}
 
-	//this method has been refactored by hibernate
 	public User userLogin(String name,String password) {
 		User user = null;
 		Session s = null;
@@ -75,30 +74,27 @@ public class UserDaoImpl implements UserDao{
 			}
 		}
 		return user;
-		
 	}
 
-//	public boolean checkNameExist(String name) {
-//		boolean flag = false;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		DbUtil dbUtil = null;
-//		String sql = "select * from tb_user where username=?";
-//		try {
-//			dbUtil = new DbUtil();
-//			pstmt = dbUtil.getCon().prepareStatement(sql);
-//			pstmt.setString(1, name);
-//			rs = pstmt.executeQuery();
-//			if(rs.next()) {
-//				flag = true;
-//			}
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return flag;
-//	}
+	public boolean checkNameExist(String username) {
+		Session s = null;
+		boolean flag = false; 
+		String hql = "from User as user where user.userName = ?";
+		try {
+			s = HibernateUtil.getSession();
+			Query query = s.createQuery(hql);
+			query.setString(0, username);
+			List userList = query.list();
+			System.out.println("size:"+userList.size());
+			if(userList.size()>0) {
+				flag = true;
+			}
+		}catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
 
-	//this method has been refactored by hibernate
 	public User getUser(Serializable id) {
 		org.hibernate.Session s = null;
 		Transaction tx = null;
@@ -114,7 +110,6 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public List getAllUsers() {
 		Session s = null;
-		Transaction tx = null;
 		List userList = null;
 		try {
 			s = HibernateUtil.getSession();

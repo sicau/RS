@@ -3,8 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
+	<script type="text/javascript" src="js/index.js" ></script>
+	
 <title>四川农业大学自主招生</title>
 </head>
 <body>
@@ -65,8 +70,11 @@
 			                <div class="login_form_row">
 				                <label class="login_label">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
 				                <input type="password" name="password" class="login_input" />
-			                </div>                                     
-			                <input type="image" src="img/login.gif" class="login" />                              
+			                </div> 
+			                <div class="login_form_row">    
+			                	<p class="error-message" >${NameNotFondException} ${ErrPwdException}</p>
+			                </div>                                
+			                    <input type="image" src="img/login.gif" class="login" />                    
 		            	</form>
 		            </div>
 		            
@@ -74,7 +82,8 @@
 		            	<div class="title">学校简介</div>
 		                <div class="text_box">
 		                 <p class="testimonial">
-		                		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四川农业大学前身是创办于1906年的四川通省农业学堂，是四川第一所农业学府，1931年成为四川省立农学院，1935年并入国
+		                		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四川农业大学前身是创办于1906
+		                		 年的四川通省农业学堂，是四川第一所农业学府，1931年成为四川省立农学院，1935年并入国
 		                		 立四川大学成为川大农学院，1956年川大农学院迁雅安独立建校为四川农学院，198 5年更名为......
 		                 <a href="aboutSchool.jsp" class="read_more">查看更多</a>
 		                 

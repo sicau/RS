@@ -23,8 +23,6 @@
 	})	
 	</script>
 	<title>管理员权限管理管理</title>
-	
-
 </head>
 
 <body>

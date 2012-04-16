@@ -64,7 +64,7 @@
 					<td>新闻内容</td>
 					<td colspan="3">
 				        <textarea id="editor_id" name="content" style="width:700px;height:300px;">
-				           &lt;strong&gt;HTML内容&lt;/strong&gt;
+				           &lt;strong&gt;新闻内容&lt;/strong&gt;
 						</textarea>
 					</td>
 			  	</tr>

@@ -19,9 +19,10 @@ public class RegisterServlet extends HttpServlet {
 		String code = (String) request.getSession().getAttribute("randomCode");
 		System.out.println("code="+code);
 	    
-	    request.getSession().setAttribute("username",username);
-	    request.getSession().setAttribute("password",password);
-	    request.getSession().setAttribute("status","register");
+		request.getSession().removeAttribute("user");
+	    request.setAttribute("username",username);
+	    request.setAttribute("password",password);
+	    request.setAttribute("status","register");
 	    request.getRequestDispatcher("signInfo.jsp").forward(request, response);
 	}
 	

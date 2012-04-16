@@ -34,10 +34,14 @@
 				<div class="per-center">Personal Cener</div>
 				<div class="my-status">
 					<c:if test="${type==null}">审核中</c:if> 
-				 	<c:if test="${type==0}">审核中</c:if> 
-					<c:if test="${type==1}">通过初试</c:if> 
-					<c:if test="${type==2}">通过复试</c:if> 
-					<c:if test="${type==3}">已录取</c:if>
+				 	<c:if test="${type==0}">审核中</c:if>
+				 	<c:if test="${type==1}">审核未通过</c:if>
+					<c:if test="${type==2}">通过审核</c:if>
+					<c:if test="${type==3}">已缴费</c:if>
+					<c:if test="${type==4}">通过初试</c:if> 
+					<c:if test="${type==5}">通过复试</c:if> 
+					<c:if test="${type==6}">已录取</c:if>
+					
 				</div>
 			</div>
 			<div class="right-container span5">

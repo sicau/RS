@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,6 +13,7 @@
 <body>
 
 	<form class="form-horizontal" action="../../AdminInfoServlet" method="post">
+		<input type="hidden" name="type" value="${admin.type}"/> 
 		<fieldset>
 			<legend>管理员个人信息</legend>
 			<div class="control-group">
@@ -37,7 +39,11 @@
 			</div>
 		
 			<div class="form-actions">
-				<button type="submit" class="btn btn-primary">修改</button>
+			
+			<c:if test="${admin.type!=0}">
+				<input type="submit" class="btn btn-primary" value="修改"/>
+			</c:if>
+				
 			</div>
 		</fieldset>
 	</form>

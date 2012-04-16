@@ -82,7 +82,7 @@ public class SaveSignInfoServlet extends HttpServlet {
 			user.setType("0");
 			
 			model.saveUser(user);
-			request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 	    }catch(Exception e) {
 	    	e.printStackTrace();
 		}

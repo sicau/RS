@@ -14,7 +14,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
-	<script type="text/javascript" src="js/ajaxfileupload.js" ></script>
 	<script type="text/javascript" src="js/CJL.0.1.min.js"></script>
 	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
 	<script type="text/javascript" src="js/spin.min.js"></script>
@@ -176,7 +175,9 @@
 					<%if (request.getSession().getAttribute("username")!=null) {%>
 						<input type="button" class="btn btn-primary save" value="注册" />
 					<%} else { %>
+					<c:if test="${user.type<2}">
 						<input type="button" class="btn btn-primary update" value="更新" />
+					</c:if> 
 					<%} %>
 				
 				 <%if (request.getSession().getAttribute("username")==null) {%>
