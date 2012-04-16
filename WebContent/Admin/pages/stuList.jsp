@@ -13,8 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/dataTable.css" />
 	
 	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
-	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" language="javascript" src="<%=request.getContextPath()%>/js/jquery-ui.js"></script>
 	<script type="text/javascript">
 		function selectAll() {
 			var deletes = document.getElementsByName("delete");
@@ -47,9 +45,7 @@
 			oform.action = "DeleteUserServlet?userIds="+users+"&pageOffset="+pageOffset+"&pageSize="+pageSize+"&type="+type;
 			oform.submit();
 		}
-	
 	</script>
-	
 	
 	<title>所有报名者信息</title>
 </head>
@@ -58,14 +54,14 @@
 	<c:if test="${type==0}">
 		报考学生列表
     </c:if>
-    <c:if test="${type==1}">
-		初试学生列表
+    <c:if test="${type==4}">
+		通过初试学生列表
     </c:if>
-    <c:if test="${type==2}">
-		复试学生列表
+    <c:if test="${type==5}">
+		通过复试学生列表
     </c:if>
-    <c:if test="${type==3}">
-		录取学生列表
+    <c:if test="${type==6}">
+		已录取学生列表
     </c:if>   
 	</h2>
 	<table cellpadding="0" cellspacing="0" border="0" class="display table table-striped" id="example">
@@ -73,11 +69,11 @@
 			<tr>
 				<th>姓名</th>
 				<th>性别</th>
-				<th>出生日期</th>
 				<th>政治面貌</th>
 				<th>科类</th>
 				<th>外语语种</th>
 				<th>考生类别</th>
+				<th>考生状态</th>
 				<th><input type="checkbox" id="selectAll" onclick="selectAll()"/>全/反选</th>
 			</tr>
 		</thead>
@@ -89,11 +85,19 @@
 							<a href="Admin/pages/stuShowViewServlet?id=${item.id}" target="_blank">${item.userName}</a>
 						</td>
 						<td class="center">${item.sex}</td>
-						<td class="center">${item.birthday}</td>
 						<td class="center">${item.politics}</td>
 						<td class="center">${item.subject}</td>
 						<td class="center">${item.lang}</td>
 						<td class="center">${item.category}</td>
+						<td class="center">
+							<c:if test="${item.type==0}">审核中</c:if>
+							<c:if test="${item.type==1}">审核未通过</c:if>
+							<c:if test="${item.type==2}">通过审核</c:if>
+							<c:if test="${item.type==3}">已缴费</c:if>
+					 		<c:if test="${item.type==4}">通过初试</c:if>
+							<c:if test="${item.type==5}">通过复试</c:if>
+					 		<c:if test="${item.type==6}">已录取</c:if>
+						</td>
 						<td class="center"><input type="checkbox" name="delete" value="${item.id }"/></td>
 					</tr>     
 		    	</c:forEach>  

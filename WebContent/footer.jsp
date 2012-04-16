@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <div id="footer">                                              
 	<div class="left_footer">
-		<a href="Admin/login/adminLogin.jsp">管理员登陆</a> <a href="#">about</a> <a href="#">privacy policy</a><a href="#">contact</a>
+		<a href="http://www.sicau.edu.cn/2009/">四川农业大学</a>
+		<a href="Admin/login/adminLogin.jsp">管理员登陆</a>
 	</div>
 	<div class="right_footer">
 		<a href="#"  target="_blank">

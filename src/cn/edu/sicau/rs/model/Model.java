@@ -35,9 +35,9 @@ public class Model {
 	}
 	
 	
-//	public boolean checkNameExist(String name) {
-//		return ud.checkNameExist(name);
-//	}
+	public boolean checkNameExist(String username) {
+		return ud.checkNameExist(username);
+	}
 	
 	
 	

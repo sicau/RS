@@ -28,17 +28,17 @@ public class LoginServlet extends HttpServlet {
 //			ServletContext context = this.getServletContext();    //设置上下文
 //			List nameList = (List) context.getAttribute("nameList");   
 //			
-//			request.getSession().setAttribute("username", username);    //在监听器中会把username放入namelist中
+			request.getSession().setAttribute("username", username);    
 			request.getSession().setAttribute("id", user.getId());  
 			request.getSession().setAttribute("type", user.getType()); 
 			response.sendRedirect("selfHome.jsp");
 			
 		} catch (NameNotFoundException e) {
 			request.setAttribute("NameNotFondException",e.getMessage());
-			request.getRequestDispatcher("index1.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} catch (ErrPwdException e) {
 			request.setAttribute("ErrPwdException", e.getMessage());
-			request.getRequestDispatcher("index1.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 	

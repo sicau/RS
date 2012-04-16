@@ -146,13 +146,22 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		String sql = null;
 		try {
 			dbutil = new DbUtil();
-			String sql = "select * from tb_user where type = ? limit ?,? ";
-			ps = dbutil.getCon().prepareStatement(sql);
-			ps.setInt(1, type);
-			ps.setInt(2, index);
-			ps.setInt(3, pageSize);
+			if(type==0) {
+				sql = "select * from tb_user limit ?,? ";
+				ps = dbutil.getCon().prepareStatement(sql);
+				ps.setInt(1, index);
+				ps.setInt(2, pageSize);
+			} else {
+				sql = "select * from tb_user where type = ? limit ?,? ";
+				ps = dbutil.getCon().prepareStatement(sql);
+				ps.setInt(1, type);
+				ps.setInt(2, index);
+				ps.setInt(3, pageSize);
+			}
+			
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				User user = new User();
@@ -195,8 +204,8 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		
 		UserPager up = new UserPager();
 		up.setUserMap(userMap);   
-		up.setPageSize(pageSize);    //
-		up.setTotalNum(getAllUser(type).size());  //
+		up.setPageSize(pageSize);    
+		up.setTotalNum(getAllUser(type).size());  
 		return up;
 	}
 

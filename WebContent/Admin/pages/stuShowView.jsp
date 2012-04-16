@@ -95,9 +95,12 @@
    			<label>考生状态:</label>
    			<select class="check-result" name="type">
    				 <option value ="0" <c:if test="${user.type==0}">selected</c:if> >审核中</option>
-				 <option value ="1" <c:if test="${user.type==1}">selected</c:if> >通过初试</option>
-				 <option value="2" <c:if test="${user.type==2}">selected</c:if> >通过复试</option>
-				 <option value="3" <c:if test="${user.type==3}">selected</c:if> >已录取</option>
+				 <option value ="1" <c:if test="${user.type==1}">selected</c:if> >审核未通过</option>
+				 <option value="2" <c:if test="${user.type==2}">selected</c:if> >通过审核</option>
+				 <option value="3" <c:if test="${user.type==3}">selected</c:if> >已缴费</option>
+				 <option value ="4" <c:if test="${user.type==4}">selected</c:if> >通过初试</option>
+				 <option value="5" <c:if test="${user.type==5}">selected</c:if> >通过复试</option>
+				 <option value="6" <c:if test="${user.type==6}">selected</c:if> >已录取</option>
    			</select>
         	<button type="submit" class="btn btn-primary">提交</button>
             <a class="btn" href="adminHome.jsp">返回</a>

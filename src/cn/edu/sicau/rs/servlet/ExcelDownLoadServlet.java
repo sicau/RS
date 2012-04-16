@@ -24,8 +24,6 @@ public class ExcelDownLoadServlet extends HttpServlet{
 		Model model = new Model();
 		ResultSet rs =null;
 		int type = Integer.parseInt(request.getParameter("type"));
-		System.out.println("********************");
-		System.out.println(type);
 		try {
 			rs = model.getUsers(type);
 			System.out.println(rs.getMetaData().getColumnCount());

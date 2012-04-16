@@ -32,7 +32,6 @@ public class GetInformServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		int type = Integer.parseInt(request.getParameter("type"));
-		News news = new News();
 		Model model = new Model();
 		List newsList = null;
 		
@@ -40,7 +39,6 @@ public class GetInformServlet extends HttpServlet {
 			newsList = model.getAllNewses(type);
 			if(!newsList.isEmpty()) {
 				request.getSession().setAttribute("informList", newsList);
-				request.getSession().setAttribute("news", news);
 //				response.sendRedirect("index1.jsp");
 			}else {
 				System.out.println("shibai");
