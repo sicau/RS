@@ -39,8 +39,8 @@
 	           </c:if>
 	           <li class="nav-header news">新闻发布</li>
 	           <li class="li"><a href="addNews.jsp" target="contentIframe">添加新闻</a></li>
-	           <li class="li"><a href="../../GetNewsPagerServlet?type=0" target="contentIframe">管理新闻</a></li>
-	           <li class="li"><a href="../../GetNewsPagerServlet?type=1" target="contentIframe">管理公告</a></li>
+	           <li class="li"><a href="../../GetNewsPagerServlet?type=1" target="contentIframe">管理新闻</a></li>
+	           <li class="li"><a href="../../GetNewsPagerServlet?type=0" target="contentIframe">管理公告</a></li>
 	         </ul>
 	       </div><!--/.well -->
 	     </div><!--/span-->

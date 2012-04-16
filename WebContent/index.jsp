@@ -20,7 +20,7 @@
 	    	<ul>                                                                         
 	    		<li class="selected"><a href="index.jsp">首页</a></li>
 	            <li><a href="stuRegister.jsp">考生注册</a></li>
-	            <li><a href="#">新闻中心</a></li>
+	            <li><a href="NewsCenterServlet?type=1">新闻中心</a></li>
 	            <li><a href="#">联系我们</a></li>
 	    	</ul>
 	   	 </div>
@@ -29,16 +29,18 @@
 	     	<div class="center_left">
 	        	<div class="title_welcome"><span class="red">招生</span> 公告</div>
 	            <div class="welcome_box">
-	            <p class="">
+	            <p>
 					<%@include file="listInform.jsp" %>
 				</p>
-	            <a href="#" class="read_more">查看更多</a>          
 	            </div>
 	         
 	         
 	         <div class="features">   
-	            <div class="title">最新新闻</div>
-	            <%@include file="listnews.jsp" %>
+	            <div class="title"><a href="NewsCenterServlet?type=1">最新新闻</a></div>
+	            	<marquee id=a onmouseover=a.stop() onmouseout=a.start() direction=up scrollAmount=2 height="135">
+	            		<%@include file="listnews.jsp" %>	
+	            	</marquee>
+	            
 	         </div> 
 	        
 	        
@@ -51,7 +53,7 @@
 							 四川农业大学，是一所以生物科技为特色，农业科技为优势，农、理、工、经、管、医、文、教、法多学科协调发展的国家“211工程”重点建设大学， 
 							 也是教育部本科教学工作水平评估优秀高校。 新行政办公大楼学校源自1906年创办的四川通省农业学堂，1927年和1935年两次并入四川大学，
 							 1956年由四川 大学农学院整体迁往原西康省 （1955年撤销）省会雅安成立四川农学院时任中共中央总书记的胡耀邦同志亲自为川农题写校名，
-							 1978年恢复招收研究生，1985年更名为四川农业大学，
+							 1978年恢复招收研究生.
 	                   </div> 
 	                   <a href="aboutSchool.jsp" class="read_more">查看更多</a>  
 	                </div>       
