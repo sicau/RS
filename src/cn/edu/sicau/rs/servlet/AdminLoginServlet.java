@@ -27,33 +27,18 @@ public class AdminLoginServlet extends HttpServlet{
 		Model model = new Model();
 		try {
 			admin = model.login(admin);
-			
-//			request.getSession().setAttribute("admin", admin);  
-//			response.sendRedirect("../pages/adminHome.jsp");
-			ServletContext context = this.getServletContext();
-			List adminList = (List) context.getAttribute("adminList");
-			if(!adminList.contains("admin")) {
-				request.getSession().setAttribute("admin", admin);
-				String href = request.getContextPath()+"/Admin/pages/adminHome.jsp";
-				response.sendRedirect(href);
-			} else {
-				request.setAttribute("message", "ÒÑµÇÂ¼");
-				request.getRequestDispatcher("Admin/pages/adminLogin.jsp").forward(request, response);
-			}
-		} catch(NameNotFound nnf) {
-			request.setAttribute("message", nnf.getMessage());
-			request.getRequestDispatcher("Admin/login/adminLogin.jsp").forward(request, response);
-		} catch(PasswordError pe) {
-			request.setAttribute("message", pe.getMessage());
-			request.getRequestDispatcher("Admin/login/adminLogin.jsp").forward(request, response);
+			request.getSession().setAttribute("admin", admin);
+			String href = request.getContextPath()+"/Admin/pages/adminHome.jsp";
+			response.sendRedirect(href);
+		
 		} catch (Exception e) {
 			e.printStackTrace();
+			request.getRequestDispatcher("adminLogin.jsp").forward(request, response);
 		}
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 					throws ServletException , IOException {
-		
 		this.doGet(request,response);
 	}
 

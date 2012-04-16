@@ -2,6 +2,7 @@ package cn.edu.sicau.rs.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 
 
 import javax.servlet.ServletException;
@@ -10,24 +11,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.edu.sicau.rs.model.Model;
+
 
 public class CheckRandomCode extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		¥¶¿Ì¬“¬Î
+		Model model = new Model();
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+		String username = URLDecoder.decode(request.getParameter("username"),"UTF-8");
+		username = URLDecoder.decode(username,"UTF-8");
+		
+		
 		String code = request.getParameter("code");
 		String rcode = (String) request.getSession().getAttribute("randomCode");
 		
-		System.out.println(code);
-		System.out.println(rcode);
-		if(code.equals(rcode)) {
-			 out.print("success");
+		if(model.checkNameExist(username)) {
+			out.print("exist");
 		} else {
-			 out.print("error");
+			if(code.equals(rcode)) {
+				 out.print("success");
+			} else {
+				 out.print("error");
+			}
 		}
+		
 		out.flush();
 		out.close();
 	}

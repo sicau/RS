@@ -75,28 +75,7 @@ $(document).ready(function() {
 	})
 	
 })
- function getValueFF(id){
-        var ip = document.getElementById(id);
-        if (ip.files) {
-            //ffx3 - try to have access to full path
-            try {
-                netscape.security.PrivilegeManager.enablePrivilege( 'UniversalFileRead' )
-            }
-            catch (err) {
-                //need to set signed.applets.codebase_principal_support to true
-            }
-        };
-        return ip.value;
-    }
-
-function getValueIE8(id){
-    var ip = document.getElementById(id);
-    console.log(ip);
-    ip.select();
-    return null;
-}
-
-
+ 
 function checkAll() {
 	var MobilePhonePa = /^\d{11}$/;
 	var FixPhone = /^0\d{2,3}-\d{7}$/;

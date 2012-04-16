@@ -1,20 +1,24 @@
 $("document").ready(function() {
 	$(".submit").click(function() {
 		if(checkAll()) {
-			var ul = "CheckRandomCode?code="+$("#validation").val();
+			var ul = "CheckRandomCode?code="+$("#validation").val()+"&username="+encodeURI(encodeURI($("#username").val()));
+			console.log(ul);
 			$.ajax({
 				  type:"post",
+				  contentType:"application/x-www-form-urlencoded:charset=UTF-8",
 				  url: ul 
 			}).done(function(result) { 
 			  	if(result == "error") {
 			  		$(".val-code").html("验证码错误");
-			  	} else {
+			  	} else if(result == "exist"){
+			  		$(".username").html("用户名已存在");
+			  	} else if(result == "success"){
 			  		$("form").submit();
-			  	}
+			  	} 
 			});
 		}
-	})
-})
+	});
+});
 
 function checkAll() {
 		var c = this;

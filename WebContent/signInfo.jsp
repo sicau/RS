@@ -14,7 +14,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	
 	<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
-	<script type="text/javascript" src="js/ajaxfileupload.js" ></script>
 	<script type="text/javascript" src="js/CJL.0.1.min.js"></script>
 	<script type="text/javascript" src="js/ImagePreviewd.js"></script>
 	<script type="text/javascript" src="js/spin.min.js"></script>
@@ -29,8 +28,7 @@
 	    	<ul>                                                                         
 	    		<li><a href="index.jsp">首页</a></li>
 	            <li><a href="stuRegister.jsp">考生注册</a></li>
-	            <li><a href="#">新闻中心</a></li>
-	            <li><a href="#">关于我们</a></li>
+	            <li><a href="newsCenter.jsp">新闻中心</a></li>
 	            <li><a href="#">联系我们</a></li>
 	    	</ul>
 	   	 </div>
@@ -176,7 +174,9 @@
 					<%if (request.getSession().getAttribute("username")!=null) {%>
 						<input type="button" class="btn btn-primary save" value="注册" />
 					<%} else { %>
+					<c:if test="${user.type<2}">
 						<input type="button" class="btn btn-primary update" value="更新" />
+					</c:if> 
 					<%} %>
 				
 				 <%if (request.getSession().getAttribute("username")==null) {%>

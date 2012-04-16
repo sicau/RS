@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ include file="tools.jsp" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,8 +33,8 @@
 <body>
 	<c:forEach var="item" items="${informList }">
 		<p class="welcome">
-			<span class="orange"><a href="GetOneNewsServlet?id=${item.id}" >${item.subject }</a></span><br/>
-			${item.content }
+			<span class="orange"><a href="GetOneNewsServlet?id=${item.id}" ><font color="#da5b23" size="4px">${item.subject}</font></a></span><br/>
+			${fn:substring(item.content,0,170)}......
 		</p>
 	</c:forEach>
 </body>

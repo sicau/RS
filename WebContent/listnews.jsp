@@ -13,7 +13,7 @@
 		$("body").hide();
 		shownews();
 		function shownews() {
-			var ul = "ListNewsServlet "
+			var ul = "ListNewsServlet?type=1 ";
 				$.ajax({
 					  type:"post",
 					  url: ul 
@@ -21,7 +21,7 @@
 					$("body").show();
 				});
 		}
-	})	
+	});	
 	</script>
 </head>
 <body>
