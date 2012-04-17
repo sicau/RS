@@ -226,4 +226,34 @@ public class UserDaoImpl implements UserDao{
 		return flag;
 	}
 
+	@Override
+	public String setSignumber() {
+		// TODO Auto-generated method stub
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		String sql = "select max(signumber) from tb_user  ";
+		ResultSet rs = null;
+		String signumber = null;
+		try{
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()){
+				signumber = rs.getString(0);
+				System.out.println(signumber);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				rs.close();
+				ps.close();
+				dbutil.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return signumber;
+	}
+
 }

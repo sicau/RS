@@ -46,9 +46,6 @@ public class SelfHomeFilter implements Filter {
 		}else{
 			chain.doFilter(httpreq, response);
 		}
-
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
 	}
 
 	/**

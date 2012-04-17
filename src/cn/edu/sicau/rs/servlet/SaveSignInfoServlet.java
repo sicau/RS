@@ -24,7 +24,14 @@ public class SaveSignInfoServlet extends HttpServlet {
 	public void doPost (HttpServletRequest request, HttpServletResponse response) 
 	        throws ServletException , IOException {
 		request.setCharacterEncoding("UTF-8");
-		Model model = new Model(); 
+		Model model = new Model();
+		String sigNumber = model.setSignumber();
+		if(!sigNumber.equals("")){
+			int sign = Integer.parseInt(sigNumber) + 1;
+			sigNumber = Integer.toString(sign);
+		}else{
+			sigNumber = null;
+		}
 		User user = new User();
 		String path= request.getSession().getServletContext().getRealPath("upload")+"\\";
 		File fileDir = new File(path);  
@@ -57,7 +64,7 @@ public class SaveSignInfoServlet extends HttpServlet {
 					}  
 			    }
 	        }
-			
+			user.setSigNumber(sigNumber);
 			user.setUserName(multirequest.getParameter("username"));
 			user.setPassword(multirequest.getParameter("password"));
 	        user.setTrueName(multirequest.getParameter("truename"));
