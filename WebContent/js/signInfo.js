@@ -13,9 +13,6 @@
     });
     return this;
   };
-  
-
-
 
 $(document).ready(function() {
 	$("#upload-preview").hide();
@@ -43,7 +40,7 @@ $(document).ready(function() {
 				reader.onload = function(e) {
 					var data = e.target.result;
 					$("#upload-preview").attr("src",data);
-				}
+				};
 				reader.readAsDataURL(file);
 			}
 		});
@@ -51,14 +48,14 @@ $(document).ready(function() {
 	
 	$("#birthday").bind("click", function() {
 		WdatePicker({isShowClear:false,isShowToday:false});
-	})
+	});
 	
 	$(".save").click(function() {
 		if(checkAll()) {
 			$("body").spin();
 			$("form").submit();
 		}
-	})
+	});
 	
 	$(".update").click(function() {
 		if(checkAll()) {
@@ -69,18 +66,17 @@ $(document).ready(function() {
 			} else {
 				$("form").attr("action",action+"?upload=0&id="+id); //image is not changed
 			}
-			console.log("success");
 			$("form").submit();
 		}
-	})
+	});
 	
-})
+});
  
 function checkAll() {
 	var MobilePhonePa = /^\d{11}$/;
 	var FixPhone = /^0\d{2,3}-\d{7}$/;
 	var zipcode = /^\d{6}$/;
-	var id = /^\d{17}[x0-9X]$/
+	var id = /^\d{17}[x0-9X]$/;
 	$(".help-block").html("");
 	
 	if($("#truename").val() == "") {
@@ -107,8 +103,6 @@ function checkAll() {
 		$(".selimg").html("请上传1寸图片");
 		return false;
 	}
-	console.log($("#id").val());
-	console.log($("#isUpload").val());
 	
 	if($("#school").val() == "") {
 		$(".school").html("请输入中学名称");

@@ -49,7 +49,7 @@ public class CreateWord {
 		//下一行
 		
 		Cell testnumber = new Cell();
-		testnumber.add(new Paragraph("考生号",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
+		testnumber.add(new Paragraph("考生号",FontFactory.getFont( FontFactory.TIMES,12,Font.UNDEFINED,new Color(0,0,0))));
 		testnumber.setColspan(10);
 		testnumber.setRowspan(1);
 		testnumber.setHorizontalAlignment(Cell.ALIGN_CENTER);
@@ -63,7 +63,7 @@ public class CreateWord {
 		table.addCell(myTestnumber);
 		
 		Cell signnumber = new Cell();
-		signnumber.add(new Paragraph("报名编号",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
+		signnumber.add(new Paragraph("报名编号",FontFactory.getFont( FontFactory.TIMES,12,Font.UNDEFINED,new Color(0,0,0))));
 		signnumber.setColspan(10);
 		signnumber.setRowspan(1);
 		signnumber.setHorizontalAlignment(Cell.ALIGN_CENTER);
@@ -115,7 +115,7 @@ public class CreateWord {
 		
 		
 		Cell birth = new Cell();
-		birth.add(new Paragraph("出生日期",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
+		birth.add(new Paragraph("出生日期",FontFactory.getFont( FontFactory.TIMES,12,Font.UNDEFINED,new Color(0,0,0))));
 		birth.setColspan(10);
 		birth.setRowspan(1);
 		birth.setHorizontalAlignment(Cell.ALIGN_CENTER);
@@ -143,7 +143,7 @@ public class CreateWord {
 		table.addCell(myPolitics);
 		
 		Cell iden = new Cell();
-		iden.add(new Paragraph("身份证号",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
+		iden.add(new Paragraph("身份证号",FontFactory.getFont( FontFactory.TIMES,12,Font.UNDEFINED,new Color(0,0,0))));
 		iden.setColspan(10);
 		iden.setRowspan(1);
 		iden.setHorizontalAlignment(Cell.ALIGN_CENTER);
@@ -213,7 +213,7 @@ public class CreateWord {
 		table.addCell(ph);
 		
 		Cell sa = new Cell();
-		sa.add(new Paragraph("中学通讯地址及邮编",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
+		sa.add(new Paragraph("中学通讯地址及邮编",FontFactory.getFont( FontFactory.TIMES,12,Font.UNDEFINED,new Color(0,0,0))));
 		sa.setColspan(10);
 		sa.setRowspan(2);
 		sa.setHorizontalAlignment(Cell.ALIGN_CENTER);
@@ -241,7 +241,7 @@ public class CreateWord {
 		table.addCell(myLang);
 		
 		Cell ha = new Cell();
-		ha.add(new Paragraph("家庭通讯地址及邮编",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
+		ha.add(new Paragraph("家庭通讯地址及邮编",FontFactory.getFont( FontFactory.TIMES,12,Font.UNDEFINED,new Color(0,0,0))));
 		ha.setColspan(10);
 		ha.setRowspan(2);
 		ha.setHorizontalAlignment(Cell.ALIGN_CENTER);
@@ -271,13 +271,13 @@ public class CreateWord {
 		Cell prize = new Cell();
 		prize.add(new Paragraph("个人获奖情况（仅限于高中阶段）请注明获奖时间",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
 		prize.setColspan(10);
-		prize.setRowspan(4);
+		prize.setRowspan(6);
 		prize.setHorizontalAlignment(Cell.ALIGN_CENTER);
 		prize.setVerticalAlignment(Cell.ALIGN_CENTER);
 		table.addCell(prize);
 		Cell myPrize = new Cell(new Paragraph(user.getPrize(),FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
 		myPrize.setColspan(50);
-		myPrize.setRowspan(4);
+		myPrize.setRowspan(6);
 		myPrize.setHorizontalAlignment(Cell.ALIGN_CENTER);
 		myPrize.setVerticalAlignment(Cell.ALIGN_CENTER);
 		table.addCell(myPrize);
@@ -285,18 +285,18 @@ public class CreateWord {
 		Cell speciality = new Cell();
 		speciality.add(new Paragraph("个人特长及社会实践活动等方面所取得的成绩",FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
 		speciality.setColspan(10);
-		speciality.setRowspan(4);
+		speciality.setRowspan(6);
 		speciality.setHorizontalAlignment(Cell.ALIGN_CENTER);
 		speciality.setVerticalAlignment(Cell.ALIGN_CENTER);
 		table.addCell(speciality);
 		Cell mySpeciality = new Cell(new Paragraph(user.getSpeciality(),FontFactory.getFont( FontFactory.COURIER,12,Font.UNDEFINED,new Color(0,0,0))));
 		mySpeciality.setColspan(50);
-		mySpeciality.setRowspan(4);
+		mySpeciality.setRowspan(6);
 		mySpeciality.setHorizontalAlignment(Cell.ALIGN_CENTER);
 		mySpeciality.setVerticalAlignment(Cell.ALIGN_CENTER);
 		table.addCell(mySpeciality);
 		
-		table.setWidth(90);
+		table.setWidth(95);
 		
 		
 		document.add(table);
