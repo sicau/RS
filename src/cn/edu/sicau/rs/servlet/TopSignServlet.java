@@ -35,6 +35,9 @@ public class TopSignServlet extends HttpServlet {
 		NewsPager np = (NewsPager)request.getSession().getAttribute("newsPager");
 		int i = 0;
 		Model model = new Model();
+		if(type.equals("0")){
+			model.clearSign();
+		}
 		if(model.topSign(id, top)) {
 			response.sendRedirect("GetNewsPagerServlet?type="+type+"&pageSize="+np.getPageSize()+"&pager.offset = i");
 //			response.sendRedirect("GetNewsPagerServlet?type=0&pageSize=5&pager.offset=0");

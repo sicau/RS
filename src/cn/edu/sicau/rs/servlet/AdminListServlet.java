@@ -20,7 +20,7 @@ public class AdminListServlet extends HttpServlet{
 		List adminList = null;
 		try {
 			adminList = model.getAllAdmin();
-			request.getSession().setAttribute("adminList", adminList); 
+			request.setAttribute("adminList", adminList); 
 			response.sendRedirect("adminList.jsp");
 		} catch (HibernateException e) {
 			e.printStackTrace();

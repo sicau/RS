@@ -13,14 +13,14 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 		function shownews() {
-			var url = "adminListServlet "
+			var url = "adminListServlet ";
 			var myAjax = new Ajax.Request(
 				url,
 				{
 					method:"post",
 				});
 		}
-	})	
+	});	
 	</script>
 	<title>管理员权限管理管理</title>
 </head>
