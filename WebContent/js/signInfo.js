@@ -51,7 +51,7 @@ $(document).ready(function() {
 	});
 	
 	$(".save").click(function() {
-		if(!checkAll()) {
+		if(checkAll()) {
 			$("body").spin();
 			$("form").submit();
 		}

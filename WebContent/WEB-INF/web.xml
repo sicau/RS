@@ -4,7 +4,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <!-- 
   <filter>
     <filter-name>AdminLoginFilter</filter-name>
     <filter-class>cn.edu.sicau.rs.filter.AdminLoginFilter</filter-class>
@@ -21,7 +20,7 @@
   <filter-mapping>
     <filter-name>SelfHomeFilter</filter-name>
     <url-pattern>/selfHome.jsp</url-pattern>
-  </filter-mapping>       -->
+  </filter-mapping> 
   <listener>
     <listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
   </listener>
@@ -141,7 +140,7 @@
     <url-pattern>/Admin/pages/adminListServlet</url-pattern>
   </servlet-mapping>
   <session-config>
-    <session-timeout>1</session-timeout>
+    <session-timeout>60</session-timeout>
   </session-config>
   <servlet>
     <display-name>DeleteFileServlet</display-name>
