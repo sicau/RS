@@ -21,7 +21,6 @@
 	    		<li class="selected"><a href="index.jsp">首页</a></li>
 	            <li><a href="stuRegister.jsp">考生注册</a></li>
 	            <li><a href="NewsCenterServlet?type=1">新闻中心</a></li>
-	            <li><a href="#">联系我们</a></li>
 	    	</ul>
 	   	 </div>
 	   	 
