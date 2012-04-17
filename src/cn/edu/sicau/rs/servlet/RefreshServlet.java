@@ -16,42 +16,32 @@ import cn.edu.sicau.rs.model.Model;
 public class RefreshServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public RefreshServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		int type = Integer.parseInt(request.getParameter("type"));
 		Model model = new Model();
 		List newsList = null;
-		
+		List informList = null;
 		try {
-			newsList = model.getAllNewses(type);
+			newsList = model.getAllNewses(1);
+			informList = model.getAllNewses(0);
 			if(!newsList.isEmpty()) {
 				request.getSession().setAttribute("newsList", newsList);
-				request.getRequestDispatcher("RefreshServlet2?type=0").forward(request, response);
-			}else {
-				request.getRequestDispatcher("RefreshServlet2?type=0").forward(request, response);
 			}
+			if(!informList.isEmpty()) {
+				request.getSession().setAttribute("informList", informList);
+			}
+			
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} catch(Exception e ) {
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		this.doGet(request, response);
 	}
 
