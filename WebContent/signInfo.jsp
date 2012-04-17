@@ -31,10 +31,9 @@
 		<%@include file="header.jsp" %>
 		<div class="menu">
 	    	<ul>                                                                         
-	    		<li><a href="index.jsp">首页</a></li>
+	    		<li class="selected"><a href="index.jsp">首页</a></li>
 	            <li><a href="stuRegister.jsp">考生注册</a></li>
-	            <li><a href="newsCenter.jsp">新闻中心</a></li>
-	            <li><a href="#">联系我们</a></li>
+	            <li><a href="NewsCenterServlet?type=1">新闻中心</a></li>
 	    	</ul>
 	   	 </div>
 		
@@ -55,14 +54,17 @@
 		      	  <br/> 
 				  <tr>
 				    <td height="55" width="179"><div align="center">考生号</div></td>
-				    <td colspan="2">&nbsp;</td>
+				    <td colspan="2">
+				    	<input class="input-small" type="text" maxlength="13" id="testnumber" name="testnumber" value="${user.testNumber}"/>
+				    	<p class="help-block testnumber"></p> 
+				    </td>
 				    <td width="114"><div align="center">报名编号</div></td>
-				    <td colspan="2">&nbsp;</td>
+				    <td colspan="2">${user.sigNumber}</td>
 				  </tr>
 				  <tr>
 				    <td height="60"><div align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 				    <td width="148">
-				    	<input class="input-small" type="text" id="truename" name="truename" value="${user.trueName}"/>
+				    	<input class="input-small" maxlength="8" type="text" id="truename" name="truename" value="${user.trueName}"/>
 				    	<p class="help-block truename"></p> 
 				    </td>
 				    <td width="60"><div align="center">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 别</div></td>
@@ -99,7 +101,7 @@
 				  <tr>
 				    <td height="60"><div align="center">身份证号</div></td>
 				    <td>
-				    	<input type="text" id="identity" name="identity" value="${user.identity}"/>
+				    	<input type="text" id="identity" maxlength="18" name="identity" value="${user.identity}"/>
 				    	<p class="help-block identity"></p> 
 				    </td>
 				    <td><div align="center">科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类</div></td>
@@ -113,26 +115,26 @@
 				  <tr>
 				    <td height="60"><div align="center">中学名称</div></td>
 				    <td>
-				    	<input type="text" id="school" name="school" value="${user.school}"/>
+				    	<input type="text" id="school" maxlength="50" name="school" value="${user.school}"/>
 				    	<p class="help-block school"></p> 
 				    </td>
 				    <td><div align="center">本人电话</div></td>
 				    <td>
-				    	<input type="text" id="mphone" name="mphone" value="${user.mphone}"/>
+				    	<input type="text" maxlength="15" id="mphone" name="mphone" value="${user.mphone}"/>
 				    	<p class="help-block mphone"></p> 
 				    </td>
-				    <td width="73"><div align="center">住宅电话</div></td>
+				    <td width="73"><div align="center" >住宅电话</div></td>
 				    <td>
-				    	<input type="text" id="phone" name="phone" value="${user.phone}"/>
+				    	<input type="text" maxlength="15" id="phone" name="phone" value="${user.phone}"/>
 				    	<p class="help-block phone"></p> 
 				    </td>
 				  </tr>
 				  <tr>
 				    <td><div align="center">中学通讯地址及邮编</div></td>
 				    <td colspan="3">
-				    	<input type="text" id="sa" name="sa" class="long-input" value="${user.sa}"/>
+				    	<input type="text" id="sa" name="sa" maxlength="100" class="long-input" value="${user.sa}"/>
 				    	<p class="help-block sa"></p> 
-				    	<input type="text" id="spostcode" name="spostcode" value="${user.spostcode}"/>
+				    	<input type="text" id="spostcode" maxlength="6" name="spostcode" value="${user.spostcode}"/>
 				    	<p class="help-block spostcode"></p> 
 				    </td>
 				    <td><div align="center">外语语种</div></td>
@@ -144,9 +146,9 @@
 				  <tr>
 				    <td><div align="center">家庭通讯地址及邮编</div></td>
 				    <td colspan="3">
-				    	<input type="text" id="ha" name="ha" class="long-input" value="${user.ha}"/>
+				    	<input type="text" id="ha" name="ha" maxlength="100" class="long-input" value="${user.ha}"/>
 				    	<p class="help-block ha"></p> 
-				    	<input type="text" id="homepostcode" name="hpostcode" value="${user.hpostcode}"/>
+				    	<input type="text" id="homepostcode" maxlength="6" name="hpostcode" value="${user.hpostcode}"/>
 				    	<p class="help-block homepostcode"></p> 
 				    </td>
 				    <td><div align="center">考生类别</div></td>
@@ -163,13 +165,15 @@
 				  <tr>
 				    <td height="153"><div align="center">个人获奖情况（仅限高中阶段）请注明获奖时间</div></td>
 				    <td colspan="5">
-				    	<textarea  rows="4" class="long-textarea" id="prize" name="prize">${user.prize}</textarea>
+				    	<textarea rows="4" class="long-textarea" id="prize" name="prize">${user.prize}</textarea>
+				    	<p class="help-block prize"></p> 
 				    </td>
 				  </tr>
 				  <tr>
 				    <td height="129"><div align="center">个人特长及社会实践活动等方面所获得的成绩</div></td>
 				    <td colspan="5">
 				    	<textarea rows="4" class="long-textarea" id="speciality" name="speciality">${user.speciality}</textarea>
+				    	<p class="help-block speciality"></p> 
 				    </td>
 				  </tr>
 				</table>
