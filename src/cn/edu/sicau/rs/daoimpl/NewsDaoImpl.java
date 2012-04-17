@@ -315,5 +315,30 @@ public class NewsDaoImpl implements NewsDao{
 		np.setTotalNum(getAllNews(type).size());
 		return np;
 	}
+	
+	public boolean clearSign(){
+		boolean flag = false;
+		DbUtil dbutil = null;
+		PreparedStatement ps = null;
+		String sql = "update tb_news set top = 0 where type = 0";
+		try{
+			dbutil = new DbUtil();
+			ps = dbutil.getCon().prepareStatement(sql);
+			int i = ps.executeUpdate();
+			if(i != 0){
+				flag = true;
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				ps.close();
+				dbutil.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return flag;
+	}
 
 }

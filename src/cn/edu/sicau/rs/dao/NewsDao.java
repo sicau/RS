@@ -16,5 +16,6 @@ public interface NewsDao {
 	public News getByID(int id);
 	public boolean topSign(int id , String top);
 	public NewsPager getNewsPager(int index, int pageSize, int type);
+	public boolean clearSign();
 	
 }
