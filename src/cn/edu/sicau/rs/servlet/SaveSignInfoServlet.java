@@ -26,7 +26,6 @@ public class SaveSignInfoServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		Model model = new Model();
 		String sigNumber = model.setSignumber();
-		System.out.println("sigNumber:"+sigNumber);
 		User user = new User();
 		String path= request.getSession().getServletContext().getRealPath("upload")+"\\";
 		File fileDir = new File(path);  
@@ -63,7 +62,7 @@ public class SaveSignInfoServlet extends HttpServlet {
 			user.setUserName(multirequest.getParameter("username"));
 			user.setPassword(multirequest.getParameter("password"));
 	        user.setTrueName(multirequest.getParameter("truename"));
-			user.setTestNumber("123446");
+			user.setTestNumber(multirequest.getParameter("testnumber"));
 			user.setSex(multirequest.getParameter("sex"));
 			user.setBirthday(multirequest.getParameter("birthday"));
 			user.setPolitics(multirequest.getParameter("politics"));
