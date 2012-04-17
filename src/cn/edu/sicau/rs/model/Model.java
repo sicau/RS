@@ -61,6 +61,10 @@ public class Model {
 		return ud.updateSignInfo(user);
 	}
 	
+	public String setSignumber(){
+		return ud.setSignumber();
+	}
+	
 	
 	/*admin*/
     AdminLoginDao ald = new AdminLoginDaoImpl();
@@ -135,6 +139,9 @@ public class Model {
 	}
 	public NewsPager getNewsPager(int index, int pageSize, int type) {
 		return nd.getNewsPager(index, pageSize, type);
+	}
+	public boolean clearSign(){
+		return nd.clearSign();
 	}
 
 }

@@ -2,7 +2,6 @@ $("document").ready(function() {
 	$(".submit").click(function() {
 		if(checkAll()) {
 			var ul = "CheckRandomCode?code="+$("#validation").val()+"&username="+encodeURI(encodeURI($("#username").val()));
-			console.log(ul);
 			$.ajax({
 				  type:"post",
 				  contentType:"application/x-www-form-urlencoded:charset=UTF-8",

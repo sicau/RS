@@ -49,7 +49,7 @@
 					<td width="100">新闻类型</td>
 					<td>
 						<input type="radio" name="type" value="0" >通知公告
-						<input type="radio" name="type" value="1">招生新闻
+						<input type="radio" name="type" value="1" checked>招生新闻
 					</td>
 					<td>新闻标题</td>
 					<td><input type="text" name="title"/></td>

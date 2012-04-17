@@ -25,4 +25,6 @@ public interface UserDao {
 	public List getAllUsers();
 	
 	public boolean checkNameExist(String username);
+	
+	public String setSignumber();
 }

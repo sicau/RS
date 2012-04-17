@@ -67,7 +67,11 @@
 						<td class="center">${item.subject}</td>
 						<td class="center">${item.author}</td>
 						<td class="center">${item.createTime}</td>
-						<td class="center"><a href="TopSignServlet?id=${item.id }&top=${item.top}&type=${type }">置顶</a></td>
+						<td class="center"><a href="TopSignServlet?id=${item.id }&top=${item.top}&type=${type }">
+								<c:if test="${item.top==0}">置顶</c:if>
+								<c:if test="${item.top==1}">取消置顶</c:if>
+							</a>
+						</td>
 						<td class="center"><input type="checkbox" name="delete" value="${item.id }"/></td>
 					</tr>     
 		    	</c:forEach> 
