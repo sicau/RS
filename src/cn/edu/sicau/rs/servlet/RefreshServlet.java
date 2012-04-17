@@ -40,7 +40,7 @@ public class RefreshServlet extends HttpServlet {
 				request.getSession().setAttribute("newsList", newsList);
 				request.getRequestDispatcher("RefreshServlet2?type=0").forward(request, response);
 			}else {
-				System.out.println("shibai");
+				request.getRequestDispatcher("RefreshServlet2?type=0").forward(request, response);
 			}
 		} catch(Exception e ) {
 			e.printStackTrace();

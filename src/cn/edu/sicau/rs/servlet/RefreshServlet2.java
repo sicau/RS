@@ -40,7 +40,7 @@ public class RefreshServlet2 extends HttpServlet {
 				request.getSession().setAttribute("informList", newsList);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}else {
-				System.out.println("shibai");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		} catch(Exception e ) {
 			e.printStackTrace();
