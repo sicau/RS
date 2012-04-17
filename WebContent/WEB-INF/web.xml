@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>RS</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>welcome.jsp</welcome-file>
   </welcome-file-list>
   <filter>
     <filter-name>AdminLoginFilter</filter-name>
@@ -20,7 +20,7 @@
   <filter-mapping>
     <filter-name>SelfHomeFilter</filter-name>
     <url-pattern>/selfHome.jsp</url-pattern>
-  </filter-mapping> 
+  </filter-mapping>
   <listener>
     <listener-class>cn.edu.sicau.rs.listener.AdminLoginListener</listener-class>
   </listener>
@@ -325,5 +325,25 @@
   <servlet-mapping>
     <servlet-name>NewsCenterServlet</servlet-name>
     <url-pattern>/NewsCenterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RefreshServlet</display-name>
+    <servlet-name>RefreshServlet</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.RefreshServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RefreshServlet</servlet-name>
+    <url-pattern>/RefreshServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RefreshServlet2</display-name>
+    <servlet-name>RefreshServlet2</servlet-name>
+    <servlet-class>cn.edu.sicau.rs.servlet.RefreshServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RefreshServlet2</servlet-name>
+    <url-pattern>/RefreshServlet2</url-pattern>
   </servlet-mapping>
 </web-app>
