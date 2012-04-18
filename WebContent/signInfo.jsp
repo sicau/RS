@@ -79,7 +79,7 @@
 				    		<img id="upload-preview" />
 				    		<img id="img-preview" <c:if test="${user.src!=null}">src="<%=request.getContextPath()%>/${user.src}"</c:if> />
 				    	</a>
-				    	<input type="file" id="selimg" name="selimg" />
+				    	<input type="file" id="selimg" name="selimg" size="10" />
 				    	<p class="help-block selimg"></p> 
 				    </td>
 				  </tr>
