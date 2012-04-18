@@ -34,7 +34,7 @@
 					<tr align="center">
 						<th width="50">序号</th>
 						<th width="70">用户名</th>
-						<th width="100">用户类型</th>
+						<th width="100">管理员类型</th>
 						<th width="20">删除</th>
 					</tr>
 				</thead>
@@ -45,8 +45,14 @@
 							<td class="center" width="70">
 								<a href="adminShowViewServlet?id=${item.id}">${item.adminName}</a>
 							</td>
-							<td class="center" width="100">${item.type}</td>
-							<td class="center" width="20"><a href="DeleteAdminServlet?id=${item.id }">删除</a></td>
+							<td class="center" width="100">
+								<c:if test="${item.type==0}">超级管理员</c:if>
+								<c:if test="${item.type==1}">普通管理员</c:if>
+							</td>
+							<td class="center" width="20">
+								<c:if test="${item.type==0}"></c:if>	
+								<c:if test="${item.type==1}"><a href="DeleteAdminServlet?id=${item.id }">删除</a></c:if>
+							</td>
 						</tr>     
 			    	</c:forEach>
 				</tbody>
