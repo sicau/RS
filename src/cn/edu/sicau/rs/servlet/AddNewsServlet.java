@@ -20,6 +20,7 @@ public class AddNewsServlet extends HttpServlet {
 		news.setCreateTime(request.getParameter("time"));
 		news.setSubject(request.getParameter("title"));
 		news.setType(request.getParameter("type"));
+		news.setTop("0");
 		try {
 			Model model = new Model();
 			if(model.addNews(news)) {
