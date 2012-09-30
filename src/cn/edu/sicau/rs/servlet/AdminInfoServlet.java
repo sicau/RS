@@ -29,7 +29,7 @@ public class AdminInfoServlet extends HttpServlet {
 		Model model = new Model();
 		if(model.updatePassword(admin)) {
 			request.setAttribute("message", "修改成功");
-			request.getRequestDispatcher("adminHome.jsp").forward(request, response);
+			request.getRequestDispatcher("Admin/pages/adminListServlet").forward(request, response);
 		}else{
 			System.out.println("出错啦！");
 		}
