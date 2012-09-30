@@ -88,7 +88,6 @@ public class NewsDaoImpl implements NewsDao{
 
 	@Override
 	public Map getAllNews(int type) {
-		// TODO Auto-generated method stub
 		Map newsMap = new HashMap();
 		DbUtil dbutil = null;
 		PreparedStatement ps = null;

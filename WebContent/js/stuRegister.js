@@ -11,7 +11,7 @@ $("document").ready(function() {
 			  		$(".val-code").html("验证码错误");
 			  	} else if(result == "exist"){
 			  		$(".username").html("用户名已存在");
-			  	} else if(result == "success"){
+			  	} else {
 			  		$("form").submit();
 			  	} 
 			});

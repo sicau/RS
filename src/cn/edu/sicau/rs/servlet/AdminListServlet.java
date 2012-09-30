@@ -21,7 +21,8 @@ public class AdminListServlet extends HttpServlet{
 		try {
 			adminList = model.getAllAdmin();
 			request.setAttribute("adminList", adminList); 
-			response.sendRedirect("adminList.jsp");
+//			response.sendRedirect("adminList.jsp");
+			request.getRequestDispatcher("adminList.jsp").forward(request, response);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
@@ -29,7 +30,6 @@ public class AdminListServlet extends HttpServlet{
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 					throws ServletException , IOException {
-		
 		this.doGet(request,response);
 	}
 

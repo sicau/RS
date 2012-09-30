@@ -25,3 +25,8 @@ body {
 	text-align:center;
 	width:831px;
 }
+
+#img-preview {
+	width:100px;
+	height:144px;
+}
